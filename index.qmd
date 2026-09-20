@@ -1,0 +1,91 @@
+---
+title: "Adopting {gtsummary} at Your Organization"
+subtitle: "Workshop@[R/Pharma 2026](https://rinpharma.com/)"
+engine: knitr
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+::: {.hero-badges}
+[[🗓️]{.ico} TODO: date]{.badge-item}
+[[🏨]{.ico} TODO: time + venue/platform]{.badge-item}
+[[📝]{.ico} Workshop Registration](https://rinpharma.com/){.badge-cta}
+:::
+
+## Description
+
+Your organization has settled on R for clinical reporting. Now what? This
+workshop is about the part that comes after the pilot: getting {gtsummary}
+into the hands of every statistician and programmer on your team, and keeping
+the output consistent, traceable, and submission-ready once it's there.
+
+We start with Analysis Results Datasets (ARDs) and {cards}, the data structure
+that makes a table auditable rather than merely printable. We then build up the
+{gtsummary} table catalog on top of it — demographics, hierarchical adverse
+event tables, merged and stacked layouts — and work ARD-first so every cell in
+every table can be traced back to the number that produced it. The final stretch
+is adoption proper: thin wrapper functions, organization-wide themes, print
+engines that produce submission-ready Word output, and coding agents that follow
+your standards without being reminded.
+
+Leave with a concrete plan for standardizing table production across your group.
+
+## Schedule
+
+::: {.schedule-table}
+| Time          | Activity                                                             |
+|---------------|----------------------------------------------------------------------|
+| TODO          | [Analysis Results Datasets](slides/ard/index.html)                   |
+| TODO          | *Break*                                                              |
+| TODO          | [Clinical Reporting with {gtsummary}](slides/gtsummary/index.html)   |
+:::
+
+## Pre-work
+
+- [ ] Bookmark this site. You'll reference it throughout the workshop.
+  [ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026)
+
+- [ ] Install the workshop packages on your own machine by running
+  [`install.R`](https://github.com/ddsjoberg/rpharma-workshop-gtsummary-adoption-2026/blob/main/install.R)
+  from the repo. Please do this *before* the workshop — it takes a while.
+
+- [ ] Bring your laptop **and** charger to the workshop.
+
+## Instructors
+
+::: {.instructor-grid}
+
+::: {.instructor-card}
+![](images/dan-circle.png){fig-alt="Headshot of Daniel Sjoberg"}
+
+[**Daniel D. Sjoberg**](https://www.danieldsjoberg.com/){.instructor-name}
+
+[Executive Director of Data Sciences & Clinical Data Analytics, Kardigan (he/him)]{.instructor-role}
+
+Daniel leads the Data Science and Clinical Analytics groups at Kardigan. Previously was a Senior Principal Innovation Data Scientist and Real-time Analytics Group Lead at Genentech, a Lead Data Science Manager at the Prostate Cancer Clinical Trials Consortium, and an academic biostatistician at Memorial Sloan Kettering Cancer Center for 13 years. He enjoys R package development, creating many packages on [CRAN](https://cran.r-project.org/web/packages/), [R-Universe](https://ddsjoberg.r-universe.dev/ui#packages), and [GitHub](https://github.com/ddsjoberg). He's a co-organizer of [rainbowR](https://rainbowr.netlify.app/) and of the [R Medicine Conference](https://rconsortium.github.io/RMedicine_website/), and a recipient of the Brian Bole Award for Excellence from Open Source in Pharma and the ASA Innovation in Programming Award.
+
+::: {.instructor-social}
+[`r fontawesome::fa("link", fill = "#7090A5")`](https://www.danieldsjoberg.com/)
+[`r fontawesome::fa("bluesky", fill = "#7090A5")`](https://bsky.app/profile/ddsjoberg.bsky.social)
+[`r fontawesome::fa("linkedin", fill = "#7090A5")`](https://www.linkedin.com/in/ddsjoberg/)
+[`r fontawesome::fa("github", fill = "#7090A5")`](https://github.com/ddsjoberg/)
+:::
+:::
+
+::: {.instructor-card}
+![](images/shannon-pileggi-circle.png){fig-alt="Headshot of Shannon Pileggi"}
+
+[**Shannon Pileggi**]{.instructor-name}
+
+[TODO: role and affiliation]{.instructor-role}
+
+TODO: Shannon's bio.
+
+::: {.instructor-social}
+[`r fontawesome::fa("link", fill = "#7090A5")`](https://www.pipinghotdata.com/)
+[`r fontawesome::fa("github", fill = "#7090A5")`](https://github.com/shannonpileggi/)
+:::
+:::
+
+:::

@@ -1,0 +1,51 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - license.qmd
+    - exercises/exercises.qmd
+    - slides/ard/index.qmd
+    - slides/gtsummary/index.qmd
+
+website:
+  page-navigation: true
+  title: "Adopting {gtsummary} at Your Organization"
+  description: "R/Pharma 2026 Workshop"
+  favicon: "images/gtsummary-logo.png"
+
+  repo-url: https://github.com/ddsjoberg/rpharma-workshop-gtsummary-adoption-2026
+  repo-actions: [edit, issue]
+
+  page-footer:
+    left: "This page is built with ❤️ and [Quarto](https://quarto.org/). Inspired by [@minecr.bsky.social](https://bsky.app/profile/minecr.bsky.social)."
+    background: "#F3F7FB"
+
+  sidebar:
+    background: "#F3F7FB"
+    logo: "images/gtsummary-logo.png"
+    pinned: true
+    align: center
+    tools:
+      - icon: github
+        href: https://github.com/ddsjoberg/rpharma-workshop-gtsummary-adoption-2026
+        text: GitHub
+    style: docked
+    contents:
+     - href: index.qmd
+       text: Home
+     - href: exercises/exercises.qmd
+     - href: license.qmd
+
+format:
+  html:
+    theme: [cosmo, theme.scss]
+    toc: true
+    code-copy: true
+    code-overflow: scroll
+    mainfont: "Atkinson Hyperlegible"
+    highlight-style: a11y
+    title-block-banner: "#003559"
+    title-block-banner-color: white
+
+editor: source

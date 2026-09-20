@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "Rscript",
+      "runtimeArgs": ["-e", "httpuv::runStaticServer('docs', port = 4321, browse = FALSE)"],
+      "port": 4321
+    }
+  ]
+}

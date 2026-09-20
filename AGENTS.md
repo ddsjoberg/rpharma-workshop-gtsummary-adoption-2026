@@ -1,0 +1,79 @@
+# R/Pharma gtsummary adoption workshop
+
+Quarto website + revealjs decks for the "Adopting {gtsummary} at Your
+Organization" workshop at R/Pharma 2026. Rendered output goes to `docs/`, which
+is gitignored and published to `gh-pages` by CI — never hand-edit or commit it.
+
+The two decks are adapted from the posit::conf(2026) pharmaverse workshop
+(<https://github.com/posit-conf-2026/pharmaverse>), CC BY 4.0.
+
+Decks live in `slides/<topic>/` (`slides/ard/`, `slides/gtsummary/`). Each
+deck's `index.qmd` carries the `format: revealjs` front matter and pulls content
+in via `{{< include >}}`; included `.qmd` files have no front matter of their
+own. To live-preview with reload-on-save, target the deck's `index.qmd`, not an
+included file.
+
+`_quarto.yml` uses an explicit `render:` allowlist rather than globs — adding a
+page or a deck means adding it there, or it will not be rendered.
+
+## R style
+
+- Tidyverse first — dplyr/tidyr/stringr/lubridate. No data.table.
+- Native pipe `|>` for new code.
+- `<-` for assignment, never `=` or `->`.
+- Two-space indent; keep code lines under ~80 characters.
+- `snake_case` for R objects; UPPERCASE for CDISC variables (`SAFFL`,
+  `AEDECOD`, `TRTSDTM`).
+- Namespace explicitly (`dplyr::filter()`, `cards::ard_tabulate()`) even when
+  the package is attached — this repo does so deliberately, so a participant
+  reading one slide knows where a function came from.
+- Multi-line calls: one named argument per line, trailing comma, closing
+  paren on its own line.
+- Spaces around operators: `SAFFL == "Y"`, not `SAFFL=="Y"`.
+
+## Data and packages
+
+- Data comes from the pharmaverse packages — `pharmaverseadam::adsl`,
+  `pharmaverseadam::adae`, `pharmaverseadam::adlb` — not from local files.
+- Dummy data in teaching examples uses the pilot-study `USUBJID` format
+  `"01-701-10XX"` (e.g. `"01-701-1015"`), never `"P01"` or bare numbers.
+- Packages are managed by `renv` (`renv.lock`, R 4.6.0). Adding a package
+  means `renv::snapshot()` *and* adding it to `install.R`, which is what
+  participants run on their own machines.
+- `renv.lock` is inherited from the upstream pharmaverse workshop and pins a
+  superset of what these two decks need. Pruning it (a full `renv::restore()`
+  + `renv::snapshot()` cycle) is optional cleanup, not a blocker.
+- `{rtables}` is not used for building tables here; it appears only in the
+  package-landscape slide (`slides/gtsummary/01-background.qmd`).
+
+## Exercises
+
+Participant scripts are `exercises/<NN-topic>.R`. Solutions are
+`exercises/answers/<NN-topic>-answer.R` and are identical to the exercise
+except the blanks are filled in.
+
+Blanks are empty named arguments so the skeleton still parses:
+
+    ard_stack_hierarchical(
+      data = ,
+      variables = ,
+    )
+
+Tasks are lettered `# A.`, `# B. [*BONUS*]`, with `# HINT:` comments that
+become "We used ..." in the answer. Adding or renaming an exercise means
+editing **three** places: the exercise, the answer, and both the `# Exercises`
+and `# Solutions` sections of `exercises/exercises.qmd`.
+
+## Skills
+
+Detailed, task-specific procedures live in `.agents/skills/` — one folder per
+skill, folder name matching the `name:` frontmatter. Consult the relevant one
+before writing pharmaverse code: `ard-creation`, `gtsummary-tables`. See
+`.agents/README.md` for the conventions.
+
+Two slides read a skill file at render time — renaming or deleting either
+breaks the site build:
+
+- `slides/ard/cards.qmd` reads `.agents/skills/ard-creation/SKILL.md`
+- `slides/gtsummary/08-coding-agents.qmd` reads
+  `.agents/skills/gtsummary-tables/SKILL.md`
