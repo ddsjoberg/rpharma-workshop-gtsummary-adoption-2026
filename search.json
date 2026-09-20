@@ -574,11 +574,46 @@
     "text": "What else is in {crane}?"
   },
   {
+    "objectID": "slides/workshop/index.html#themes-that-ship-with-gtsummary",
+    "href": "slides/workshop/index.html#themes-that-ship-with-gtsummary",
+    "title": "Enterprise {gtsummary}",
+    "section": "Themes that ship with {gtsummary}",
+    "text": "Themes that ship with {gtsummary}\n\nA theme is set once, before you build any tables, and every table in the session picks it up.\n\ntheme_gtsummary_journal(\"jama\") — defaults matching a journal’s guidelines\ntheme_gtsummary_compact() — smaller font and cell padding\ntheme_gtsummary_language(\"es\") — translate every table\ntheme_gtsummary_printer(print_engine = \"flextable\") — change the print engine\n\nThemes stack: call several, and each one layers onto the last.\n\n\ntheme_gtsummary_journal(\"jama\")\ntheme_gtsummary_compact()\n\n\n\n\ntheme_gtsummary_printer() is a shortcut for a single element. Next we build a theme that sets several at once."
+  },
+  {
+    "objectID": "slides/workshop/index.html#a-theme-is-a-named-list",
+    "href": "slides/workshop/index.html#a-theme-is-a-named-list",
+    "title": "Enterprise {gtsummary}",
+    "section": "A theme is a named list",
+    "text": "A theme is a named list\nEvery element is named \"&lt;function&gt;-&lt;input type&gt;:&lt;description&gt;\".\n\n\n\"pkgwide-str:print_engine\" — applies package-wide, takes a string\n\"tbl_summary-fn:percent_fun\" — applies to tbl_summary(), takes a function\n\nElements come in two flavors:\n\nInternal behavior you cannot reach with a function argument.\nArgument defaults — anything named *-arg:* sets that argument’s default.\n\n\n\n\n\nThe full catalog lives in ?theme_gtsummary and the themes vignette."
+  },
+  {
+    "objectID": "slides/workshop/index.html#build-a-theme",
+    "href": "slides/workshop/index.html#build-a-theme",
+    "title": "Enterprise {gtsummary}",
+    "section": "Build a theme",
+    "text": "Build a theme\nShip it as a function, the same way {gtsummary} and {crane} do — and start from a theme that already exists.\n\ntheme_gtsummary_rpharma &lt;- function(set_theme = TRUE) {\n  lst_theme &lt;-\n    utils::modifyList(\n      # start from the shipped compact theme, then layer ours on top\n      theme_gtsummary_compact(set_theme = FALSE),\n      list(\n        \"pkgwide-str:theme_name\"        = \"R/Pharma 2026\",\n        \"pkgwide-str:print_engine\"      = \"flextable\",\n        \"tbl_summary-fn:percent_fun\"    = scales::label_number(scale = 100, accuracy = 0.1),\n        \"pkgwide-fn:pvalue_fun\"         = label_style_pvalue(digits = 3),\n        \"tbl_summary-str:header-withby\" = \"**{level}**  \\n(N = {n})\"\n      )\n    )\n\n  if (set_theme == TRUE) set_gtsummary_theme(lst_theme)\n  invisible(lst_theme)\n}\n\n\n\n\nmodifyList() overrides by name, so our theme_name replaces \"Compact\" instead of stacking a duplicate. scales::label_number(scale = 100, accuracy = 0.1)(0.4332) returns 43.3. label_style_pvalue() caps at digits = 3 — need four? A theme element accepts any function, which is how crane::theme_gtsummary_roche() does it."
+  },
+  {
+    "objectID": "slides/workshop/index.html#check-it-then-set-it",
+    "href": "slides/workshop/index.html#check-it-then-set-it",
+    "title": "Enterprise {gtsummary}",
+    "section": "Check it, then set it",
+    "text": "Check it, then set it\n\ncheck_gtsummary_theme(theme_gtsummary_rpharma(set_theme = FALSE))\n\n✔ Looks good!\n\n\n\nIn a script, set the theme once at the top — and clear it when you are done.\n\n\ntheme_gtsummary_rpharma()  # set for the rest of the session\nreset_gtsummary_theme()    # back to package defaults\n\n\n\n\nset_theme = FALSE returns the list without setting it — which is what with_gtsummary_theme() needs to theme a single table."
+  },
+  {
+    "objectID": "slides/workshop/index.html#before-and-after",
+    "href": "slides/workshop/index.html#before-and-after",
+    "title": "Enterprise {gtsummary}",
+    "section": "Before and after",
+    "text": "Before and after\n\nadsl |&gt;\n  tbl_summary(by = ARM2, include = c(AGE, ETHNIC)) |&gt;\n  add_p()\n\n\n\n\nPackage defaults · printed with {gt}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPlacebo\nN = 861\nXanomeline\nN = 1681\np-value2\n\n\n\n\nAge\n76 (69, 82)\n77 (71, 81)\n0.8\n\n\nEthnicity\n\n\n\n\n0.8\n\n\n    HISPANIC OR LATINO\n3 (3.5%)\n9 (5.4%)\n\n\n\n\n    NOT HISPANIC OR LATINO\n83 (97%)\n159 (95%)\n\n\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n2 Wilcoxon rank sum test; Fisher’s exact test\n\n\n\n\n\n\n\n\n\n\nAfter theme_gtsummary_rpharma() · printed with {flextable}\n\n\n\nCharacteristicPlacebo  (N = 86)1Xanomeline  (N = 168)1p-value2Age76 (69, 82)77 (71, 81)0.816Ethnicity0.756HISPANIC OR LATINO3 (3.5%)9 (5.4%)NOT HISPANIC OR LATINO83 (96.5%)159 (94.6%)1Median (Q1, Q3); n (%)2Wilcoxon rank sum test; Fisher's exact test"
+  },
+  {
     "objectID": "slides/workshop/index.html#a-pharma-theme-with-crane",
     "href": "slides/workshop/index.html#a-pharma-theme-with-crane",
     "title": "Enterprise {gtsummary}",
     "section": "A pharma theme with {crane}",
-    "text": "A pharma theme with {crane}\nOur theme is implemented in crane::theme_gtsummary_roche(). Primary changes include a custom function for rounding percentages, p-values rounded to four decimal places, headers that default to bold and include N in parentheses (e.g. 'Placebo  \\n (N = 184)'), and printing all tables with {flextable} using Roche-specific styling — font, font size, borders, cell padding, etc.\n\n\ntheme_gtsummary_roche()\n\nadsl |&gt;\n  dplyr::mutate(ETHNIC = forcats::fct_expand(ETHNIC, \"REFUSED\")) |&gt;\n  tbl_roche_summary(\n    by = ARM2,\n    include = c(AGE, ETHNIC),\n    nonmissing = \"always\"\n  )\n\n\n\n\nTable 2\n\n\n\nPlacebo  (N = 86)Xanomeline  (N = 168)Agen86168Mean (SD)75.2 (8.6)75.0 (8.1)Median76.077.0Min - Max52 - 8951 - 88ETHNICn86168HISPANIC OR LATINO3 (3.5%)9 (5.4%)NOT HISPANIC OR LATINO83 (96.5%)159 (94.6%)REFUSED00"
+    "text": "A pharma theme with {crane}\nOur theme is implemented in crane::theme_gtsummary_roche(). Primary changes include a custom function for rounding percentages, p-values rounded to four decimal places, headers that default to bold and include N in parentheses (e.g. 'Placebo  \\n (N = 184)'), and printing all tables with {flextable} using Roche-specific styling — font, font size, borders, cell padding, etc.\n\nSame named list, same set_theme argument — just with style_roche_percent() and style_roche_pvalue() in the function slots, and eleven elements instead of five.\n\n\n\ntheme_gtsummary_roche()\n\nadsl |&gt;\n  dplyr::mutate(ETHNIC = forcats::fct_expand(ETHNIC, \"REFUSED\")) |&gt;\n  tbl_roche_summary(\n    by = ARM2,\n    include = c(AGE, ETHNIC),\n    nonmissing = \"always\"\n  )\n\n\n\n\nTable 2\n\n\n\nPlacebo  (N = 86)Xanomeline  (N = 168)Agen86168Mean (SD)75.2 (8.6)75.0 (8.1)Median76.077.0Min - Max52 - 8951 - 88ETHNICn86168HISPANIC OR LATINO3 (3.5%)9 (5.4%)NOT HISPANIC OR LATINO83 (96.5%)159 (94.6%)REFUSED00"
   },
   {
     "objectID": "slides/workshop/index.html#cardinal-collaboration",
