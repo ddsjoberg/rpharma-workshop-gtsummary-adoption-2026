@@ -7,10 +7,10 @@ by Daniel D. Sjoberg and Shannon Pileggi
 
 -----
 
-:spiral_calendar: TODO: date
-:alarm_clock:     TODO: time
-:hotel:           TODO: venue / platform
-:writing_hand:    [rinpharma.com](https://rinpharma.com/)
+:spiral_calendar: Monday, September 28, 2026
+:alarm_clock:     11:00 AM – 1:00 PM PDT
+:computer:        Online via Zoom
+:writing_hand:    [Workshop Registration](https://events.zoom.us/ev/Ao58QRuKpY_AuvCDVGqF3tiibvbsLw6MKXn7n_PL2vPdHVQnSAuC~AulApVxluxkRoEef4TZ6ozp1uwmnBHGti8cDERG7p01yOGKH0KXFbLhUNw)
 
 -----
 
@@ -46,15 +46,15 @@ Full workshop site (schedule, slides, and materials):
 
 - [ ] Bookmark the [workshop site](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026). You'll reference it throughout the workshop.
 - [ ] Run [`install.R`](install.R) on your own machine to install the workshop packages. Please do this *before* the workshop.
-- [ ] Bring your laptop **and** charger to the workshop.
+- [ ] Test your Zoom setup ahead of time. The workshop is hands-on, so plan to have RStudio open alongside Zoom.
 
 ## Schedule
 
-| Time  | Activity                             |
-| :---- | :----------------------------------- |
-| TODO  | Analysis Results Datasets            |
-| TODO  | *Break*                              |
-| TODO  | Clinical Reporting with {gtsummary}  |
+| Time          | Activity                            |
+| :------------ | :---------------------------------- |
+| 11:00 – 11:50 | Analysis Results Datasets           |
+| 11:50 – 12:00 | *Break*                             |
+| 12:00 – 13:00 | Clinical Reporting with {gtsummary} |
 
 ## Instructors
 

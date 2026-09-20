@@ -8,9 +8,9 @@ editor:
 ---
 
 ::: {.hero-badges}
-[[🗓️]{.ico} TODO: date]{.badge-item}
-[[🏨]{.ico} TODO: time + venue/platform]{.badge-item}
-[[📝]{.ico} Workshop Registration](https://rinpharma.com/){.badge-cta}
+[[🗓️]{.ico} Monday, September 28, 2026 · 11:00 AM – 1:00 PM PDT]{.badge-item}
+[[💻]{.ico} Online via Zoom]{.badge-item}
+[[📝]{.ico} Workshop Registration](https://events.zoom.us/ev/Ao58QRuKpY_AuvCDVGqF3tiibvbsLw6MKXn7n_PL2vPdHVQnSAuC~AulApVxluxkRoEef4TZ6ozp1uwmnBHGti8cDERG7p01yOGKH0KXFbLhUNw){.badge-cta}
 :::
 
 ## Description
@@ -48,9 +48,9 @@ flexibility with company-wide standardization.
 ::: {.schedule-table}
 | Time          | Activity                                                             |
 |---------------|----------------------------------------------------------------------|
-| TODO          | [Analysis Results Datasets](slides/ard/index.html)                   |
-| TODO          | *Break*                                                              |
-| TODO          | [Clinical Reporting with {gtsummary}](slides/gtsummary/index.html)   |
+| 11:00 – 11:50 | [Analysis Results Datasets](slides/ard/index.html)                   |
+| 11:50 – 12:00 | *Break*                                                              |
+| 12:00 – 13:00 | [Clinical Reporting with {gtsummary}](slides/gtsummary/index.html)   |
 :::
 
 ## Pre-work
@@ -62,7 +62,8 @@ flexibility with company-wide standardization.
   [`install.R`](https://github.com/ddsjoberg/rpharma-workshop-gtsummary-adoption-2026/blob/main/install.R)
   from the repo. Please do this *before* the workshop — it takes a while.
 
-- [ ] Bring your laptop **and** charger to the workshop.
+- [ ] Test your Zoom setup ahead of time. The workshop is hands-on, so plan to
+  have RStudio open alongside Zoom.
 
 ## Instructors
 
