@@ -59,7 +59,7 @@ Full workshop site (schedule, slides, and materials):
 ## Instructors
 
 - **Daniel D. Sjoberg** – Executive Director of Data Sciences & Clinical Data Analytics, Kardigan
-- **Shannon Pileggi** – Associate Director of Data Science, The Prostate Cancer Clinical Trials Consortium
+- **Shannon Pileggi** – Director of Data Science, The Prostate Cancer Clinical Trials Consortium
 
 Full bios are on the [workshop site](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026).
 

@@ -55,6 +55,14 @@ flexibility with company-wide standardization.
 - [ ] Test your Zoom setup ahead of time. The workshop is hands-on, so plan to
   have RStudio open alongside Zoom.
 
+## Slides
+
+[View slides in full screen](slides/workshop/index.html)
+
+```{=html}
+<iframe class="slide-deck" src="slides/workshop/index.html" title="Enterprise {gtsummary} slides"></iframe>
+```
+
 ## Instructors
 
 ::: {.instructor-grid}
@@ -81,9 +89,9 @@ Daniel leads the Data Science and Clinical Analytics groups at Kardigan. Previou
 
 [**Shannon Pileggi**](https://www.pipinghotdata.com/){.instructor-name}
 
-[Associate Director of Data Science, The Prostate Cancer Clinical Trials Consortium (she/her)]{.instructor-role}
+[Director of Data Science, The Prostate Cancer Clinical Trials Consortium (she/her)]{.instructor-role}
 
-Shannon is an Associate Director of Data Science at The Prostate Cancer Clinical Trials Consortium, an occasional blogger, a frequent workshop instructor, and a member of the R-Ladies Leadership team. She enjoys automating data wrangling and data outputs, and making both data insights and learning new material digestible.
+Shannon is a Director of Data Science at The Prostate Cancer Clinical Trials Consortium, an occasional blogger, a frequent workshop instructor, and a member of the R-Ladies Leadership team. She enjoys automating data wrangling and data outputs, and making both data insights and learning new material digestible.
 
 ::: {.instructor-social}
 [`r fontawesome::fa("link", fill = "#7090A5")`](https://www.pipinghotdata.com/)

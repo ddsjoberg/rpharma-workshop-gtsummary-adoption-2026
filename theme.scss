@@ -295,3 +295,15 @@ a.btn-cta:hover {
   background: $slate-tint !important;
   color: rgba($ink, 0.75);
 }
+
+// Embedded slide deck preview ------------------------------------------------
+.slide-deck {
+  display: block;
+  width: 100%;
+  // revealjs decks are 4:3; keep the preview from cropping at any width
+  aspect-ratio: 4 / 3;
+  max-height: 70vh;
+  border: 1px solid rgba($navy, 0.25);
+  border-radius: $border-radius-sm;
+  background: $surface;
+}
