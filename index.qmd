@@ -43,16 +43,6 @@ By the end of the session, you will understand how to extend this
 open-source tool with institution-specific functionality to balance
 flexibility with company-wide standardization.
 
-## Schedule
-
-::: {.schedule-table}
-| Time          | Activity                                                             |
-|---------------|----------------------------------------------------------------------|
-| 11:00 – 11:50 | [Analysis Results Datasets](slides/ard/index.html)                   |
-| 11:50 – 12:00 | *Break*                                                              |
-| 12:00 – 13:00 | [Clinical Reporting with {gtsummary}](slides/gtsummary/index.html)   |
-:::
-
 ## Pre-work
 
 - [ ] Bookmark this site. You'll reference it throughout the workshop.
