@@ -14,18 +14,11 @@
     "text": "Questions\n\n\n Please ask questions at any time!"
   },
   {
-    "objectID": "slides/workshop/index.html#objectives",
-    "href": "slides/workshop/index.html#objectives",
+    "objectID": "slides/workshop/index.html#what-we-will-cover",
+    "href": "slides/workshop/index.html#what-we-will-cover",
     "title": "Enterprise {gtsummary}",
-    "section": "Objectives",
-    "text": "Objectives\n\n\nBy the end of this ARD section you will have:\n\nDeveloped an understanding of ARDs\nSeen examples of univariate and hierarachical calculations\nGained an awareness of other possibilities in cards and statistical capabilities in cardx"
-  },
-  {
-    "objectID": "slides/workshop/index.html#play-by-play-to-achieve-our-objectives",
-    "href": "slides/workshop/index.html#play-by-play-to-achieve-our-objectives",
-    "title": "Enterprise {gtsummary}",
-    "section": "Play by Play to achieve our Objectives",
-    "text": "Play by Play to achieve our Objectives\n\n\n🕙 5 mins: Intro to ARDs and the ARS\n🕥 20 mins: Basic summaries using {cards}\n🕚 10 mins: Exercise\n🕦 10 mins: Intro to stats with {cardx}"
+    "section": "What we will cover",
+    "text": "What we will cover\n\n\nAnalysis Results Datasets — build the numbers first with {cards}, so every table has something auditable behind it.\n{gtsummary} fundamentals — tbl_summary(), hierarchical adverse event tables, merging and stacking.\nARD-first tables — every cell traceable, and QC by comparing one ARD against another.\nPrint engines — {gt}, {flextable}, and submission-ready Word output.\nAdopting {gtsummary} — a house theme, wrappers of your own, and {crane}.\nCoding agents — writing your standards down so an agent follows them without being reminded.\n\n\n\n\n\nBy the end: a concrete plan for standardizing table production across your group."
   },
   {
     "objectID": "slides/workshop/index.html#what-are-ards",
