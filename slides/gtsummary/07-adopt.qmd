@@ -2,85 +2,29 @@
 
 ## How to Adopt {gtsummary}
 
-#### Write functions
-
--  Use {gtsummary} functions to build new functions will be key for adoption.
-
-#### Create a theme
-
--   A [theme]{.emphasis} is a set of customization preferences that can be easily set and reused.
-
--   Themes control [default settings for existing functions]{.emphasis}
-
--   Themes control more [fine-grained customization]{.emphasis} not available via arguments or helper functions
-
-## Extension Package:{crane} <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
-
-The first function we added to {crane} was `tbl_roche_summary()`: a _thin_ wrapper for `gtsummary::tbl_summary()`.
-
 ::: {.small}
 
-- Continuous variables default to `continuous2`.
+Three moves, in order.
 
-- `tbl_summary(missing*)` arguments have been changed to `tbl_roche_summary(nonmissing*)`.
+#### 1. Set a theme
 
-    - We highlight non-missing counts over missing counts, which are the default in {gtsummary}
+Your house defaults — rounding, headers, print engine — applied to [every table]{.emphasis}, without anyone passing an argument.
 
-- Counts represented by `0 (0%)` print as `0`.
+#### 2. Write wrappers
+
+Named functions for the tables your team builds over and over, so the shape of a table is [written down once]{.emphasis}.
+
+#### 3. Ship them in a package
+
+Adoption becomes a single `library()` call, and the standard is [versioned and testable]{.emphasis}.
 
 :::
 
-```{r}
-#| label: tbl-roche-summary
-#| output-location: slide
-library(crane)
-
-adsl |>
-  dplyr::mutate(ETHNIC = forcats::fct_expand(ETHNIC, "REFUSED")) |>
-  tbl_roche_summary(
-    by = ARM2,
-    include = c(AGE, ETHNIC),
-    nonmissing = "always"
-  )
-```
-
-## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
-
-::: small
-Lab values are summarized by visit and include the change from baseline.
-
-This is a simple table that is just a `tbl_merge()` of the `AVAL` summary and the `CHG` summary.
-
-But the general structure appears enough times in our catalog, we make it simple for our programmers to create.
+::: aside
+::: {.small}
+We will build 1 and 2 from scratch, then look at {crane} — Roche's answer to all three.
 :::
-
-```{r}
-#| label: tbl_baseline_chg
-#| eval: false
-adlb |>
-  dplyr::filter(PARAM == "Albumin (g/L)") |>
-  tbl_baseline_chg(
-    by = "ARM",
-    baseline_level = "Baseline",
-    denominator = adsl
-  )
-```
-
-## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
-
-![](../images/Black.png){fig-align="center" width="80%"}
-
-## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
-
-![](../images/AVAL.png){fig-align="center" width="80%"}
-
-## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
-
-![](../images/CHG.png){fig-align="center" width="80%"}
-
-## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
-
-![](../images/Merge.png){fig-align="center" width="80%"}
+:::
 
 ## Themes that ship with {gtsummary}
 
@@ -249,6 +193,198 @@ adsl |>
 reset_gtsummary_theme()
 ```
 
+
+## Why a theme for your company?
+
+::: {.small}
+
+-   [Consistency without memorization.]{.emphasis} Nobody has to remember that percentages go to one decimal place — the theme already knows.
+
+-   [One place to change.]{.emphasis} When the standard changes, edit the theme and re-render. You are not grepping for `digits =` across forty programs.
+
+-   [Better reviews.]{.emphasis} If formatting is handled, review comments are about the numbers instead of the decimal places.
+
+-   [A shorter first day.]{.emphasis} New team members inherit the house style before they have written a line of code.
+
+-   [Portable.]{.emphasis} Put the theme function in your company package and adoption is one `library()` call.
+
+:::
+
+## Themes end where names begin
+
+::: {.small}
+
+A [theme]{.emphasis} changes defaults — everywhere, all at once, for functions that already exist.
+
+A [wrapper]{.emphasis} earns its place when you want something a default cannot give you:
+
+-   a [name]{.emphasis} your team already says out loud — "the demography table"
+
+-   [documentation and tests]{.emphasis} that live with the function
+
+-   a table built from [several]{.emphasis} {gtsummary} calls, not one
+
+-   defaults that apply to [this table only]{.emphasis}, not the whole session
+
+:::
+
+::: aside
+::: {.small}
+The two are not rivals — the wrapper we are about to write uses a theme element to set its own default.
+:::
+:::
+
+## `tbl_pharma_summary()` {.smaller}
+
+A [thin]{.emphasis} wrapper: multi-line continuous summaries and our house statistics, with everything still overridable.
+
+```{r}
+#| label: wrapper-define
+#| code-line-numbers: "|5-9|11-12|4,16"
+tbl_pharma_summary <- function(
+    data,
+    by = NULL,
+    type = NULL,
+    statistic = list(
+      all_continuous() ~ c("{mean} ({sd})", "{median}",
+                           "{p25}, {p75}", "{min}, {max}"),
+      all_categorical() ~ "{n} ({p}%)"
+    ),
+    ...) {
+  with_gtsummary_theme(
+    list("tbl_summary-str:default_con_type" = "continuous2"),
+    tbl_summary(
+      data = data,
+      by = {{ by }},
+      type = type,
+      statistic = statistic,
+      ...
+    )
+  )
+}
+```
+
+::: aside
+::: {.small}
+A theme element is not only a session-wide setting — `with_gtsummary_theme()` lets a [function]{.emphasis} set one for itself. This works because `default_con_type` is read while the table is [built]{.emphasis}; `print_engine` is read when it [prints]{.emphasis}, so that one cannot be set this way.
+:::
+:::
+
+## `tbl_pharma_summary()` in action {.smaller}
+
+::: columns
+::: {.column width="50%"}
+
+```{r}
+#| label: wrapper-plain
+adsl |>
+  tbl_summary(
+    by = ARM2,
+    include = c(AGE, ETHNIC)
+  )
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| label: wrapper-pharma
+adsl |>
+  tbl_pharma_summary(
+    by = ARM2,
+    include = c(AGE, ETHNIC)
+  )
+```
+
+:::
+:::
+
+## A default, not a lock
+
+An explicit argument still beats the theme element, so nothing is taken away from the caller.
+
+```{r}
+#| label: wrapper-override
+#| output-location: column
+adsl |>
+  tbl_pharma_summary(
+    by = ARM2,
+    include = AGE,
+    type = all_continuous() ~ "continuous",
+    statistic = all_continuous() ~ "{median} ({p25}, {p75})"
+  )
+```
+
+## Extension Package:{crane} <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
+
+We just wrote a one-function version of this. {crane} is the same idea, maintained as a real package — Roche's theme and wrappers, on CRAN.
+
+The first function we added was `tbl_roche_summary()`: a _thin_ wrapper for `gtsummary::tbl_summary()`, exactly like the one above.
+
+::: {.small}
+
+- Continuous variables default to `continuous2`.
+
+- `tbl_summary(missing*)` arguments have been changed to `tbl_roche_summary(nonmissing*)`.
+
+    - We highlight non-missing counts over missing counts, which are the default in {gtsummary}
+
+- Counts represented by `0 (0%)` print as `0`.
+
+:::
+
+```{r}
+#| label: tbl-roche-summary
+#| output-location: slide
+library(crane)
+
+adsl |>
+  dplyr::mutate(ETHNIC = forcats::fct_expand(ETHNIC, "REFUSED")) |>
+  tbl_roche_summary(
+    by = ARM2,
+    include = c(AGE, ETHNIC),
+    nonmissing = "always"
+  )
+```
+
+## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
+
+::: small
+Lab values are summarized by visit and include the change from baseline.
+
+This is a simple table that is just a `tbl_merge()` of the `AVAL` summary and the `CHG` summary.
+
+But the general structure appears enough times in our catalog, we make it simple for our programmers to create.
+:::
+
+```{r}
+#| label: tbl_baseline_chg
+#| eval: false
+adlb |>
+  dplyr::filter(PARAM == "Albumin (g/L)") |>
+  tbl_baseline_chg(
+    by = "ARM",
+    baseline_level = "Baseline",
+    denominator = adsl
+  )
+```
+
+## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
+
+![](../images/Black.png){fig-align="center" width="80%"}
+
+## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
+
+![](../images/AVAL.png){fig-align="center" width="80%"}
+
+## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
+
+![](../images/CHG.png){fig-align="center" width="80%"}
+
+## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
+
+![](../images/Merge.png){fig-align="center" width="80%"}
 
 ## A pharma theme with {crane}
 
