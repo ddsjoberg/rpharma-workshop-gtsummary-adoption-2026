@@ -522,14 +522,84 @@
     "href": "slides/workshop/index.html#how-to-adopt-gtsummary",
     "title": "Enterprise {gtsummary}",
     "section": "How to Adopt {gtsummary}",
-    "text": "How to Adopt {gtsummary}\nWrite functions\n\nUse {gtsummary} functions to build new functions will be key for adoption.\n\nCreate a theme\n\nA theme is a set of customization preferences that can be easily set and reused.\nThemes control default settings for existing functions\nThemes control more fine-grained customization not available via arguments or helper functions"
+    "text": "How to Adopt {gtsummary}\n\nThree moves, in order.\n1. Set a theme\nYour house defaults — rounding, headers, print engine — applied to every table, without anyone passing an argument.\n2. Write wrappers\nNamed functions for the tables your team builds over and over, so the shape of a table is written down once.\n3. Ship them in a package\nAdoption becomes a single library() call, and the standard is versioned and testable.\n\n\n\n\nWe will build 1 and 2 from scratch, then look at {crane} — Roche’s answer to all three."
+  },
+  {
+    "objectID": "slides/workshop/index.html#themes-that-ship-with-gtsummary",
+    "href": "slides/workshop/index.html#themes-that-ship-with-gtsummary",
+    "title": "Enterprise {gtsummary}",
+    "section": "Themes that ship with {gtsummary}",
+    "text": "Themes that ship with {gtsummary}\n\nA theme is set once, before you build any tables, and every table in the session picks it up.\n\ntheme_gtsummary_journal(\"jama\") — defaults matching a journal’s guidelines\ntheme_gtsummary_compact() — smaller font and cell padding\ntheme_gtsummary_language(\"es\") — translate every table\ntheme_gtsummary_printer(print_engine = \"flextable\") — change the print engine\n\nThemes stack: call several, and each one layers onto the last.\n\n\ntheme_gtsummary_journal(\"jama\")\ntheme_gtsummary_compact()\n\n\n\n\ntheme_gtsummary_printer() is a shortcut for a single element. Next we build a theme that sets several at once."
+  },
+  {
+    "objectID": "slides/workshop/index.html#a-theme-is-a-named-list",
+    "href": "slides/workshop/index.html#a-theme-is-a-named-list",
+    "title": "Enterprise {gtsummary}",
+    "section": "A theme is a named list",
+    "text": "A theme is a named list\nEvery element is named \"&lt;function&gt;-&lt;input type&gt;:&lt;description&gt;\".\n\n\n\"pkgwide-str:print_engine\" — applies package-wide, takes a string\n\"tbl_summary-fn:percent_fun\" — applies to tbl_summary(), takes a function\n\nElements come in two flavors:\n\nInternal behavior you cannot reach with a function argument.\nArgument defaults — anything named *-arg:* sets that argument’s default.\n\n\n\n\n\nThe full catalog lives in ?theme_gtsummary and the themes vignette."
+  },
+  {
+    "objectID": "slides/workshop/index.html#build-a-theme",
+    "href": "slides/workshop/index.html#build-a-theme",
+    "title": "Enterprise {gtsummary}",
+    "section": "Build a theme",
+    "text": "Build a theme\nShip it as a function, the same way {gtsummary} and {crane} do — and start from a theme that already exists.\n\ntheme_gtsummary_rpharma &lt;- function(set_theme = TRUE) {\n  lst_theme &lt;-\n    utils::modifyList(\n      # start from the shipped compact theme, then layer ours on top\n      theme_gtsummary_compact(set_theme = FALSE),\n      list(\n        \"pkgwide-str:theme_name\"        = \"R/Pharma 2026\",\n        \"pkgwide-str:print_engine\"      = \"flextable\",\n        \"tbl_summary-fn:percent_fun\"    = scales::label_number(scale = 100, accuracy = 0.1),\n        \"pkgwide-fn:pvalue_fun\"         = label_style_pvalue(digits = 3),\n        \"tbl_summary-str:header-withby\" = \"**{level}**  \\n(N = {n})\"\n      )\n    )\n\n  if (set_theme == TRUE) set_gtsummary_theme(lst_theme)\n  invisible(lst_theme)\n}\n\n\n\n\nmodifyList() overrides by name, so our theme_name replaces \"Compact\" instead of stacking a duplicate. scales::label_number(scale = 100, accuracy = 0.1)(0.4332) returns 43.3. label_style_pvalue() caps at digits = 3 — need four? A theme element accepts any function, which is how crane::theme_gtsummary_roche() does it."
+  },
+  {
+    "objectID": "slides/workshop/index.html#check-it-then-set-it",
+    "href": "slides/workshop/index.html#check-it-then-set-it",
+    "title": "Enterprise {gtsummary}",
+    "section": "Check it, then set it",
+    "text": "Check it, then set it\n\ncheck_gtsummary_theme(theme_gtsummary_rpharma(set_theme = FALSE))\n\n✔ Looks good!\n\n\n\nIn a script, set the theme once at the top — and clear it when you are done.\n\n\ntheme_gtsummary_rpharma()  # set for the rest of the session\nreset_gtsummary_theme()    # back to package defaults\n\n\n\n\nset_theme = FALSE returns the list without setting it — which is what with_gtsummary_theme() needs to theme a single table."
+  },
+  {
+    "objectID": "slides/workshop/index.html#before-and-after",
+    "href": "slides/workshop/index.html#before-and-after",
+    "title": "Enterprise {gtsummary}",
+    "section": "Before and after",
+    "text": "Before and after\n\nadsl |&gt;\n  tbl_summary(by = ARM2, include = c(AGE, ETHNIC)) |&gt;\n  add_p()\n\n\n\n\nPackage defaults · printed with {gt}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPlacebo\nN = 861\nXanomeline\nN = 1681\np-value2\n\n\n\n\nAge\n76 (69, 82)\n77 (71, 81)\n0.8\n\n\nEthnicity\n\n\n\n\n0.8\n\n\n    HISPANIC OR LATINO\n3 (3.5%)\n9 (5.4%)\n\n\n\n\n    NOT HISPANIC OR LATINO\n83 (97%)\n159 (95%)\n\n\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n2 Wilcoxon rank sum test; Fisher’s exact test\n\n\n\n\n\n\n\n\n\n\nAfter theme_gtsummary_rpharma() · printed with {flextable}\n\n\n\nCharacteristicPlacebo  (N = 86)1Xanomeline  (N = 168)1p-value2Age76 (69, 82)77 (71, 81)0.816Ethnicity0.756HISPANIC OR LATINO3 (3.5%)9 (5.4%)NOT HISPANIC OR LATINO83 (96.5%)159 (94.6%)1Median (Q1, Q3); n (%)2Wilcoxon rank sum test; Fisher's exact test"
+  },
+  {
+    "objectID": "slides/workshop/index.html#why-a-theme-for-your-company",
+    "href": "slides/workshop/index.html#why-a-theme-for-your-company",
+    "title": "Enterprise {gtsummary}",
+    "section": "Why a theme for your company?",
+    "text": "Why a theme for your company?\n\n\nConsistency without memorization. Nobody has to remember that percentages go to one decimal place — the theme already knows.\nOne place to change. When the standard changes, edit the theme and re-render. You are not grepping for digits = across forty programs.\nBetter reviews. If formatting is handled, review comments are about the numbers instead of the decimal places.\nA shorter first day. New team members inherit the house style before they have written a line of code.\nPortable. Put the theme function in your company package and adoption is one library() call."
+  },
+  {
+    "objectID": "slides/workshop/index.html#themes-end-where-names-begin",
+    "href": "slides/workshop/index.html#themes-end-where-names-begin",
+    "title": "Enterprise {gtsummary}",
+    "section": "Themes end where names begin",
+    "text": "Themes end where names begin\n\nA theme changes defaults — everywhere, all at once, for functions that already exist.\nA wrapper earns its place when you want something a default cannot give you:\n\na name your team already says out loud — “the demography table”\ndocumentation and tests that live with the function\na table built from several {gtsummary} calls, not one\ndefaults that apply to this table only, not the whole session\n\n\n\n\n\nThe two are not rivals — the wrapper we are about to write uses a theme element to set its own default."
+  },
+  {
+    "objectID": "slides/workshop/index.html#tbl_pharma_summary",
+    "href": "slides/workshop/index.html#tbl_pharma_summary",
+    "title": "Enterprise {gtsummary}",
+    "section": "tbl_pharma_summary()",
+    "text": "tbl_pharma_summary()\nA thin wrapper: multi-line continuous summaries and our house statistics, with everything still overridable.\n\ntbl_pharma_summary &lt;- function(\n    data,\n    by = NULL,\n    type = NULL,\n    statistic = list(\n      all_continuous() ~ c(\"{mean} ({sd})\", \"{median}\",\n                           \"{p25}, {p75}\", \"{min}, {max}\"),\n      all_categorical() ~ \"{n} ({p}%)\"\n    ),\n    ...) {\n  with_gtsummary_theme(\n    list(\"tbl_summary-str:default_con_type\" = \"continuous2\"),\n    tbl_summary(\n      data = data,\n      by = {{ by }},\n      type = type,\n      statistic = statistic,\n      ...\n    )\n  )\n}\n\n\n\n\nA theme element is not only a session-wide setting — with_gtsummary_theme() lets a function set one for itself. This works because default_con_type is read while the table is built; print_engine is read when it prints, so that one cannot be set this way."
+  },
+  {
+    "objectID": "slides/workshop/index.html#tbl_pharma_summary-in-action",
+    "href": "slides/workshop/index.html#tbl_pharma_summary-in-action",
+    "title": "Enterprise {gtsummary}",
+    "section": "tbl_pharma_summary() in action",
+    "text": "tbl_pharma_summary() in action\n\n\n\nadsl |&gt;\n  tbl_summary(\n    by = ARM2,\n    include = c(AGE, ETHNIC)\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPlacebo\nN = 861\nXanomeline\nN = 1681\n\n\n\n\nAge\n76 (69, 82)\n77 (71, 81)\n\n\nEthnicity\n\n\n\n\n\n\n    HISPANIC OR LATINO\n3 (3.5%)\n9 (5.4%)\n\n\n    NOT HISPANIC OR LATINO\n83 (97%)\n159 (95%)\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\n\n\nadsl |&gt;\n  tbl_pharma_summary(\n    by = ARM2,\n    include = c(AGE, ETHNIC)\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPlacebo\nN = 861\nXanomeline\nN = 1681\n\n\n\n\nAge\n\n\n\n\n\n\n    Mean (SD)\n75 (9)\n75 (8)\n\n\n    Median\n76\n77\n\n\n    Q1, Q3\n69, 82\n71, 81\n\n\n    Min, Max\n52, 89\n51, 88\n\n\nEthnicity\n\n\n\n\n\n\n    HISPANIC OR LATINO\n3 (3.5%)\n9 (5.4%)\n\n\n    NOT HISPANIC OR LATINO\n83 (97%)\n159 (95%)\n\n\n\n1 n (%)"
+  },
+  {
+    "objectID": "slides/workshop/index.html#a-default-not-a-lock",
+    "href": "slides/workshop/index.html#a-default-not-a-lock",
+    "title": "Enterprise {gtsummary}",
+    "section": "A default, not a lock",
+    "text": "A default, not a lock\nAn explicit argument still beats the theme element, so nothing is taken away from the caller.\n\n\nadsl |&gt;\n  tbl_pharma_summary(\n    by = ARM2,\n    include = AGE,\n    type = all_continuous() ~ \"continuous\",\n    statistic = all_continuous() ~ \"{median} ({p25}, {p75})\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPlacebo\nN = 861\nXanomeline\nN = 1681\n\n\n\n\nAge\n76 (69, 82)\n77 (71, 81)\n\n\n\n1 Median (Q1, Q3)"
   },
   {
     "objectID": "slides/workshop/index.html#extension-packagecrane",
     "href": "slides/workshop/index.html#extension-packagecrane",
     "title": "Enterprise {gtsummary}",
     "section": "Extension Package:{crane} ",
-    "text": "Extension Package:{crane} \nThe first function we added to {crane} was tbl_roche_summary(): a thin wrapper for gtsummary::tbl_summary().\n\n\nContinuous variables default to continuous2.\ntbl_summary(missing*) arguments have been changed to tbl_roche_summary(nonmissing*).\n\nWe highlight non-missing counts over missing counts, which are the default in {gtsummary}\n\nCounts represented by 0 (0%) print as 0.\n\n\n\nlibrary(crane)\n\nadsl |&gt;\n  dplyr::mutate(ETHNIC = forcats::fct_expand(ETHNIC, \"REFUSED\")) |&gt;\n  tbl_roche_summary(\n    by = ARM2,\n    include = c(AGE, ETHNIC),\n    nonmissing = \"always\"\n  )"
+    "text": "Extension Package:{crane} \nWe just wrote a one-function version of this. {crane} is the same idea, maintained as a real package — Roche’s theme and wrappers, on CRAN.\nThe first function we added was tbl_roche_summary(): a thin wrapper for gtsummary::tbl_summary(), exactly like the one above.\n\n\nContinuous variables default to continuous2.\ntbl_summary(missing*) arguments have been changed to tbl_roche_summary(nonmissing*).\n\nWe highlight non-missing counts over missing counts, which are the default in {gtsummary}\n\nCounts represented by 0 (0%) print as 0.\n\n\n\nlibrary(crane)\n\nadsl |&gt;\n  dplyr::mutate(ETHNIC = forcats::fct_expand(ETHNIC, \"REFUSED\")) |&gt;\n  tbl_roche_summary(\n    by = ARM2,\n    include = c(AGE, ETHNIC),\n    nonmissing = \"always\"\n  )"
   },
   {
     "objectID": "slides/workshop/index.html#extension-packagecrane-output",
@@ -572,41 +642,6 @@
     "title": "Enterprise {gtsummary}",
     "section": "What else is in {crane}? ",
     "text": "What else is in {crane}?"
-  },
-  {
-    "objectID": "slides/workshop/index.html#themes-that-ship-with-gtsummary",
-    "href": "slides/workshop/index.html#themes-that-ship-with-gtsummary",
-    "title": "Enterprise {gtsummary}",
-    "section": "Themes that ship with {gtsummary}",
-    "text": "Themes that ship with {gtsummary}\n\nA theme is set once, before you build any tables, and every table in the session picks it up.\n\ntheme_gtsummary_journal(\"jama\") — defaults matching a journal’s guidelines\ntheme_gtsummary_compact() — smaller font and cell padding\ntheme_gtsummary_language(\"es\") — translate every table\ntheme_gtsummary_printer(print_engine = \"flextable\") — change the print engine\n\nThemes stack: call several, and each one layers onto the last.\n\n\ntheme_gtsummary_journal(\"jama\")\ntheme_gtsummary_compact()\n\n\n\n\ntheme_gtsummary_printer() is a shortcut for a single element. Next we build a theme that sets several at once."
-  },
-  {
-    "objectID": "slides/workshop/index.html#a-theme-is-a-named-list",
-    "href": "slides/workshop/index.html#a-theme-is-a-named-list",
-    "title": "Enterprise {gtsummary}",
-    "section": "A theme is a named list",
-    "text": "A theme is a named list\nEvery element is named \"&lt;function&gt;-&lt;input type&gt;:&lt;description&gt;\".\n\n\n\"pkgwide-str:print_engine\" — applies package-wide, takes a string\n\"tbl_summary-fn:percent_fun\" — applies to tbl_summary(), takes a function\n\nElements come in two flavors:\n\nInternal behavior you cannot reach with a function argument.\nArgument defaults — anything named *-arg:* sets that argument’s default.\n\n\n\n\n\nThe full catalog lives in ?theme_gtsummary and the themes vignette."
-  },
-  {
-    "objectID": "slides/workshop/index.html#build-a-theme",
-    "href": "slides/workshop/index.html#build-a-theme",
-    "title": "Enterprise {gtsummary}",
-    "section": "Build a theme",
-    "text": "Build a theme\nShip it as a function, the same way {gtsummary} and {crane} do — and start from a theme that already exists.\n\ntheme_gtsummary_rpharma &lt;- function(set_theme = TRUE) {\n  lst_theme &lt;-\n    utils::modifyList(\n      # start from the shipped compact theme, then layer ours on top\n      theme_gtsummary_compact(set_theme = FALSE),\n      list(\n        \"pkgwide-str:theme_name\"        = \"R/Pharma 2026\",\n        \"pkgwide-str:print_engine\"      = \"flextable\",\n        \"tbl_summary-fn:percent_fun\"    = scales::label_number(scale = 100, accuracy = 0.1),\n        \"pkgwide-fn:pvalue_fun\"         = label_style_pvalue(digits = 3),\n        \"tbl_summary-str:header-withby\" = \"**{level}**  \\n(N = {n})\"\n      )\n    )\n\n  if (set_theme == TRUE) set_gtsummary_theme(lst_theme)\n  invisible(lst_theme)\n}\n\n\n\n\nmodifyList() overrides by name, so our theme_name replaces \"Compact\" instead of stacking a duplicate. scales::label_number(scale = 100, accuracy = 0.1)(0.4332) returns 43.3. label_style_pvalue() caps at digits = 3 — need four? A theme element accepts any function, which is how crane::theme_gtsummary_roche() does it."
-  },
-  {
-    "objectID": "slides/workshop/index.html#check-it-then-set-it",
-    "href": "slides/workshop/index.html#check-it-then-set-it",
-    "title": "Enterprise {gtsummary}",
-    "section": "Check it, then set it",
-    "text": "Check it, then set it\n\ncheck_gtsummary_theme(theme_gtsummary_rpharma(set_theme = FALSE))\n\n✔ Looks good!\n\n\n\nIn a script, set the theme once at the top — and clear it when you are done.\n\n\ntheme_gtsummary_rpharma()  # set for the rest of the session\nreset_gtsummary_theme()    # back to package defaults\n\n\n\n\nset_theme = FALSE returns the list without setting it — which is what with_gtsummary_theme() needs to theme a single table."
-  },
-  {
-    "objectID": "slides/workshop/index.html#before-and-after",
-    "href": "slides/workshop/index.html#before-and-after",
-    "title": "Enterprise {gtsummary}",
-    "section": "Before and after",
-    "text": "Before and after\n\nadsl |&gt;\n  tbl_summary(by = ARM2, include = c(AGE, ETHNIC)) |&gt;\n  add_p()\n\n\n\n\nPackage defaults · printed with {gt}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPlacebo\nN = 861\nXanomeline\nN = 1681\np-value2\n\n\n\n\nAge\n76 (69, 82)\n77 (71, 81)\n0.8\n\n\nEthnicity\n\n\n\n\n0.8\n\n\n    HISPANIC OR LATINO\n3 (3.5%)\n9 (5.4%)\n\n\n\n\n    NOT HISPANIC OR LATINO\n83 (97%)\n159 (95%)\n\n\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n2 Wilcoxon rank sum test; Fisher’s exact test\n\n\n\n\n\n\n\n\n\n\nAfter theme_gtsummary_rpharma() · printed with {flextable}\n\n\n\nCharacteristicPlacebo  (N = 86)1Xanomeline  (N = 168)1p-value2Age76 (69, 82)77 (71, 81)0.816Ethnicity0.756HISPANIC OR LATINO3 (3.5%)9 (5.4%)NOT HISPANIC OR LATINO83 (96.5%)159 (94.6%)1Median (Q1, Q3); n (%)2Wilcoxon rank sum test; Fisher's exact test"
   },
   {
     "objectID": "slides/workshop/index.html#a-pharma-theme-with-crane",
