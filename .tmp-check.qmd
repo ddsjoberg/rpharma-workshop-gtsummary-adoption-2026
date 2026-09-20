@@ -1,0 +1,19 @@
+---
+title: tmp
+format: html
+execute:
+  echo: true
+  message: true
+---
+
+```{r}
+#| label: doc-level
+library(gtsummary)
+check_gtsummary_theme(list("pkgwide-str:print_engine" = "flextable"))
+```
+
+```{r}
+#| label: chunk-level
+#| message: true
+check_gtsummary_theme(list("pkgwide-str:print_engine" = "flextable"))
+```

@@ -82,9 +82,181 @@ adlb |>
 
 ![](../images/Merge.png){fig-align="center" width="80%"}
 
+## Themes that ship with {gtsummary}
+
+::: {.small}
+
+A [theme]{.emphasis} is set once, before you build any tables, and every table in the session picks it up.
+
+-   `theme_gtsummary_journal("jama")` — defaults matching a journal's guidelines
+
+-   `theme_gtsummary_compact()` — smaller font and cell padding
+
+-   `theme_gtsummary_language("es")` — translate every table
+
+-   `theme_gtsummary_printer(print_engine = "flextable")` — change the print engine
+
+Themes [stack]{.emphasis}: call several, and each one layers onto the last.
+
+:::
+
+```{r}
+#| label: theme-stacking
+#| eval: false
+theme_gtsummary_journal("jama")
+theme_gtsummary_compact()
+```
+
+::: aside
+::: {.small}
+`theme_gtsummary_printer()` is a shortcut for a single element. Next we build a theme that sets several at once.
+:::
+:::
+
+## A theme is a named list
+
+Every element is named `"<function>-<input type>:<description>"`.
+
+::: {.small}
+
+-   `"pkgwide-str:print_engine"` — applies [package-wide]{.emphasis}, takes a [string]{.emphasis}
+
+-   `"tbl_summary-fn:percent_fun"` — applies to [`tbl_summary()`]{.emphasis}, takes a [function]{.emphasis}
+
+Elements come in two flavors:
+
+1.  [Internal behavior]{.emphasis} you cannot reach with a function argument.
+
+2.  [Argument defaults]{.emphasis} — anything named `*-arg:*` sets that argument's default.
+
+:::
+
+::: aside
+::: {.small}
+The full catalog lives in `?theme_gtsummary` and the [themes vignette](https://www.danieldsjoberg.com/gtsummary/articles/themes.html).
+:::
+:::
+
+## Build a theme
+
+Ship it as a function, the same way {gtsummary} and {crane} do — and start from a theme that already exists.
+
+```{r}
+#| label: theme-build
+#| code-line-numbers: "|5|8|9|10|11|15"
+theme_gtsummary_rpharma <- function(set_theme = TRUE) {
+  lst_theme <-
+    utils::modifyList(
+      # start from the shipped compact theme, then layer ours on top
+      theme_gtsummary_compact(set_theme = FALSE),
+      list(
+        "pkgwide-str:theme_name"        = "R/Pharma 2026",
+        "pkgwide-str:print_engine"      = "flextable",
+        "tbl_summary-fn:percent_fun"    = scales::label_number(scale = 100, accuracy = 0.1),
+        "pkgwide-fn:pvalue_fun"         = label_style_pvalue(digits = 3),
+        "tbl_summary-str:header-withby" = "**{level}**  \n(N = {n})"
+      )
+    )
+
+  if (set_theme == TRUE) set_gtsummary_theme(lst_theme)
+  invisible(lst_theme)
+}
+```
+
+::: aside
+::: {.small}
+`modifyList()` overrides by name, so our `theme_name` replaces `"Compact"` instead of stacking a duplicate. `scales::label_number(scale = 100, accuracy = 0.1)(0.4332)` returns `r scales::label_number(scale = 100, accuracy = 0.1)(0.4332)`. `label_style_pvalue()` caps at `digits = 3` — need four? A theme element accepts [any]{.emphasis} function, which is how `crane::theme_gtsummary_roche()` does it.
+:::
+:::
+
+## Check it, then set it
+
+```{r}
+#| label: theme-check
+#| message: true
+check_gtsummary_theme(theme_gtsummary_rpharma(set_theme = FALSE))
+```
+
+::: {.small}
+In a script, set the theme once at the top — and clear it when you are done.
+:::
+
+```{r}
+#| label: theme-set
+#| eval: false
+theme_gtsummary_rpharma()  # set for the rest of the session
+reset_gtsummary_theme()    # back to package defaults
+```
+
+::: aside
+::: {.small}
+`set_theme = FALSE` returns the list [without]{.emphasis} setting it — which is what `with_gtsummary_theme()` needs to theme a single table.
+:::
+:::
+
+## Before and after
+
+```{r}
+#| label: theme-demo-code
+#| eval: false
+adsl |>
+  tbl_summary(by = ARM2, include = c(AGE, ETHNIC)) |>
+  add_p()
+```
+
+::: columns
+::: {.column width="50%"}
+
+::: {.small}
+[Package defaults]{.emphasis} · printed with {gt}
+:::
+
+```{r}
+#| label: theme-before
+#| echo: false
+adsl |>
+  tbl_summary(by = ARM2, include = c(AGE, ETHNIC)) |>
+  add_p()
+```
+
+:::
+
+::: {.column width="50%"}
+
+::: {.small}
+After [`theme_gtsummary_rpharma()`]{.emphasis} · printed with {flextable}
+:::
+
+```{r}
+#| label: theme-after
+#| echo: false
+theme_gtsummary_rpharma()
+
+adsl |>
+  tbl_summary(by = ARM2, include = c(AGE, ETHNIC)) |>
+  add_p()
+```
+
+:::
+:::
+
+```{r}
+#| label: theme-reset
+#| echo: false
+#| message: false
+# the print engine applies when the table prints, so the theme has to be
+# live here — clear it again before the rest of the deck
+reset_gtsummary_theme()
+```
+
+
 ## A pharma theme with {crane}
 
 Our theme is implemented in `crane::theme_gtsummary_roche()`. Primary changes include a custom function for [rounding percentages]{.emphasis}, [p-values]{.emphasis} rounded to four decimal places, [headers]{.emphasis} that default to bold and include N in parentheses (e.g. `'Placebo  \n (N = 184)'`), and printing all tables with [{flextable}]{.emphasis} using Roche-specific styling — font, font size, borders, cell padding, etc.
+
+::: {.small}
+Same named list, same `set_theme` argument — just with `style_roche_percent()` and `style_roche_pvalue()` in the function slots, and eleven elements instead of five.
+:::
 
 ```{r}
 #| label: tbl-roche-summary-example
