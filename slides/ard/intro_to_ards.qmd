@@ -1,9 +1,3 @@
-
-
-## ARDS 🤝 Tables: A Dynamic Duo 
-
-![](../images/diagram-pkgs.png){fig-align="center"}
-
 ## Objectives
 
 <!-- ::: incremental -->

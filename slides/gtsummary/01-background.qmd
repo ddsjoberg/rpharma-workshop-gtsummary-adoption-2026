@@ -107,8 +107,8 @@ pkgs_all <-
     "table1", "tableone", "modelsummary",
     "finalfit", "furniture", "compareGroups",
     "tangram", "atable", "texreg", "apsrtable",
-    "tables", "qwraps2", "summarytools", "tfrmt", "tidytlg", "Tplyr")
-pkgs_pharmaverse <- c("gtsummary", "rtables", "tfrmt", "tidytlg", "Tplyr")
+    "tables", "qwraps2", "summarytools", "tidytlg", "Tplyr")
+pkgs_pharmaverse <- c("gtsummary", "rtables", "tidytlg", "Tplyr")
 
 df_30day <-
   cranlogs::cran_downloads(packages = pkgs_all, when = "last-month") |>

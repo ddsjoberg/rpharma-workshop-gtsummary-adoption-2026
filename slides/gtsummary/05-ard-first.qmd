@@ -9,7 +9,19 @@
 
 - Every gtsummary table saves the ARDs from each calculation
 
-![](../images/diagram-pkgs.png){fig-align="center"}
+```{=html}
+<div class="hex-flow">
+  <figure>
+    <img src="../images/cards-hex.png" alt="cards package hex logo">
+    <figcaption>ARDs</figcaption>
+  </figure>
+  <span class="hex-flow-arrow" aria-hidden="true">&#8646;</span>
+  <figure>
+    <img src="../images/gtsummary-logo.png" alt="gtsummary package hex logo">
+    <figcaption>Tables</figcaption>
+  </figure>
+</div>
+```
 
 :::
 

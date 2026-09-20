@@ -280,3 +280,31 @@ details>summary {
 .reveal:has(section#title-slide.present) .slide-logo {
   display: none !important;
 }
+
+.reveal .hex-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  margin-top: 0.6em;
+}
+
+.reveal .hex-flow figure {
+  margin: 0;
+  text-align: center;
+}
+
+.reveal .hex-flow img {
+  height: 150px;
+  margin: 0;
+}
+
+.reveal .hex-flow figcaption {
+  font-size: 0.5em;
+  color: #7090A5;
+}
+
+.reveal .hex-flow-arrow {
+  font-size: 1.6em;
+  color: #7090A5;
+}
