@@ -36,3 +36,26 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 :::
 :::
 
+## What we will cover
+
+::: {.small}
+
+1.  [Analysis Results Datasets]{.emphasis} — build the numbers first with {cards}, so every table has something auditable behind it.
+
+2.  [{gtsummary} fundamentals]{.emphasis} — `tbl_summary()`, hierarchical adverse event tables, merging and stacking.
+
+3.  [ARD-first tables]{.emphasis} — every cell traceable, and QC by comparing one ARD against another.
+
+4.  [Print engines]{.emphasis} — {gt}, {flextable}, and submission-ready Word output.
+
+5.  [Adopting {gtsummary}]{.emphasis} — a house theme, wrappers of your own, and {crane}.
+
+6.  [Coding agents]{.emphasis} — writing your standards down so an agent follows them without being reminded.
+
+:::
+
+::: aside
+::: {.small}
+By the end: a concrete plan for standardizing table production across your group.
+:::
+:::
