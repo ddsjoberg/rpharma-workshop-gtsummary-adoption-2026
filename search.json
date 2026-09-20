@@ -677,11 +677,21 @@
     ]
   },
   {
+    "objectID": "index.html#slides",
+    "href": "index.html#slides",
+    "title": "Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma",
+    "section": "Slides",
+    "text": "Slides\nView slides in full screen",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
     "objectID": "index.html#instructors",
     "href": "index.html#instructors",
     "title": "Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma",
     "section": "Instructors",
-    "text": "Instructors\n\n\n\nDaniel D. Sjoberg\nExecutive Director of Data Sciences & Clinical Data Analytics, Kardigan (he/him)\nDaniel leads the Data Science and Clinical Analytics groups at Kardigan. Previously was a Senior Principal Innovation Data Scientist and Real-time Analytics Group Lead at Genentech, a Lead Data Science Manager at the Prostate Cancer Clinical Trials Consortium, and an academic biostatistician at Memorial Sloan Kettering Cancer Center for 13 years. He enjoys R package development, creating many packages on CRAN, R-Universe, and GitHub. He’s a co-organizer of rainbowR and of the R Medicine Conference, and a recipient of the Brian Bole Award for Excellence from Open Source in Pharma and the ASA Innovation in Programming Award.\n\n   \n\n\n\n\nShannon Pileggi\nAssociate Director of Data Science, The Prostate Cancer Clinical Trials Consortium (she/her)\nShannon is an Associate Director of Data Science at The Prostate Cancer Clinical Trials Consortium, an occasional blogger, a frequent workshop instructor, and a member of the R-Ladies Leadership team. She enjoys automating data wrangling and data outputs, and making both data insights and learning new material digestible.",
+    "text": "Instructors\n\n\n\nDaniel D. Sjoberg\nExecutive Director of Data Sciences & Clinical Data Analytics, Kardigan (he/him)\nDaniel leads the Data Science and Clinical Analytics groups at Kardigan. Previously was a Senior Principal Innovation Data Scientist and Real-time Analytics Group Lead at Genentech, a Lead Data Science Manager at the Prostate Cancer Clinical Trials Consortium, and an academic biostatistician at Memorial Sloan Kettering Cancer Center for 13 years. He enjoys R package development, creating many packages on CRAN, R-Universe, and GitHub. He’s a co-organizer of rainbowR and of the R Medicine Conference, and a recipient of the Brian Bole Award for Excellence from Open Source in Pharma and the ASA Innovation in Programming Award.\n\n   \n\n\n\n\nShannon Pileggi\nDirector of Data Science, The Prostate Cancer Clinical Trials Consortium (she/her)\nShannon is a Director of Data Science at The Prostate Cancer Clinical Trials Consortium, an occasional blogger, a frequent workshop instructor, and a member of the R-Ladies Leadership team. She enjoys automating data wrangling and data outputs, and making both data insights and learning new material digestible.",
     "crumbs": [
       "Home"
     ]
