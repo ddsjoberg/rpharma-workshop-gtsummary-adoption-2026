@@ -10,7 +10,7 @@ project:
 
 website:
   page-navigation: true
-  title: "Adopting {gtsummary} at Your Organization"
+  title: "Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma"
   description: "R/Pharma 2026 Workshop"
   favicon: "images/gtsummary-logo.png"
 

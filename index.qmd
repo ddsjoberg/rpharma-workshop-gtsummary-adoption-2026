@@ -1,5 +1,5 @@
 ---
-title: "Adopting {gtsummary} at Your Organization"
+title: "Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma"
 subtitle: "Workshop@[R/Pharma 2026](https://rinpharma.com/)"
 engine: knitr
 editor: 
@@ -15,21 +15,33 @@ editor:
 
 ## Description
 
-Your organization has settled on R for clinical reporting. Now what? This
-workshop is about the part that comes after the pilot: getting {gtsummary}
-into the hands of every statistician and programmer on your team, and keeping
-the output consistent, traceable, and submission-ready once it's there.
+{gtsummary} is the most widely used R package for creating
+presentation-ready summary tables across the R ecosystem. Because it is
+built for broad utility across multiple domains, its flexibility and
+customization ability lends itself to the diverse needs in clinical
+trial reporting.
 
-We start with Analysis Results Datasets (ARDs) and {cards}, the data structure
-that makes a table auditable rather than merely printable. We then build up the
-{gtsummary} table catalog on top of it — demographics, hierarchical adverse
-event tables, merged and stacked layouts — and work ARD-first so every cell in
-every table can be traced back to the number that produced it. The final stretch
-is adoption proper: thin wrapper functions, organization-wide themes, print
-engines that produce submission-ready Word output, and coding agents that follow
-your standards without being reminded.
+In this workshop, we will begin with a brief overview of {gtsummary}
+fundamentals before diving into the key tooling and strategies that make
+enterprise adoption smooth and effective. Participants will learn:
 
-Leave with a concrete plan for standardizing table production across your group.
+-   **Analysis Results Data (ARD) Integration:** How {gtsummary} and
+    ARDs work seamlessly together by design to support reproducible,
+    clinical-grade workflows.
+
+-   **Custom Themes for Standardization:** How to build company-specific
+    themes that alter defaults, ensuring output automatically aligns
+    with internal guidelines without requiring repetitive argument
+    specifications.
+
+-   **Building Custom Extensions:** When and how to supplement
+    {gtsummary} with a supplemental R package to handle specialized
+    reporting needs, leveraging {gtsummary}'s extension framework to
+    simplify development.
+
+By the end of the session, you will understand how to extend this
+open-source tool with institution-specific functionality to balance
+flexibility with company-wide standardization.
 
 ## Schedule
 
@@ -76,15 +88,17 @@ Daniel leads the Data Science and Clinical Analytics groups at Kardigan. Previou
 ::: {.instructor-card}
 ![](images/shannon-pileggi-circle.png){fig-alt="Headshot of Shannon Pileggi"}
 
-[**Shannon Pileggi**]{.instructor-name}
+[**Shannon Pileggi**](https://www.pipinghotdata.com/){.instructor-name}
 
-[TODO: role and affiliation]{.instructor-role}
+[Associate Director of Data Science, The Prostate Cancer Clinical Trials Consortium (she/her)]{.instructor-role}
 
-TODO: Shannon's bio.
+Shannon is an Associate Director of Data Science at The Prostate Cancer Clinical Trials Consortium, an occasional blogger, a frequent workshop instructor, and a member of the R-Ladies Leadership team. She enjoys automating data wrangling and data outputs, and making both data insights and learning new material digestible.
 
 ::: {.instructor-social}
 [`r fontawesome::fa("link", fill = "#7090A5")`](https://www.pipinghotdata.com/)
-[`r fontawesome::fa("github", fill = "#7090A5")`](https://github.com/shannonpileggi/)
+[`r fontawesome::fa("bluesky", fill = "#7090A5")`](https://bsky.app/profile/pipinghotdata.com)
+[`r fontawesome::fa("linkedin", fill = "#7090A5")`](https://www.linkedin.com/in/shannon-m-pileggi/)
+[`r fontawesome::fa("github", fill = "#7090A5")`](https://github.com/shannonpileggi)
 :::
 :::
 

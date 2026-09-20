@@ -1,9 +1,9 @@
 ---
 title: "Clinical Reporting with {gtsummary}"
-subtitle: "Adopting {gtsummary} at Your Organization"
+subtitle: "Enterprise {gtsummary} — R/Pharma Workshop"
 author: "Daniel D. Sjoberg"
 event: "R/Pharma 2026"
-footer:  "[Adopting {gtsummary} at Your Organization](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/)"
+footer:  "[Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/)"
 logo: "images/gtsummary-logo.png"
 editor: source
 format:

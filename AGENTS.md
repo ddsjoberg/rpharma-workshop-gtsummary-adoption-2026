@@ -1,8 +1,9 @@
-# R/Pharma gtsummary adoption workshop
+# Enterprise {gtsummary} — R/Pharma 2026 workshop
 
-Quarto website + revealjs decks for the "Adopting {gtsummary} at Your
-Organization" workshop at R/Pharma 2026. Rendered output goes to `docs/`, which
-is gitignored and published to `gh-pages` by CI — never hand-edit or commit it.
+Quarto website + revealjs decks for the "Enterprise {gtsummary}: Themes, ARDs,
+and Custom Extensions for Pharma" workshop at R/Pharma 2026. Rendered output goes
+to `docs/`, which is gitignored and published to `gh-pages` by CI — never
+hand-edit or commit it.
 
 The two decks are adapted from the posit::conf(2026) pharmaverse workshop
 (<https://github.com/posit-conf-2026/pharmaverse>), CC BY 4.0.
