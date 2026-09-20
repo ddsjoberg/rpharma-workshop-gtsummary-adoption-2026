@@ -17,7 +17,7 @@ fa_fill <- "#606060"
 
 ::: {.columns .v-center-container}
 ::: {.column width="60%"}
-<img src="images/pharmaverse-hex.png" alt="drawing" width="70%"/>
+<img src="../images/pharmaverse-hex.png" alt="drawing" width="70%"/>
 :::
 
 ::: {.column width="40%"}
@@ -32,7 +32,7 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 `r fontawesome::fa("circle-question", fill = fa_fill)` Please ask questions at any time!
 :::
 ::: {.column width="50%"}
-![](images/questions.jpg){width=100%}
+![](../images/questions.jpg){width=100%}
 :::
 :::
 

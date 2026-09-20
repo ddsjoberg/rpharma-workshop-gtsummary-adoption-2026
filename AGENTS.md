@@ -1,21 +1,44 @@
 # Enterprise {gtsummary} — R/Pharma 2026 workshop
 
-Quarto website + revealjs decks for the "Enterprise {gtsummary}: Themes, ARDs,
-and Custom Extensions for Pharma" workshop at R/Pharma 2026. Rendered output goes
-to `docs/`, which is gitignored and published to `gh-pages` by CI — never
-hand-edit or commit it.
+Quarto website + a single revealjs deck for the "Enterprise {gtsummary}:
+Themes, ARDs, and Custom Extensions for Pharma" workshop at R/Pharma 2026.
+Rendered output goes to `docs/`, which is gitignored and published to
+`gh-pages` by CI — never hand-edit or commit it.
 
-The two decks are adapted from the posit::conf(2026) pharmaverse workshop
+The slide content is adapted from the posit::conf(2026) pharmaverse workshop
 (<https://github.com/posit-conf-2026/pharmaverse>), CC BY 4.0.
 
-Decks live in `slides/<topic>/` (`slides/ard/`, `slides/gtsummary/`). Each
-deck's `index.qmd` carries the `format: revealjs` front matter and pulls content
-in via `{{< include >}}`; included `.qmd` files have no front matter of their
-own. To live-preview with reload-on-save, target the deck's `index.qmd`, not an
+## Slide layout
+
+There is **one** deck: `slides/workshop/index.qmd`. It carries the
+`format: revealjs` front matter and pulls in every section via
+`{{< include >}}`; the included `.qmd` files have no front matter of their own.
+To live-preview with reload-on-save, target `slides/workshop/index.qmd`, not an
 included file.
 
+Section content stays grouped by topic in sibling folders:
+
+- `slides/ard/` — `intro_to_ards.qmd`, `cards.qmd`
+- `slides/gtsummary/` — `00-setup.qmd` … `09-summary.qmd`
+
+Shared assets sit one level up, in `slides/`:
+
+- `slides/images/` — every image, referenced as `../images/<file>`
+- `slides/save_flex_docx/` — the Word/PDF example, as `../save_flex_docx/<file>`
+- `slides/slides.scss` and `slides/title-slide.html` — theme and title partial
+
+**Quarto resolves relative paths in an included file against the *including*
+document, not the included file.** That is why assets live in `slides/` and are
+written `../images/…`: the path is correct from `slides/workshop/index.qmd`.
+Writing `images/…` inside a fragment will render a broken link, not an error.
+
+The title partial takes the hero logo from a `hero-logo` metadata field rather
+than hard-coding it.
+
 `_quarto.yml` uses an explicit `render:` allowlist rather than globs — adding a
-page or a deck means adding it there, or it will not be rendered.
+page means adding it there, or it will not be rendered. `slides/images/**` and
+`slides/save_flex_docx/**` are listed under `project: resources:` so they are
+copied even when a reference lives in a template partial or raw HTML.
 
 ## R style
 

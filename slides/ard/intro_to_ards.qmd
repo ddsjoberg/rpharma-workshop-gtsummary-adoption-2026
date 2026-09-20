@@ -2,7 +2,7 @@
 
 ## ARDS 🤝 Tables: A Dynamic Duo 
 
-![](images/diagram-pkgs.png){fig-align="center"}
+![](../images/diagram-pkgs.png){fig-align="center"}
 
 ## Objectives
 
@@ -47,7 +47,7 @@
 
 * After the initial creation of an ARD, the results can later be re-used again and again for subsequent reporting needs.
 
-![](images/ard-flow.png){fig-align="center"}
+![](../images/ard-flow.png){fig-align="center"}
 
 ## A few notes about ARDs
 
@@ -67,7 +67,7 @@
 
 ## Zooming Out: The Analysis Results Standard (ARS) 
 
-![](images/ars-flow.png){fig-align="center"}
+![](../images/ars-flow.png){fig-align="center"}
 
 :::{.small}
 Objectives include:
@@ -79,13 +79,13 @@ Objectives include:
 
 ## Proposed Metadata Framework in the ARS
 
-![](images/ars-example-flow.png){fig-align="center"}
+![](../images/ars-example-flow.png){fig-align="center"}
 
 - The ARS provides a metadata-driven infrastructure for analysis
 
 ## Proposed Metadata Framework in the ARS
 
-![](images/ars-example-flow-with-hex.png){fig-align="center"}
+![](../images/ars-example-flow-with-hex.png){fig-align="center"}
 
 - The ARS provides a metadata-driven infrastructure for analysis
 

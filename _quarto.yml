@@ -5,8 +5,11 @@ project:
     - index.qmd
     - license.qmd
     - exercises/exercises.qmd
-    - slides/ard/index.qmd
-    - slides/gtsummary/index.qmd
+    - slides/workshop/index.qmd
+  resources:
+    # shared across the deck; referenced as ../images/ and ../save_flex_docx/
+    - slides/images/**
+    - slides/save_flex_docx/**
 
 website:
   page-navigation: true

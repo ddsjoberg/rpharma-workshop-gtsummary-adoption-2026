@@ -503,7 +503,7 @@ countdown(minutes = 10, play_sound = TRUE)
 
 -   The {cardx} package exports many `ard_*()` function for statistical methods.
 
-![](images/cards-cardx-hex.png){fig-alt="cards and cardx package logos" fig-align="center"}
+![](../images/cards-cardx-hex.png){fig-alt="cards and cardx package logos" fig-align="center"}
 
 ## {cardx}
 
@@ -668,7 +668,7 @@ ard_gone_wrong
 cards::print_ard_conditions(ard_gone_wrong)
 ```
 
-![](images/ard-error-msg.png)
+![](../images/ard-error-msg.png)
 
 :::
 
@@ -750,7 +750,7 @@ ARDs are the *foundation*. Next, we turn these results into tables. ➡️
 
 ::: {.column width="55%"}
 
-![](images/cards-cardx-hex.png){fig-alt="cards and cardx package logos" width="90%"}
+![](../images/cards-cardx-hex.png){fig-alt="cards and cardx package logos" width="90%"}
 
 :::
 

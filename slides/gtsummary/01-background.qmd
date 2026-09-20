@@ -91,9 +91,9 @@ gtsummary_citations <-
 ::::::
 
 ::: {.column width="35%"}
-<img src="images/gtsummary-logo.png" width="450"/>
+<img src="../images/gtsummary-logo.png" width="450"/>
 
-<img src="images/asa.png" width="150"/><img src="images/posit.png" width="150"/><img src="images/r-in-pharma.png" width="250"/>
+<img src="../images/asa.png" width="150"/><img src="../images/posit.png" width="150"/><img src="../images/r-in-pharma.png" width="250"/>
 :::
 ::::::::
 

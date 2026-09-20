@@ -1,0 +1,72 @@
+---
+title: "Enterprise {gtsummary}"
+subtitle: "Themes, ARDs, and Custom Extensions for Pharma"
+author: "Daniel D. Sjoberg and Shannon Pileggi"
+event: "R/Pharma 2026"
+hero-logo: "../images/gtsummary-logo.png"
+logo: "../images/gtsummary-logo.png"
+footer:  "[Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/)"
+editor: source
+engine: knitr
+format:
+  revealjs:
+    theme: ../slides.scss
+    template-partials:
+      - ../title-slide.html
+    transition: fade
+    slide-number: true
+    chalkboard: true
+execute:
+  echo: true
+  message: true
+  freeze: false
+cache: false
+---
+
+```{r}
+#| label: setup-options-gtsummary
+#| echo: false
+options(width = 120)
+```
+
+{{< include ../gtsummary/00-setup.qmd >}}
+
+# Analysis Results Datasets
+
+```{r}
+#| label: setup-options-ard
+#| echo: false
+# ARD tibbles are wide; give them room and cap the printed rows
+options(width = 200)
+options(pillar.print_max = 10, pillar.print_min = 10)
+```
+
+{{< include ../ard/intro_to_ards.qmd >}}
+
+{{< include ../ard/cards.qmd >}}
+
+```{r}
+#| label: reset-options-gtsummary
+#| echo: false
+options(width = 120)
+```
+
+# Clinical reporting with {gtsummary}
+
+{{< include ../gtsummary/01-background.qmd >}}
+
+{{< include ../gtsummary/02-tbl_summary.qmd >}}
+
+{{< include ../gtsummary/03-tbl_hierarchicial.qmd >}}
+
+{{< include ../gtsummary/04-tbl_merge.qmd >}}
+
+{{< include ../gtsummary/05-ard-first.qmd >}}
+
+{{< include ../gtsummary/06-print_engines.qmd >}}
+
+{{< include ../gtsummary/07-adopt.qmd >}}
+
+{{< include ../gtsummary/08-coding-agents.qmd >}}
+
+{{< include ../gtsummary/09-summary.qmd >}}

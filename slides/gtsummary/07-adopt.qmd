@@ -68,19 +68,19 @@ adlb |>
 
 ## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
 
-![](images/Black.png){fig-align="center" width="80%"}
+![](../images/Black.png){fig-align="center" width="80%"}
 
 ## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
 
-![](images/AVAL.png){fig-align="center" width="80%"}
+![](../images/AVAL.png){fig-align="center" width="80%"}
 
 ## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
 
-![](images/CHG.png){fig-align="center" width="80%"}
+![](../images/CHG.png){fig-align="center" width="80%"}
 
 ## What else is in {crane}? <img src="https://raw.githubusercontent.com/insightsengineering/crane/main/man/figures/logo.png" align="right" height="120"/>
 
-![](images/Merge.png){fig-align="center" width="80%"}
+![](../images/Merge.png){fig-align="center" width="80%"}
 
 ## A pharma theme with {crane}
 

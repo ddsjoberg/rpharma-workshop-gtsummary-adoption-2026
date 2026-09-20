@@ -9,7 +9,7 @@
 
 - Every gtsummary table saves the ARDs from each calculation
 
-![](images/diagram-pkgs.png){fig-align="center"}
+![](../images/diagram-pkgs.png){fig-align="center"}
 
 :::
 

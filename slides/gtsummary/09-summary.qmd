@@ -45,7 +45,7 @@ The [full function reference](http://www.danieldsjoberg.com/gtsummary/reference/
 
 ::: {.columns .v-center-container}
 ::: {.column width="55%"}
-<img src="images/gtsummary-logo.png" width="60%"/>
+<img src="../images/gtsummary-logo.png" width="60%"/>
 
 ::: {.small}
 [`r gtsummary_downloads` installations]{.emphasis} — go build something cute.

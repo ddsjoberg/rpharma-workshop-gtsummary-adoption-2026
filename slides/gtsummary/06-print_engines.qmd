@@ -2,7 +2,7 @@
 
 ## Print engines
 
-![](images/gtsummary_rmarkdown.png)
+![](../images/gtsummary_rmarkdown.png)
 
 ## One-step Word export
 
@@ -39,7 +39,7 @@ git_sha <- tryCatch(
 )
 
 # output directory inside the repo
-sfd_dir <- "save_flex_docx"
+sfd_dir <- "../save_flex_docx"
 dir.create(sfd_dir, showWarnings = FALSE, recursive = TRUE)
 
 # static report header with a live "Page X of Y" field
@@ -93,7 +93,7 @@ cards::ADAE[1:150, ] |>
 
 ```{=html}
 <iframe
-  src="save_flex_docx/ae_table.pdf"
+  src="../save_flex_docx/ae_table.pdf"
   width="100%"
   height="540"
   style="border: 1px solid #ccc; background: #fff;">
