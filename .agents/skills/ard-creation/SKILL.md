@@ -19,7 +19,6 @@ Setup: load cards; add cardx and broom as needed.
    ard_stats_t_test(), ard_regression()
 3. method not in {cardx} -> wrap broom::tidy() and convert to ARD,
    e.g. \(x) t.test(x) |> broom::tidy() inside ard_summary()
-4. no tidy method -> build the ARD brute force with tidy_as_ard(),
-   nest_for_ard(), bind_ard()
+4. no tidy method -> build the ARD brute force with dplyr, nest_for_ard(), bind_ard()
 
 Always check_ard_structure() the result.
