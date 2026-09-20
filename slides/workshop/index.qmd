@@ -4,6 +4,11 @@ subtitle: "Themes, ARDs, and Custom Extensions for Pharma"
 author: "Daniel D. Sjoberg and Shannon Pileggi"
 event: "R/Pharma 2026"
 hero-logo: "../images/gtsummary-logo.png"
+avatars:
+  - src: "../images/dan-circle.png"
+    alt: "Headshot of Daniel Sjoberg"
+  - src: "../images/shannon-pileggi-circle.png"
+    alt: "Headshot of Shannon Pileggi"
 logo: "../images/gtsummary-logo.png"
 footer:  "[Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/)"
 editor: source

@@ -209,6 +209,12 @@ details>summary {
     gap: 0.7em;
   }
 
+  .title-avatars {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+  }
+
   .title-avatar {
     width: 92px;
     height: 92px;
