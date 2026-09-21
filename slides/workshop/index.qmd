@@ -56,7 +56,7 @@ options(pillar.print_max = 10, pillar.print_min = 10)
 options(width = 120)
 ```
 
-# Clinical reporting with {gtsummary}
+# {gtsummary} fundamentals
 
 {{< include ../gtsummary/01-background.qmd >}}
 

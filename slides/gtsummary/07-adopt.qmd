@@ -1,4 +1,4 @@
-# Adopt {gtsummary}
+# Adopting {gtsummary}
 
 ## How to Adopt {gtsummary}
 
