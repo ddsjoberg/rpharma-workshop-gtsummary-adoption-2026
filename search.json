@@ -179,7 +179,7 @@
     "href": "slides/workshop/index.html#exercise",
     "title": "Enterprise {gtsummary}",
     "section": "Exercise 🏃‍➡️",
-    "text": "Exercise 🏃‍➡️\n\nOpen Exercise 1 on the workshop site and copy it into RStudio.\nCompute the nested AE tabulations as described."
+    "text": "Exercise 🏃‍➡️\n\nOpen Exercise 1 on the workshop site and copy it into Positron/RStudio.\nCompute the nested AE tabulations as described."
   },
   {
     "objectID": "slides/workshop/index.html#exercise-1-solution",
@@ -347,7 +347,7 @@
     "href": "slides/workshop/index.html#gtsummary-exercise",
     "title": "Enterprise {gtsummary}",
     "section": "{gtsummary} Exercise",
-    "text": "{gtsummary} Exercise\n\nOpen Exercise 2 on the workshop site and copy it into RStudio.\nCreate the table outlined in the script."
+    "text": "{gtsummary} Exercise\n\nOpen Exercise 2 on the workshop site and copy it into Positron/RStudio.\nCreate the table outlined in the script."
   },
   {
     "objectID": "slides/workshop/index.html#gtsummary-exercise-1",
@@ -494,7 +494,7 @@
     "href": "slides/workshop/index.html#exercise-your-own-theme",
     "title": "Enterprise {gtsummary}",
     "section": "Exercise: your own theme 🏃",
-    "text": "Exercise: your own theme 🏃\n\nOpen Exercise 3 on the workshop site and copy it into RStudio.\nFill in the four theme elements, then check and set your theme."
+    "text": "Exercise: your own theme 🏃\n\nOpen Exercise 3 on the workshop site and copy it into Positron/RStudio.\nFill in the four theme elements, then check and set your theme."
   },
   {
     "objectID": "slides/workshop/index.html#build-a-theme",
@@ -529,7 +529,7 @@
     "href": "slides/workshop/index.html#exercise-your-own-wrapper",
     "title": "Enterprise {gtsummary}",
     "section": "Exercise: your own wrapper 🏃",
-    "text": "Exercise: your own wrapper 🏃\n\nOpen Exercise 4 on the workshop site and copy it into RStudio.\nFinish tbl_pharma_summary(), then use it to summarize AGE and ETHNIC by ARM2."
+    "text": "Exercise: your own wrapper 🏃\n\nOpen Exercise 4 on the workshop site and copy it into Positron/RStudio.\nFinish tbl_pharma_summary(), then use it to summarize AGE and ETHNIC by ARM2."
   },
   {
     "objectID": "slides/workshop/index.html#tbl_pharma_summary",
@@ -692,7 +692,7 @@
     "href": "index.html#pre-work",
     "title": "Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma",
     "section": "Pre-work",
-    "text": "Pre-work\n\nBookmark this site. You’ll reference it throughout the workshop. ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026\nInstall the workshop packages on your own machine by running install.R from the repo. Please do this before the workshop — it takes a while.\nTest your Zoom setup ahead of time. The workshop is hands-on, so plan to have RStudio open alongside Zoom.",
+    "text": "Pre-work\n\nBookmark this site. You’ll reference it throughout the workshop. ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026\nInstall the workshop packages on your own machine by running install.R from the repo. Please do this before the workshop — it takes a while.\nTest your Zoom setup ahead of time. The workshop is hands-on, so plan to have Positron/RStudio/your IDE open alongside Zoom.",
     "crumbs": [
       "Home"
     ]
