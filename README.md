@@ -46,7 +46,7 @@ Full workshop site (schedule, slides, and materials):
 
 - [ ] Bookmark the [workshop site](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026). You'll reference it throughout the workshop.
 - [ ] Run [`install.R`](install.R) on your own machine to install the workshop packages. Please do this *before* the workshop.
-- [ ] Test your Zoom setup ahead of time. The workshop is hands-on, so plan to have RStudio open alongside Zoom.
+- [ ] Test your Zoom setup ahead of time. The workshop is hands-on, so plan to have Positron/RStudio/your IDE open alongside Zoom.
 
 ## Schedule
 
@@ -58,7 +58,7 @@ Full workshop site (schedule, slides, and materials):
 
 ## Instructors
 
-- **Daniel D. Sjoberg** – Executive Director of Data Sciences & Clinical Data Analytics, Kardigan
+- **Daniel D. Sjoberg** – Executive Director of Data Science & Clinical Data Analytics, Kardigan
 - **Shannon Pileggi** – Director of Data Science, The Prostate Cancer Clinical Trials Consortium
 
 Full bios are on the [workshop site](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026).

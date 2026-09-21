@@ -83,8 +83,6 @@ Full catalog of theme elements: [**{gtsummary} themes vignette**](https://www.da
 
 2. Fill in the four theme elements, then check and set your theme.
 
-3. Add the "completed" sticky note to your laptop when complete.
-
 ```{r}
 #| label: theme-exercise-countdown
 #| echo: false
@@ -245,8 +243,6 @@ The two are not rivals — the wrapper we are about to write uses a theme elemen
 1. Open the script `exercises/exercises.R` in RStudio and find [Exercise 4]{.emphasis}.
 
 2. Finish `tbl_pharma_summary()`, then use it to summarize `AGE` and `ETHNIC` by `ARM2`.
-
-3. Add the "completed" sticky note to your laptop when complete.
 
 ```{r}
 #| label: wrapper-exercise-countdown

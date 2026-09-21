@@ -326,8 +326,6 @@ ard_hier_c |>
 
 2. Compute the nested AE tabulations as described.
 
-3. Add the "completed" sticky note to your laptop when complete.
-
 
 ```{r}
 #| label: countdown
