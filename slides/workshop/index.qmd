@@ -67,10 +67,24 @@ options(width = 120)
 {{< include ../gtsummary/04-tbl_merge.qmd >}}
 
 
-## Break ☕ {.center}
+## Break ☕
 
-::: {.largest}
-Back in 10 minutes
+::: {.small}
+[Covered so far: Analysis Results Datasets · {gtsummary} fundamentals]{.muted}
+:::
+
+### Up next
+
+::: {.small}
+
+3.  [ARD-first tables]{.emphasis} — every cell traceable, and QC by comparing one ARD against another.
+
+4.  [Print engines]{.emphasis} — {gt}, {flextable}, and submission-ready Word output.
+
+5.  [Adopting {gtsummary}]{.emphasis} — a house theme, wrappers of your own, and {crane}.
+
+6.  [Coding agents]{.emphasis} — writing your standards down so an agent follows them without being reminded.
+
 :::
 
 ```{r}

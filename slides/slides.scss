@@ -20,6 +20,11 @@ $custom-col: #FF6B6B;
   color: $custom-col;
 }
 
+// already-covered items, e.g. on the break slide
+.muted {
+  color: rgba(26, 26, 64, 0.4);
+}
+
 details>summary {
   font-size: 0.75em;
 }
