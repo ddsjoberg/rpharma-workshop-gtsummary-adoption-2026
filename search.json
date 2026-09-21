@@ -186,7 +186,7 @@
     "href": "slides/workshop/index.html#exercise",
     "title": "Enterprise {gtsummary}",
     "section": "Exercise 🏃‍➡️",
-    "text": "Exercise 🏃‍➡️\n\nOpen the script exercises/exercises.R in RStudio and find Exercise 1.\nCompute the nested AE tabulations as described.\nAdd the “completed” sticky note to your laptop when complete."
+    "text": "Exercise 🏃‍➡️\n\nOpen the script exercises/exercises.R in RStudio and find Exercise 1.\nCompute the nested AE tabulations as described."
   },
   {
     "objectID": "slides/workshop/index.html#cardx",
@@ -354,7 +354,7 @@
     "href": "slides/workshop/index.html#gtsummary-exercise",
     "title": "Enterprise {gtsummary}",
     "section": "{gtsummary} Exercise",
-    "text": "{gtsummary} Exercise\n\nOpen the script exercises/exercises.R in RStudio and find Exercise 2.\nCreate the table outlined in the script.\nAdd the “completed” sticky note to your laptop when complete."
+    "text": "{gtsummary} Exercise\n\nOpen the script exercises/exercises.R in RStudio and find Exercise 2.\nCreate the table outlined in the script."
   },
   {
     "objectID": "slides/workshop/index.html#gtsummary-exercise-1",
@@ -494,7 +494,7 @@
     "href": "slides/workshop/index.html#exercise-your-own-theme",
     "title": "Enterprise {gtsummary}",
     "section": "Exercise: your own theme 🏃",
-    "text": "Exercise: your own theme 🏃\n\nOpen the script exercises/exercises.R in RStudio and find Exercise 3.\nFill in the four theme elements, then check and set your theme.\nAdd the “completed” sticky note to your laptop when complete."
+    "text": "Exercise: your own theme 🏃\n\nOpen the script exercises/exercises.R in RStudio and find Exercise 3.\nFill in the four theme elements, then check and set your theme."
   },
   {
     "objectID": "slides/workshop/index.html#build-a-theme",
@@ -536,7 +536,7 @@
     "href": "slides/workshop/index.html#exercise-your-own-wrapper",
     "title": "Enterprise {gtsummary}",
     "section": "Exercise: your own wrapper 🏃",
-    "text": "Exercise: your own wrapper 🏃\n\nOpen the script exercises/exercises.R in RStudio and find Exercise 4.\nFinish tbl_pharma_summary(), then use it to summarize AGE and ETHNIC by ARM2.\nAdd the “completed” sticky note to your laptop when complete."
+    "text": "Exercise: your own wrapper 🏃\n\nOpen the script exercises/exercises.R in RStudio and find Exercise 4.\nFinish tbl_pharma_summary(), then use it to summarize AGE and ETHNIC by ARM2."
   },
   {
     "objectID": "slides/workshop/index.html#tbl_pharma_summary",
@@ -719,7 +719,7 @@
     "href": "index.html#instructors",
     "title": "Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma",
     "section": "Instructors",
-    "text": "Instructors\n\n\n\nDaniel D. Sjoberg\nExecutive Director of Data Sciences & Clinical Data Analytics, Kardigan (he/him)\nDaniel leads the Data Science and Clinical Analytics groups at Kardigan. Previously was a Senior Principal Innovation Data Scientist and Real-time Analytics Group Lead at Genentech, a Lead Data Science Manager at the Prostate Cancer Clinical Trials Consortium, and an academic biostatistician at Memorial Sloan Kettering Cancer Center for 13 years. He enjoys R package development, creating many packages on CRAN, R-Universe, and GitHub. He’s a co-organizer of rainbowR and of the R Medicine Conference, and a recipient of the Brian Bole Award for Excellence from Open Source in Pharma and the ASA Innovation in Programming Award.\n\n   \n\n\n\n\nShannon Pileggi\nDirector of Data Science, The Prostate Cancer Clinical Trials Consortium (she/her)\nShannon is a Director of Data Science at The Prostate Cancer Clinical Trials Consortium, an occasional blogger, a frequent workshop instructor, and a member of the R-Ladies Leadership team. She enjoys automating data wrangling and data outputs, and making both data insights and learning new material digestible.",
+    "text": "Instructors\n\n\n\nDaniel D. Sjoberg\nExecutive Director of Data Science & Clinical Data Analytics, Kardigan (he/him)\nDaniel leads the Data Science and Clinical Analytics groups at Kardigan. Previously was a Senior Principal Innovation Data Scientist and Real-time Analytics Group Lead at Genentech, a Lead Data Science Manager at the Prostate Cancer Clinical Trials Consortium, and an academic biostatistician at Memorial Sloan Kettering Cancer Center for 13 years. He enjoys R package development, creating many packages on CRAN, R-Universe, and GitHub. He’s a co-organizer of rainbowR and of the R Medicine Conference, and a recipient of the Brian Bole Award for Excellence from Open Source in Pharma and the ASA Innovation in Programming Award.\n\n   \n\n\n\n\nShannon Pileggi\nDirector of Data Science, The Prostate Cancer Clinical Trials Consortium (she/her)\nShannon is a Director of Data Science at The Prostate Cancer Clinical Trials Consortium, an occasional blogger, a frequent workshop instructor, and a member of the R-Ladies Leadership team. She enjoys automating data wrangling and data outputs, and making both data insights and learning new material digestible.",
     "crumbs": [
       "Home"
     ]
