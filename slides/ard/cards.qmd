@@ -302,7 +302,6 @@ countdown(minutes = 7, play_sound = TRUE)
 ```{r}
 #| label: exercise-1-solution
 #| message: true
-#| output-location: slide
 #| R.options:
 #|   pillar.print_max: 8
 #|   pillar.print_min: 8
@@ -525,22 +524,22 @@ cat(
 )
 ```
 
-## Recap: what we covered
+<!-- ## Recap: what we covered -->
 
-::: {.small}
+<!-- ::: {.small} -->
 
-Starting from raw data, we built ARDs and never touched a layout:
+<!-- Starting from raw data, we built ARDs and never touched a layout: -->
 
-- **Univariate summaries** with `ard_summary()` (continuous) and `ard_tabulate()` (categorical) — custom statistics, `by` groups, and formatting
+<!-- - **Univariate summaries** with `ard_summary()` (continuous) and `ard_tabulate()` (categorical) — custom statistics, `by` groups, and formatting -->
 
-- **Hierarchical summaries** with `ard_stack_hierarchical()` / `ard_stack_hierarchical_count()` for nested AE tabulations (built on the lower-level `ard_hierarchical*()` functions)
+<!-- - **Hierarchical summaries** with `ard_stack_hierarchical()` / `ard_stack_hierarchical_count()` for nested AE tabulations (built on the lower-level `ard_hierarchical*()` functions) -->
 
-- **Stacking** everything into a single ARD with `ard_stack()` — overall rows, total N, and all
+<!-- - **Stacking** everything into a single ARD with `ard_stack()` — overall rows, total N, and all -->
 
-- **Statistical results** with `{cardx}`: t-tests, regression models, and wrapping your own methods
+<!-- - **Statistical results** with `{cardx}`: t-tests, regression models, and wrapping your own methods -->
 
-- A structure that holds together **even when a statistic can't be computed**
-:::
+<!-- - A structure that holds together **even when a statistic can't be computed** -->
+<!-- ::: -->
 
 
 ## Why ARDs? 🤝
