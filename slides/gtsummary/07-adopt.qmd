@@ -323,7 +323,7 @@ We just wrote a one-function version of this. {crane} is the same idea, maintain
 :::
 
 ```{r}
-#| label: tbl_roche_summary
+#| label: roche-summary
 #| output-location: slide
 library(crane)
 
@@ -383,7 +383,7 @@ Same named list, same `set_theme` argument — just with `style_roche_percent()`
 :::
 
 ```{r}
-#| label: tbl_roche_summary_example
+#| label: roche-summary-example
 #| output-location: column
 theme_gtsummary_roche()
 

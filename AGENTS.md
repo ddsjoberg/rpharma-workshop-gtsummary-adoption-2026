@@ -43,7 +43,7 @@ copied even when a reference lives in a template partial or raw HTML.
 **Never start a chunk label with `tbl-`, `fig-` or `lst-`.** Quarto reads those
 prefixes as cross-reference targets, wraps the output in a float and prints an
 auto-numbered "Table 1" caption above the slide's table. Use underscores
-(`tbl_roche_summary`) or a plain topic name instead.
+(`tbl_merge`) or a plain topic name (`roche-summary`) instead.
 
 ## R style
 
