@@ -48,14 +48,6 @@ Full workshop site (schedule, slides, and materials):
 - [ ] Run [`install.R`](install.R) on your own machine to install the workshop packages. Please do this *before* the workshop.
 - [ ] Test your Zoom setup ahead of time. The workshop is hands-on, so plan to have Positron/RStudio/your IDE open alongside Zoom.
 
-## Schedule
-
-| Time          | Activity                            |
-| :------------ | :---------------------------------- |
-| 11:00 – 11:50 | Analysis Results Datasets           |
-| 11:50 – 12:00 | *Break*                             |
-| 12:00 – 13:00 | Clinical Reporting with {gtsummary} |
-
 ## Instructors
 
 - **Daniel D. Sjoberg** – Executive Director of Data Science & Clinical Data Analytics, Kardigan
