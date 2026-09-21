@@ -70,6 +70,13 @@
     "text": "Proposed Metadata Framework in the ARS\n\n\nThe ARS provides a metadata-driven infrastructure for analysis\n{cards} serves as the engine for the analysis"
   },
   {
+    "objectID": "slides/workshop/index.html#ards-using-cards",
+    "href": "slides/workshop/index.html#ards-using-cards",
+    "title": "Enterprise {gtsummary}",
+    "section": "ARDs using {cards}",
+    "text": "ARDs using {cards}"
+  },
+  {
     "objectID": "slides/workshop/index.html#cards-introduction",
     "href": "slides/workshop/index.html#cards-introduction",
     "title": "Enterprise {gtsummary}",
@@ -420,15 +427,15 @@
     "text": "ARD + QC: Compare with compare_ard()\n\nWe built ard_table with gather_ard(), and ard_source independently from the source data with cards::ard_stack(). compare_ard() lines the two up on their key columns and reports any rows that differ — here, both the raw stat and the formatted stat_fmt.\n\n\ncards::compare_ard(ard_table, ard_source, columns = c(\"stat\", \"stat_fmt\"))\n\nThe comparison `keys` are \"group1\", \"group1_level\", \"variable\", \"variable_level\", and \"stat_name\".\nThe comparison columns are \"stat\" and \"stat_fmt\".\n\n\n── Mis-matched Rows ────────────────────────────────────────────────────────────────────────────────────────────────────\n\n✔ No rows in `x` that do not appear in `y`.\n\n✔ No rows in `y` that do not appear in `x`.\n\n\n\n── Comparison Results ──────────────────────────────────────────────────────────────────────────────────────────────────\n\n✔ No differences found in column \"stat\".\n\n✔ No differences found in column \"stat_fmt\".\n\n\n\n\n\nNeed a single yes/no? cards::is_ard_equal() returns TRUE/FALSE, and cards::check_ard_equal() throws an error when they differ — handy in an automated QC script you re-run as data accrue."
   },
   {
-    "objectID": "slides/workshop/index.html#ard-first-tables",
-    "href": "slides/workshop/index.html#ard-first-tables",
+    "objectID": "slides/workshop/index.html#ard-first-tables-1",
+    "href": "slides/workshop/index.html#ard-first-tables-1",
     "title": "Enterprise {gtsummary}",
     "section": "ARD-first Tables",
     "text": "ARD-first Tables\nSimilar to functions that accept a data frame, the package exports functions with nearly identical APIs that accept an ARD.\n\n\ntbl_summary()\n\ntbl_hierarchical()\n\ntbl_continuous()\n\ntbl_wide_summary()\n\ntbl_ard_summary()\n\ntbl_ard_hierarchical()\n\ntbl_ard_continuous()\n\ntbl_ard_wide_summary()"
   },
   {
-    "objectID": "slides/workshop/index.html#ard-first-tables-1",
-    "href": "slides/workshop/index.html#ard-first-tables-1",
+    "objectID": "slides/workshop/index.html#ard-first-tables-2",
+    "href": "slides/workshop/index.html#ard-first-tables-2",
     "title": "Enterprise {gtsummary}",
     "section": "ARD-first Tables",
     "text": "ARD-first Tables\nWe can use the skills we learned earlier today to create ARDs for gtsummary tables, then pass the ARD to tbl_ard_summary().\n\n\nlibrary(cards)\n\nard &lt;- ard_stack(\n  data = adsl,\n  ard_summary(variables = AGE),\n  ard_tabulate(variables = ETHNIC),\n  ard_tabulate_value(variables = FEMALE),\n  # add these for best-looking tables\n  .attributes = TRUE,\n  .missing = TRUE\n)\ntbl_ard_summary(ard)\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nOverall1\n\n\n\n\nAge\n77.0 (70.0, 81.0)\n\n\nEthnicity\n\n\n\n\n    HISPANIC OR LATINO\n12 (4.7%)\n\n\n    NOT HISPANIC OR LATINO\n242 (95.3%)\n\n\nFemale\n143 (56.3%)\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\n\n\n\nThe .attributes=TRUE call adds column attributes, like labels, to the ARD table, which leads to better defaults by displaying the column labels in the table."
@@ -448,8 +455,8 @@
     "text": "ARD-first Table Shells\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPlacebo\nN = xx1\nXanomeline\nN = xx1\n\n\n\n\nEthnicity\n\n\n\n\n\n\n    HISPANIC OR LATINO\nxx (xx%)\nxx (xx%)\n\n\n    NOT HISPANIC OR LATINO\nxx (xx%)\nxx (xx%)\n\n\n\n1 n (%)"
   },
   {
-    "objectID": "slides/workshop/index.html#print-engines",
-    "href": "slides/workshop/index.html#print-engines",
+    "objectID": "slides/workshop/index.html#print-engines-1",
+    "href": "slides/workshop/index.html#print-engines-1",
     "title": "Enterprise {gtsummary}",
     "section": "Print engines",
     "text": "Print engines"
