@@ -308,3 +308,42 @@ details>summary {
   font-size: 1.6em;
   color: #7090A5;
 }
+
+.reveal .instructor-cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5em;
+  margin-top: 1em;
+}
+
+.reveal .instructor-cards figure {
+  margin: 0;
+  flex: 0 1 42%;
+  text-align: center;
+}
+
+.reveal .instructor-cards img {
+  display: block;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 0.5em;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+  box-shadow: #26394d 0px 6px 16px -6px;
+}
+
+.reveal .instructor-cards .name {
+  display: block;
+  font-weight: 700;
+  font-size: 0.8em;
+  color: $presentation-heading-color;
+}
+
+.reveal .instructor-cards .role {
+  display: block;
+  font-size: 0.55em;
+  color: #7090A5;
+  line-height: 1.3;
+}

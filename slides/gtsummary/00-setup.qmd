@@ -17,13 +17,34 @@ fa_fill <- "#606060"
 
 ::: {.columns .v-center-container}
 ::: {.column width="60%"}
-<img src="../images/pharmaverse-hex.png" alt="drawing" width="70%"/>
+<img src="../images/gtsummary-logo.png" alt="gtsummary logo" width="55%"/>
 :::
 
 ::: {.column width="40%"}
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA4.0).
 :::
 :::
+
+## Your instructors
+
+```{=html}
+<div class="instructor-cards">
+  <figure>
+    <img src="../images/dan-circle.png" alt="Headshot of Daniel Sjoberg">
+    <figcaption>
+      <span class="name">Daniel D. Sjoberg</span>
+      <span class="role">Executive Director of Data Sciences &amp; Clinical Data Analytics, Kardigan</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="../images/shannon-pileggi-circle.png" alt="Headshot of Shannon Pileggi">
+    <figcaption>
+      <span class="name">Shannon Pileggi</span>
+      <span class="role">Associate Director of Data Science, The Prostate Cancer Clinical Trials Consortium</span>
+    </figcaption>
+  </figure>
+</div>
+```
 
 ## Questions
 
