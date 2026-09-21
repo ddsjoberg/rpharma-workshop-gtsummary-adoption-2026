@@ -264,7 +264,7 @@ show_header_names(tbl)
 
 ## {gtsummary} Exercise
 
-1. Open the script `exercises/05-tables-gtsummary.R` in RStudio.
+1. Open the script `exercises/exercises.R` in RStudio and find [Exercise 2]{.emphasis}.
 
 2. Create the table outlined in the script.
 

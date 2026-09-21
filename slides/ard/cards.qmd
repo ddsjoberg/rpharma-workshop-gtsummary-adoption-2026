@@ -481,7 +481,7 @@ ard_hier_c |>
 
 ## Exercise 🏃‍➡️
 
-1. Open the script `exercises/04-ARD.R` in RStudio
+1. Open the script `exercises/exercises.R` in RStudio and find [Exercise 1]{.emphasis}.
 
 2. Compute the nested AE tabulations as described.
 

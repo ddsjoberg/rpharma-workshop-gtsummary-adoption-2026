@@ -5,49 +5,22 @@ editor: source
 
 # Exercises
 
-## `04-ARD.R`
-
 ```{r}
 #| echo: false
 #| class-output: "sourceCode r"
 
-"04-ARD.R" |> 
-  readLines() |> 
-  cat(sep = "\n")
-```
-
-## `05-tables-gtsummary.R`
-
-```{r}
-#| echo: false
-#| class-output: "sourceCode r"
-
-"05-tables-gtsummary.R" |>
+"exercises.R" |>
   readLines() |>
   cat(sep = "\n")
 ```
 
-
 # Solutions
 
-## `04-ARD.R`
-
 ```{r}
 #| echo: false
 #| class-output: "sourceCode r"
 
-"answers/04-ARD-answer.R" |> 
-  readLines() |> 
-  cat(sep = "\n")
-```
-
-## `05-tables-gtsummary.R`
-
-```{r}
-#| echo: false
-#| class-output: "sourceCode r"
-
-"answers/05-tables-gtsummary-answer.R" |>
+"answers/exercises-answer.R" |>
   readLines() |>
   cat(sep = "\n")
 ```

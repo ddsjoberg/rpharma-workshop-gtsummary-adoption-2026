@@ -77,9 +77,13 @@ auto-numbered "Table 1" caption above the slide's table. Use underscores
 
 ## Exercises
 
-Participant scripts are `exercises/<NN-topic>.R`. Solutions are
-`exercises/answers/<NN-topic>-answer.R` and are identical to the exercise
-except the blanks are filled in.
+There is **one** participant script, `exercises/exercises.R`, holding all four
+exercises behind a single shared setup block. The solution is
+`exercises/answers/exercises-answer.R` and is identical except the blanks are
+filled in. Exercise numbers match the order they come up in the deck, and three
+slides point at them by number (`slides/ard/cards.qmd`,
+`slides/gtsummary/02-tbl_summary.qmd`, and two in
+`slides/gtsummary/07-adopt.qmd`).
 
 Blanks are empty named arguments so the skeleton still parses:
 
@@ -88,10 +92,21 @@ Blanks are empty named arguments so the skeleton still parses:
       variables = ,
     )
 
+**That style does not parse everywhere.** `list("key" = )` and a bare missing
+argument are fine, but R rejects an empty default in a function signature
+(`function(x = )`) and an empty formula right-hand side
+(`all_continuous() ~ ,`). Where a blank would land in one of those, use a
+placeholder that parses — `statistic = NULL` — with a `# TODO:` comment saying
+what to put there. Exercise 4 does both.
+
 Tasks are lettered `# A.`, `# B. [*BONUS*]`, with `# HINT:` comments that
 become "We used ..." in the answer. Adding or renaming an exercise means
-editing **three** places: the exercise, the answer, and both the `# Exercises`
-and `# Solutions` sections of `exercises/exercises.qmd`.
+editing the exercise, the answer, and the slide that sends people to it —
+`exercises/exercises.qmd` renders whatever the two scripts contain, so it needs
+no change.
+
+Always `parse()` both scripts after editing; they are never executed at render
+time, so a syntax error would otherwise surface only in front of the room.
 
 ## Skills
 
