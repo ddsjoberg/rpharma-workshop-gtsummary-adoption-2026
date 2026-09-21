@@ -25,7 +25,7 @@
     "href": "slides/workshop/index.html#what-we-will-cover",
     "title": "Enterprise {gtsummary}",
     "section": "What we will cover",
-    "text": "What we will cover\n\n\nAnalysis Results Datasets — build the numbers first with {cards}, so every table has something auditable behind it.\n{gtsummary} fundamentals — tbl_summary(), hierarchical adverse event tables, merging and stacking.\nARD-first tables — every cell traceable, and QC by comparing one ARD against another.\nPrint engines — {gt}, {flextable}, and submission-ready Word output.\nAdopting {gtsummary} — a house theme, wrappers of your own, and {crane}.\nCoding agents — writing your standards down so an agent follows them without being reminded.\n\n\n\n\n\nBy the end: a concrete plan for standardizing table production across your group."
+    "text": "What we will cover\n\nAnalysis Results Datasets — build the numbers first with {cards}, so every table has something auditable behind it.\n{gtsummary} fundamentals — tbl_summary(), hierarchical adverse event tables, merging and stacking.\nARD-first tables — every cell traceable, and QC by comparing one ARD against another.\nPrint engines — {gt}, {flextable}, and submission-ready Word output.\nAdopting {gtsummary} — a house theme, wrappers of your own, and {crane}.\nCoding agents — writing your standards down so an agent follows them without being reminded.\n\n\n\n\nBy the end: a concrete plan for standardizing table production across your group."
   },
   {
     "objectID": "slides/workshop/index.html#what-are-ards",
@@ -60,14 +60,7 @@
     "href": "slides/workshop/index.html#proposed-metadata-framework-in-the-ars",
     "title": "Enterprise {gtsummary}",
     "section": "Proposed Metadata Framework in the ARS",
-    "text": "Proposed Metadata Framework in the ARS\n\n\nThe ARS provides a metadata-driven infrastructure for analysis"
-  },
-  {
-    "objectID": "slides/workshop/index.html#proposed-metadata-framework-in-the-ars-1",
-    "href": "slides/workshop/index.html#proposed-metadata-framework-in-the-ars-1",
-    "title": "Enterprise {gtsummary}",
-    "section": "Proposed Metadata Framework in the ARS",
-    "text": "Proposed Metadata Framework in the ARS\n\n\nThe ARS provides a metadata-driven infrastructure for analysis\n{cards} serves as the engine for the analysis"
+    "text": "Proposed Metadata Framework in the ARS\n\n\nThe ARS provides a metadata-driven infrastructure for analysis\n{cards} serves as the engine for the analysis and {gtsummary} as the builder-of-tables"
   },
   {
     "objectID": "slides/workshop/index.html#ards-using-cards",
@@ -413,6 +406,13 @@
     "text": "tbl_stack() to combine vertically\n\ntbl_drug_a &lt;- filter(adsl, ARM2 == \"Placebo\") |&gt; \n  tbl_summary(include = ETHNIC)\ntbl_drug_b &lt;- filter(adsl, ARM2 == \"Xanomeline\") |&gt; \n  tbl_summary(include = ETHNIC)\n\n# stack the two tables \nlist(tbl_drug_a, tbl_drug_b) |&gt; \n  tbl_stack(group_header = c(\"Placebo\", \"Xanomeline\"), quiet = TRUE) |&gt; # optionally include headers for each table\n  modify_header(all_stat_cols() ~ \"**Summary Statistics**\")\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nSummary Statistics1\n\n\n\n\nPlacebo\n\n\nEthnicity\n\n\n\n\n    HISPANIC OR LATINO\n3 (3.5%)\n\n\n    NOT HISPANIC OR LATINO\n83 (97%)\n\n\nXanomeline\n\n\nEthnicity\n\n\n\n\n    HISPANIC OR LATINO\n9 (5.4%)\n\n\n    NOT HISPANIC OR LATINO\n159 (95%)\n\n\n\n1 n (%)"
   },
   {
+    "objectID": "slides/workshop/index.html#break",
+    "href": "slides/workshop/index.html#break",
+    "title": "Enterprise {gtsummary}",
+    "section": "Break ☕",
+    "text": "Break ☕\n\nBack in 10 minutes"
+  },
+  {
     "objectID": "slides/workshop/index.html#where-are-the-ards",
     "href": "slides/workshop/index.html#where-are-the-ards",
     "title": "Enterprise {gtsummary}",
@@ -487,14 +487,14 @@
     "href": "slides/workshop/index.html#how-to-adopt-gtsummary",
     "title": "Enterprise {gtsummary}",
     "section": "How to Adopt {gtsummary}",
-    "text": "How to Adopt {gtsummary}\n\nThree moves, in order.\n1. Set a theme\nYour house defaults — rounding, headers, print engine — applied to every table, without anyone passing an argument.\n2. Write wrappers\nNamed functions for the tables your team builds over and over, so the shape of a table is written down once.\n3. Ship them in a package\nAdoption becomes a single library() call, and the standard is versioned and testable.\n\n\n\n\nWe will build 1 and 2 from scratch, then look at {crane} — Roche’s answer to all three."
+    "text": "How to Adopt {gtsummary}\nThree moves, in order.\n1. Set a theme\nYour house defaults — rounding, headers, print engine — applied to every table, without anyone passing an argument.\n2. Write wrappers\nNamed functions for the tables your team builds over and over, so the shape of a table is written down once.\n3. Ship them in a package\nAdoption becomes a single library() call, and the standard is versioned and testable.\n\n\n\nWe will build 1 and 2 from scratch, then look at {crane} — Roche’s answer to all three."
   },
   {
     "objectID": "slides/workshop/index.html#themes-that-ship-with-gtsummary",
     "href": "slides/workshop/index.html#themes-that-ship-with-gtsummary",
     "title": "Enterprise {gtsummary}",
     "section": "Themes that ship with {gtsummary}",
-    "text": "Themes that ship with {gtsummary}\n\nA theme is set once, before you build any tables, and every table in the session picks it up.\n\ntheme_gtsummary_journal(\"jama\") — defaults matching a journal’s guidelines\ntheme_gtsummary_compact() — smaller font and cell padding\ntheme_gtsummary_language(\"es\") — translate every table\ntheme_gtsummary_printer(print_engine = \"flextable\") — change the print engine\n\nThemes stack: call several, and each one layers onto the last.\n\n\ntheme_gtsummary_journal(\"jama\")\ntheme_gtsummary_compact()\n\n\n\n\ntheme_gtsummary_printer() is a shortcut for a single element. Next we build a theme that sets several at once."
+    "text": "Themes that ship with {gtsummary}\nA theme is set once, before you build any tables, and every table in the session picks it up.\n\ntheme_gtsummary_journal(\"jama\") — defaults matching a journal’s guidelines\ntheme_gtsummary_compact() — smaller font and cell padding\ntheme_gtsummary_language(\"es\") — translate every table\ntheme_gtsummary_printer(print_engine = \"flextable\") — change the print engine\n\nThemes stack: call several, and each one layers onto the last.\n\ntheme_gtsummary_journal(\"jama\")\ntheme_gtsummary_compact()\n\n\n\n\ntheme_gtsummary_printer() is a shortcut for a single element. Next we build a theme that sets several at once."
   },
   {
     "objectID": "slides/workshop/index.html#a-theme-is-a-named-list",
@@ -518,13 +518,6 @@
     "text": "Build a theme\nShip it as a function, the same way {gtsummary} and {crane} do — and start from a theme that already exists.\n\ntheme_gtsummary_rpharma &lt;- function(set_theme = TRUE) {\n  lst_theme &lt;-\n    utils::modifyList(\n      # start from the shipped compact theme, then layer ours on top\n      theme_gtsummary_compact(set_theme = FALSE),\n      list(\n        \"pkgwide-str:theme_name\"        = \"R/Pharma 2026\",\n        \"pkgwide-str:print_engine\"      = \"flextable\",\n        \"tbl_summary-fn:percent_fun\"    = scales::label_number(scale = 100, accuracy = 0.1),\n        \"pkgwide-fn:pvalue_fun\"         = label_style_pvalue(digits = 3),\n        \"tbl_summary-str:header-withby\" = \"**{level}**  \\n(N = {n})\"\n      )\n    )\n\n  if (set_theme == TRUE) set_gtsummary_theme(lst_theme)\n  invisible(lst_theme)\n}"
   },
   {
-    "objectID": "slides/workshop/index.html#check-it-then-set-it",
-    "href": "slides/workshop/index.html#check-it-then-set-it",
-    "title": "Enterprise {gtsummary}",
-    "section": "Check it, then set it",
-    "text": "Check it, then set it\n\ncheck_gtsummary_theme(theme_gtsummary_rpharma(set_theme = FALSE))\n\n✔ Looks good!\n\n\n\nIn a script, set the theme once at the top — and clear it when you are done.\n\n\ntheme_gtsummary_rpharma()  # set for the rest of the session\nreset_gtsummary_theme()    # back to package defaults\n\n\n\n\nset_theme = FALSE returns the list without setting it — which is what with_gtsummary_theme() needs to theme a single table."
-  },
-  {
     "objectID": "slides/workshop/index.html#before-and-after",
     "href": "slides/workshop/index.html#before-and-after",
     "title": "Enterprise {gtsummary}",
@@ -543,7 +536,7 @@
     "href": "slides/workshop/index.html#themes-end-where-names-begin",
     "title": "Enterprise {gtsummary}",
     "section": "Themes end where names begin",
-    "text": "Themes end where names begin\n\nA theme changes defaults — everywhere, all at once, for functions that already exist.\nA wrapper earns its place when you want something a default cannot give you:\n\na name your team already says out loud — “the demography table”\ndocumentation and tests that live with the function\na table built from several {gtsummary} calls, not one\ndefaults that apply to this table only, not the whole session\n\n\n\n\n\nThe two are not rivals — the wrapper we are about to write uses a theme element to set its own default."
+    "text": "Themes end where names begin\nA theme changes defaults — everywhere, all at once, for functions that already exist.\nA wrapper earns its place when you want something a default cannot give you:\n\na name your team already says out loud — “the demography table”\ndocumentation and tests that live with the function\na table built from several {gtsummary} calls, not one\ndefaults that apply to this table only, not the whole session\n\n\n\n\nThe two are not rivals — the wrapper we are about to write uses a theme element to set its own default."
   },
   {
     "objectID": "slides/workshop/index.html#exercise-your-own-wrapper",
@@ -648,7 +641,7 @@
     "href": "slides/workshop/index.html#the-golden-path",
     "title": "Enterprise {gtsummary}",
     "section": "The golden path",
-    "text": "The golden path\nGive the agent an explicit priority order for building a table:\n\n\nSet the theme — crane::theme_gtsummary_roche() after loading packages.\nPrefer {crane} wrappers — tbl_roche_summary(), tbl_baseline_chg(), … when one fits.\nFall back to {gtsummary} — tbl_summary(), tbl_hierarchical(), …\nARD-first for complex/custom — build ARDs with {cards}/{cardx}, render with gtsummary::tbl_ard_*().\nLast resort — build the ARD yourself, then gtsummary::as_gtsummary().\n\n\n\n\n\nCross-cutting: prep data with tidyverse; always gather_ard() the result for QC and traceability."
+    "text": "The golden path\nGive the agent an explicit priority order for building a table:\n\nSet the theme — crane::theme_gtsummary_roche() after loading packages.\nPrefer {crane} wrappers — tbl_roche_summary(), tbl_baseline_chg(), … when one fits.\nFall back to {gtsummary} — tbl_summary(), tbl_hierarchical(), …\nARD-first for complex/custom — build ARDs with {cards}/{cardx}, render with gtsummary::tbl_ard_*().\nLast resort — build the ARD yourself, then gtsummary::as_gtsummary().\n\n\n\n\nCross-cutting: prep data with tidyverse; always gather_ard() the result for QC and traceability."
   },
   {
     "objectID": "slides/workshop/index.html#a-gtsummary-skill",
