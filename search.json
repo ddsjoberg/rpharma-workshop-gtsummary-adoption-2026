@@ -154,55 +154,6 @@
     "text": "{cards}: Stacking utilities\n\n\ndata and .by are shared by all ard_* calls\nAdditional Options .overall, .missing, .attributes, and .total_n provide even more results\nBy default, summaries of the .by variable are included\n\n\n\nadsl |&gt;\n  ard_stack(\n    .by = ARM2,\n    ard_summary(variables = AGE, statistic = ~ continuous_summary_fns(c(\"mean\",\"sd\"))), \n    ard_tabulate(variables = AGEGR1, statistic = ~ \"p\")\n  )  \n\n# An ARD data frame: 14 × 11\n  group1 group1_level variable variable_level context  stat_name stat_label   stat fmt_fun warning error \n  &lt;chr&gt;  &lt;list&gt;       &lt;chr&gt;    &lt;list&gt;         &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;      &lt;list&gt; &lt;list&gt;  &lt;list&gt;  &lt;list&gt;\n1 ARM2   Placebo      AGE      &lt;NULL&gt;         summary  mean      Mean       75.2   1       &lt;NULL&gt;  &lt;NULL&gt;\n2 ARM2   Placebo      AGE      &lt;NULL&gt;         summary  sd        SD          8.59  1       &lt;NULL&gt;  &lt;NULL&gt;\n3 ARM2   Placebo      AGEGR1   18-64          tabulate p         %           0.163 &lt;fn&gt;    &lt;NULL&gt;  &lt;NULL&gt;\n4 ARM2   Placebo      AGEGR1   &gt;64            tabulate p         %           0.837 &lt;fn&gt;    &lt;NULL&gt;  &lt;NULL&gt;\n5 ARM2   Xanomeline   AGE      &lt;NULL&gt;         summary  mean      Mean       75.0   1       &lt;NULL&gt;  &lt;NULL&gt;\n6 ARM2   Xanomeline   AGE      &lt;NULL&gt;         summary  sd        SD          8.09  1       &lt;NULL&gt;  &lt;NULL&gt;\n# ℹ 8 more rows"
   },
   {
-    "objectID": "slides/workshop/index.html#quick-recap",
-    "href": "slides/workshop/index.html#quick-recap",
-    "title": "Enterprise {gtsummary}",
-    "section": "Quick recap!",
-    "text": "Quick recap!\n\n\nLet’s compute summaries for a demography table that includes age (AGE), age group (AGEGR1), and sex (SEX) by treatment (ARM2)\nFirst, we compute the continuous summaries for AGE by ARM2\n\n\n\nard_summary(\n  data = adsl,\n  by = ,\n  variables =\n)"
-  },
-  {
-    "objectID": "slides/workshop/index.html#quick-recap-1",
-    "href": "slides/workshop/index.html#quick-recap-1",
-    "title": "Enterprise {gtsummary}",
-    "section": "Quick recap!",
-    "text": "Quick recap!\n\n\nLet’s compute summaries for a demography table that includes age (AGE), age group (AGEGR1), and sex (SEX) by treatment (ARM2)\nFirst, we compute the continuous summaries for AGE by ARM2\n\n\n\nard_summary(\n  data = adsl,\n  by = ARM2,\n  variables = AGE\n)\n\n# An ARD data frame: 16 × 10\n  group1 group1_level variable context stat_name stat_label   stat fmt_fun warning error \n* &lt;chr&gt;  &lt;list&gt;       &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;      &lt;list&gt;  &lt;list&gt; &lt;list&gt;  &lt;list&gt;\n1 ARM2   Placebo      AGE      summary N         N           86          0 &lt;NULL&gt;  &lt;NULL&gt;\n2 ARM2   Placebo      AGE      summary mean      Mean        75.2        1 &lt;NULL&gt;  &lt;NULL&gt;\n3 ARM2   Placebo      AGE      summary sd        SD           8.59       1 &lt;NULL&gt;  &lt;NULL&gt;\n4 ARM2   Placebo      AGE      summary median    Median      76          1 &lt;NULL&gt;  &lt;NULL&gt;\n5 ARM2   Placebo      AGE      summary p25       Q1          69          1 &lt;NULL&gt;  &lt;NULL&gt;\n6 ARM2   Placebo      AGE      summary p75       Q3          82          1 &lt;NULL&gt;  &lt;NULL&gt;\n7 ARM2   Placebo      AGE      summary min       Min         52          1 &lt;NULL&gt;  &lt;NULL&gt;\n# ℹ 9 more rows"
-  },
-  {
-    "objectID": "slides/workshop/index.html#quick-recap-2",
-    "href": "slides/workshop/index.html#quick-recap-2",
-    "title": "Enterprise {gtsummary}",
-    "section": "Quick recap!",
-    "text": "Quick recap!\n\n\nLet’s compute summaries for a demography table that includes age (AGE), age group (AGEGR1), and sex (SEX) by treatment (ARM2)\nNext, we compute the categorical summaries for AGEGR1 and SEX by ARM2\n\n\n\nard_tabulate(\n  data = adsl,\n  by = ,\n  variables =\n)"
-  },
-  {
-    "objectID": "slides/workshop/index.html#quick-recap-3",
-    "href": "slides/workshop/index.html#quick-recap-3",
-    "title": "Enterprise {gtsummary}",
-    "section": "Quick recap!",
-    "text": "Quick recap!\n\n\nLet’s compute summaries for a demography table that includes age (AGE), age group (AGEGR1), and sex (SEX) by treatment (ARM2)\nNext, we compute the categorical summaries for AGEGR1 and SEX by ARM2\n\n\n\nard_tabulate(\n  data = adsl,\n  by = ARM2,\n  variables = c(AGEGR1, SEX)\n)\n\n# An ARD data frame: 24 × 11\n  group1 group1_level variable variable_level context  stat_name stat_label   stat fmt_fun warning error \n* &lt;chr&gt;  &lt;list&gt;       &lt;chr&gt;    &lt;list&gt;         &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;      &lt;list&gt; &lt;list&gt;  &lt;list&gt;  &lt;list&gt;\n1 ARM2   Placebo      AGEGR1   18-64          tabulate n         n          14     0       &lt;NULL&gt;  &lt;NULL&gt;\n2 ARM2   Placebo      AGEGR1   18-64          tabulate N         N          86     0       &lt;NULL&gt;  &lt;NULL&gt;\n3 ARM2   Placebo      AGEGR1   18-64          tabulate p         %           0.163 &lt;fn&gt;    &lt;NULL&gt;  &lt;NULL&gt;\n4 ARM2   Placebo      AGEGR1   &gt;64            tabulate n         n          72     0       &lt;NULL&gt;  &lt;NULL&gt;\n5 ARM2   Placebo      AGEGR1   &gt;64            tabulate N         N          86     0       &lt;NULL&gt;  &lt;NULL&gt;\n6 ARM2   Placebo      AGEGR1   &gt;64            tabulate p         %           0.837 &lt;fn&gt;    &lt;NULL&gt;  &lt;NULL&gt;\n7 ARM2   Placebo      SEX      F              tabulate n         n          53     0       &lt;NULL&gt;  &lt;NULL&gt;\n# ℹ 17 more rows"
-  },
-  {
-    "objectID": "slides/workshop/index.html#quick-recap-4",
-    "href": "slides/workshop/index.html#quick-recap-4",
-    "title": "Enterprise {gtsummary}",
-    "section": "Quick recap!",
-    "text": "Quick recap!\n\nLet’s compute summaries for a demography table that includes age (AGE), age group (AGEGR1), and sex (SEX) by treatment (ARM2) in a single ard_stack() call, including:\n\nsummaries by ARM2 as performed above\ncontinuous summaries from part A for AGE\ncategorical summaries from part B for AGEGR1 and SEX\n\n\n\nard_stack(\n  data = adsl,\n  .by = ARM2,\n\n  # add ard_* calls here\n\n)"
-  },
-  {
-    "objectID": "slides/workshop/index.html#quick-recap-5",
-    "href": "slides/workshop/index.html#quick-recap-5",
-    "title": "Enterprise {gtsummary}",
-    "section": "Quick recap!",
-    "text": "Quick recap!\n\nLet’s compute summaries for a demography table that includes age (AGE), age group (AGEGR1), and sex (SEX) by treatment (ARM2) in a single ard_stack() call, including:\n\nsummaries by ARM2 as performed above\ncontinuous summaries from part A for AGE\ncategorical summaries from part B for AGEGR1 and SEX\n\n\n\nard_stack(\n  data = adsl,\n  .by = ARM2,\n  ard_summary(variables = AGE),\n  ard_tabulate(variables = c(AGEGR1, SEX))\n)\n\n# An ARD data frame: 46 × 11\n  group1 group1_level variable variable_level context stat_name stat_label   stat fmt_fun warning error \n  &lt;chr&gt;  &lt;list&gt;       &lt;chr&gt;    &lt;list&gt;         &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;      &lt;list&gt;  &lt;list&gt; &lt;list&gt;  &lt;list&gt;\n1 ARM2   Placebo      AGE      &lt;NULL&gt;         summary N         N           86          0 &lt;NULL&gt;  &lt;NULL&gt;\n2 ARM2   Placebo      AGE      &lt;NULL&gt;         summary mean      Mean        75.2        1 &lt;NULL&gt;  &lt;NULL&gt;\n3 ARM2   Placebo      AGE      &lt;NULL&gt;         summary sd        SD           8.59       1 &lt;NULL&gt;  &lt;NULL&gt;\n4 ARM2   Placebo      AGE      &lt;NULL&gt;         summary median    Median      76          1 &lt;NULL&gt;  &lt;NULL&gt;\n5 ARM2   Placebo      AGE      &lt;NULL&gt;         summary p25       Q1          69          1 &lt;NULL&gt;  &lt;NULL&gt;\n# ℹ 41 more rows"
-  },
-  {
-    "objectID": "slides/workshop/index.html#quick-recap-6",
-    "href": "slides/workshop/index.html#quick-recap-6",
-    "title": "Enterprise {gtsummary}",
-    "section": "Quick recap!",
-    "text": "Quick recap!\n\nWe can also add:\n\nOverall summaries for all variables\nTotal N\n\n\n\nard_stack(\n  data = adsl,\n  .by = ARM2,\n  ard_summary(variables = AGE),\n  ard_tabulate(variables = c(AGEGR1, SEX)),\n  .overall = TRUE,\n  .total_n = TRUE\n)\n\n# An ARD data frame: 67 × 11\n  group1 group1_level variable variable_level context stat_name stat_label   stat fmt_fun warning error \n  &lt;chr&gt;  &lt;list&gt;       &lt;chr&gt;    &lt;list&gt;         &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;      &lt;list&gt;  &lt;list&gt; &lt;list&gt;  &lt;list&gt;\n1 ARM2   Placebo      AGE      &lt;NULL&gt;         summary N         N           86          0 &lt;NULL&gt;  &lt;NULL&gt;\n2 ARM2   Placebo      AGE      &lt;NULL&gt;         summary mean      Mean        75.2        1 &lt;NULL&gt;  &lt;NULL&gt;\n3 ARM2   Placebo      AGE      &lt;NULL&gt;         summary sd        SD           8.59       1 &lt;NULL&gt;  &lt;NULL&gt;\n4 ARM2   Placebo      AGE      &lt;NULL&gt;         summary median    Median      76          1 &lt;NULL&gt;  &lt;NULL&gt;\n5 ARM2   Placebo      AGE      &lt;NULL&gt;         summary p25       Q1          69          1 &lt;NULL&gt;  &lt;NULL&gt;\n# ℹ 62 more rows"
-  },
-  {
     "objectID": "slides/workshop/index.html#cards-hierarchical-summary-functions",
     "href": "slides/workshop/index.html#cards-hierarchical-summary-functions",
     "title": "Enterprise {gtsummary}",
