@@ -73,7 +73,7 @@ Full catalog of theme elements: [**{gtsummary} themes vignette**](https://www.da
 
 ## Exercise: your own theme 🏃
 
-1. Open the script `exercises/exercises.R` in RStudio and find [Exercise 3]{.emphasis}.
+1. Open the [workshop exercises](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/exercises/exercises.html) page and copy [Exercise 3]{.emphasis} into RStudio.
 
 2. Fill in the four theme elements, then check and set your theme.
 
@@ -205,7 +205,7 @@ The two are not rivals — the wrapper we are about to write uses a theme elemen
 
 ## Exercise: your own wrapper 🏃
 
-1. Open the script `exercises/exercises.R` in RStudio and find [Exercise 4]{.emphasis}.
+1. Open the [workshop exercises](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/exercises/exercises.html) page and copy [Exercise 4]{.emphasis} into RStudio.
 
 2. Finish `tbl_pharma_summary()`, then use it to summarize `AGE` and `ETHNIC` by `ARM2`.
 

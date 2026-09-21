@@ -284,7 +284,7 @@ ard_hier |>
 
 ## Exercise 🏃‍➡️
 
-1. Open the script `exercises/exercises.R` in RStudio and find [Exercise 1]{.emphasis}.
+1. Open the [workshop exercises](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/exercises/exercises.html) page and copy [Exercise 1]{.emphasis} into RStudio.
 
 2. Compute the nested AE tabulations as described.
 
