@@ -410,7 +410,7 @@
     "href": "slides/workshop/index.html#break",
     "title": "Enterprise {gtsummary}",
     "section": "Break ☕",
-    "text": "Break ☕\n\nBack in 10 minutes"
+    "text": "Break ☕\n\nCovered so far: Analysis Results Datasets · {gtsummary} fundamentals\n\nUp next\n\n\nARD-first tables — every cell traceable, and QC by comparing one ARD against another.\nPrint engines — {gt}, {flextable}, and submission-ready Word output.\nAdopting {gtsummary} — a house theme, wrappers of your own, and {crane}.\nCoding agents — writing your standards down so an agent follows them without being reminded."
   },
   {
     "objectID": "slides/workshop/index.html#where-are-the-ards",
