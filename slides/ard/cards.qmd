@@ -6,7 +6,7 @@
 
 -   Part of the Pharmaverse
 
--   Collaboration between Roche, GSK, Novartis, Eli Lilly, Pfizer
+-   Collaboration among Roche, GSK, Novartis, Eli Lilly, Pfizer, Clymb, Kardigan
 
 -   Contains a variety of utilities for making ARDs
 
@@ -282,44 +282,6 @@ ard_hier |>
 
 - `ard_stack_hierarchical*()` runs those calls in the background and **stacks** the results into one ARD
 
-
-## {cards}: `ard_stack_hierarchical_count`
-
-::: {.small}
-
-- Below is the stacking function for event-level summaries, aligned with `ard_hierarchical_count()`
-
-:::
-
-```{r}
-#| label: stack-hierarchical-count-code
-#| eval: FALSE
-adae |>
-  ard_stack_hierarchical_count(
-    variables = c(AESOC, AEDECOD),
-    by = TRT01A, 
-    denominator = pharmaverseadam::adsl
-  )
-```
-
-```{r}
-#| label: stack-hierarchical-count-output
-#| echo: FALSE
-ard_hier_c <- ard_stack_hierarchical_count(
-  data = adae,
-  variables = c(AESOC, AEDECOD),
-  by = TRT01A, 
-  denominator = pharmaverseadam::adsl
-)
-
-ard_hier_c |> 
-  dplyr::filter(
-    dplyr::if_any(c(group2_level, variable_level), ~ .x %in% "GASTROINTESTINAL DISORDERS"), 
-    group1_level %in% "Placebo"
-    )
-```
-
-
 ## Exercise 🏃‍➡️
 
 1. Open the script `exercises/exercises.R` in RStudio and find [Exercise 1]{.emphasis}.
@@ -333,6 +295,24 @@ ard_hier_c |>
 #| cache: false
 library(countdown)
 countdown(minutes = 7, play_sound = TRUE)
+```
+
+## Exercise 1 solution
+
+```{r}
+#| label: exercise-1-solution
+#| message: true
+#| output-location: slide
+#| R.options:
+#|   pillar.print_max: 8
+#|   pillar.print_min: 8
+ard_stack_hierarchical(
+  data = adae,
+  variables = c(AESOC, AEDECOD),
+  by = ARM,
+  id = USUBJID,
+  denominator = adsl
+)
 ```
 
 
@@ -560,8 +540,8 @@ Starting from raw data, we built ARDs and never touched a layout:
 - **Statistical results** with `{cardx}`: t-tests, regression models, and wrapping your own methods
 
 - A structure that holds together **even when a statistic can't be computed**
-
 :::
+
 
 ## Why ARDs? 🤝
 

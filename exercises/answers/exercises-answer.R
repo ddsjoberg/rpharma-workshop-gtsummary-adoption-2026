@@ -39,7 +39,7 @@ df_gtsummary_exercise <- pharmaverseadam::adsl |>
 
 # Exercise 1: ARDs with {cards} -------------------------------------------
 
-# A. Calculate the number and percentage of *unique* subjects with at least
+# Calculate the number and percentage of *unique* subjects with at least
 # one AE:
 #  - By each SOC (AESOC)
 #  - By each Preferred term (AEDECOD) within SOC (AESOC)
@@ -53,17 +53,6 @@ ard_stack_hierarchical(
   denominator = adsl
 )
 
-# B. [*BONUS*] Modify the code from part A to include overall number/percentage
-# of subjects with at least one AE, regardless of SOC and PT
-
-ard_stack_hierarchical(
-  data = adae,
-  variables = c(AESOC, AEDECOD),
-  by = ARM,
-  id = USUBJID,
-  denominator = adsl,
-  over_variables = TRUE
-)
 
 
 # Exercise 2: a demography table with {gtsummary} -------------------------
