@@ -5,22 +5,78 @@ editor: source
 
 # Exercises
 
+## Setup {#setup}
+
+Run this once, before any exercise.
+
 ```{r}
 #| echo: false
 #| class-output: "sourceCode r"
+"00-setup.R" |> readLines() |> cat(sep = "\n")
+```
 
-"exercises.R" |>
-  readLines() |>
-  cat(sep = "\n")
+## Exercise 1: ARDs with {cards} {#exercise-1}
+
+```{r}
+#| echo: false
+#| class-output: "sourceCode r"
+"01-ard.R" |> readLines() |> cat(sep = "\n")
+```
+
+## Exercise 2: a demography table with {gtsummary} {#exercise-2}
+
+```{r}
+#| echo: false
+#| class-output: "sourceCode r"
+"02-demography.R" |> readLines() |> cat(sep = "\n")
+```
+
+## Exercise 3: a theme for your organization {#exercise-3}
+
+```{r}
+#| echo: false
+#| class-output: "sourceCode r"
+"03-theme.R" |> readLines() |> cat(sep = "\n")
+```
+
+## Exercise 4: `tbl_pharma_summary()` {#exercise-4}
+
+```{r}
+#| echo: false
+#| class-output: "sourceCode r"
+"04-wrapper.R" |> readLines() |> cat(sep = "\n")
 ```
 
 # Solutions
 
+## Exercise 1 solution {#solution-1}
+
 ```{r}
 #| echo: false
 #| class-output: "sourceCode r"
+"answers/01-ard-answer.R" |> readLines() |> cat(sep = "\n")
+```
 
-"answers/exercises-answer.R" |>
-  readLines() |>
-  cat(sep = "\n")
+## Exercise 2 solution {#solution-2}
+
+```{r}
+#| echo: false
+#| class-output: "sourceCode r"
+"answers/02-demography-answer.R" |> readLines() |> cat(sep = "\n")
+```
+
+## Exercise 3 solution {#solution-3}
+
+```{r}
+#| echo: false
+#| class-output: "sourceCode r"
+"answers/03-theme-answer.R" |> readLines() |> cat(sep = "\n")
+```
+
+## Exercise 4 solution {#solution-4}
+
+```{r}
+#| echo: false
+#| class-output: "sourceCode r"
+"answers/04-wrapper-answer.R" |> readLines() |> cat(sep = "\n")
 ```

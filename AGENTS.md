@@ -77,13 +77,21 @@ auto-numbered "Table 1" caption above the slide's table. Use underscores
 
 ## Exercises
 
-There is **one** participant script, `exercises/exercises.R`, holding all four
-exercises behind a single shared setup block. The solution is
-`exercises/answers/exercises-answer.R` and is identical except the blanks are
-filled in. Exercise numbers match the order they come up in the deck, and three
-slides point at them by number (`slides/ard/cards.qmd`,
-`slides/gtsummary/02-tbl_summary.qmd`, and two in
-`slides/gtsummary/07-adopt.qmd`).
+Attendees do **not** clone the repo — they get the code from the published
+exercises page, so every exercise slide deep-links to an anchor on it.
+
+One file per exercise, plus one shared setup:
+
+    exercises/00-setup.R          run once, before any exercise
+    exercises/01-ard.R            ... 04-wrapper.R
+    exercises/answers/01-ard-answer.R   ... 04-wrapper-answer.R
+
+`exercises/exercises.qmd` renders each file under a heading with an
+**explicit** id — `{#setup}`, `{#exercise-1}` … `{#exercise-4}`, and
+`{#solution-1}` … `{#solution-4}`. The ids are explicit so the slide links
+keep working when heading text changes. Adding or renaming an exercise means
+touching four things: the exercise file, the answer file, the section in
+`exercises.qmd`, and the slide that links to it.
 
 Blanks are empty named arguments so the skeleton still parses:
 
@@ -100,13 +108,12 @@ placeholder that parses — `statistic = NULL` — with a `# TODO:` comment sayi
 what to put there. Exercise 4 does both.
 
 Tasks are lettered `# A.`, `# B. [*BONUS*]`, with `# HINT:` comments that
-become "We used ..." in the answer. Adding or renaming an exercise means
-editing the exercise, the answer, and the slide that sends people to it —
-`exercises/exercises.qmd` renders whatever the two scripts contain, so it needs
-no change.
+become "We used ..." in the answer.
 
-Always `parse()` both scripts after editing; they are never executed at render
-time, so a syntax error would otherwise surface only in front of the room.
+Always `parse()` every script after editing; they are never executed at render
+time, so a syntax error would otherwise surface only in front of the room:
+
+    Rscript -e 'for (f in list.files(c("exercises","exercises/answers"), pattern="[.]R$", full.names=TRUE)) parse(file=f)'
 
 ## Skills
 
