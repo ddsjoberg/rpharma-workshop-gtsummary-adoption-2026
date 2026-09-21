@@ -263,7 +263,7 @@ show_header_names(tbl)
 
 ## {gtsummary} Exercise
 
-1. Open [Exercise 2](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/exercises/exercises.html#exercise-2) on the workshop site and copy it into RStudio.
+1. Open [Exercise 2](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/exercises/exercises.html#exercise-2) on the workshop site and copy it into Positron/RStudio.
 
 2. Create the table outlined in the script.
 

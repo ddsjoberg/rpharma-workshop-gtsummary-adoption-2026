@@ -53,7 +53,7 @@ flexibility with company-wide standardization.
   from the repo. Please do this *before* the workshop — it takes a while.
 
 - [ ] Test your Zoom setup ahead of time. The workshop is hands-on, so plan to
-  have RStudio open alongside Zoom.
+  have Positron/RStudio/your IDE open alongside Zoom.
 
 ## Slides
 

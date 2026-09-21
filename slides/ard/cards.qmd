@@ -284,7 +284,7 @@ ard_hier |>
 
 ## Exercise 🏃‍➡️
 
-1. Open [Exercise 1](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/exercises/exercises.html#exercise-1) on the workshop site and copy it into RStudio.
+1. Open [Exercise 1](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/exercises/exercises.html#exercise-1) on the workshop site and copy it into Positron/RStudio.
 
 2. Compute the nested AE tabulations as described.
 
