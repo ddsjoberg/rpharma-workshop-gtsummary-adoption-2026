@@ -1,15 +1,7 @@
 install.packages(c("tidyverse",
                    "cards",
                    "cardx",
-                   "broom.helpers",
-                   "gt",
                    "gtsummary",
-                   "crane",
+                   "broom.helpers",
                    "flextable",
-                   "labelled",
-                   "pharmaverseadam",
-                   "countdown",
-                   "fontawesome",
-                   "cranlogs",
-                   "survival",
-                   "knitr"))
+                   "pharmaverseadam"))
