@@ -75,11 +75,7 @@ Elements come in two flavors:
 
 :::
 
-::: aside
-::: {.small}
-The full catalog lives in `?theme_gtsummary` and the [themes vignette](https://www.danieldsjoberg.com/gtsummary/articles/themes.html).
-:::
-:::
+Full catalog of theme elements: [**{gtsummary} themes vignette**](https://www.danieldsjoberg.com/gtsummary/articles/themes.html)
 
 ## Build a theme
 
@@ -107,11 +103,6 @@ theme_gtsummary_rpharma <- function(set_theme = TRUE) {
 }
 ```
 
-::: aside
-::: {.small}
-`modifyList()` overrides by name, so our `theme_name` replaces `"Compact"` instead of stacking a duplicate. `scales::label_number(scale = 100, accuracy = 0.1)(0.4332)` returns `r scales::label_number(scale = 100, accuracy = 0.1)(0.4332)`. `label_style_pvalue()` caps at `digits = 3` — need four? A theme element accepts [any]{.emphasis} function, which is how `crane::theme_gtsummary_roche()` does it.
-:::
-:::
 
 ## Check it, then set it
 
