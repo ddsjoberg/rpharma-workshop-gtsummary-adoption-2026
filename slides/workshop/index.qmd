@@ -10,7 +10,7 @@ avatars:
   - src: "../images/shannon-pileggi-circle.png"
     alt: "Headshot of Shannon Pileggi"
 logo: "../images/gtsummary-logo.png"
-footer:  "[Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/)"
+footer:  "[ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/)"
 editor: source
 engine: knitr
 format:
