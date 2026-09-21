@@ -40,7 +40,7 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
     <img src="../images/shannon-pileggi-circle.png" alt="Headshot of Shannon Pileggi">
     <figcaption>
       <span class="name">Shannon Pileggi</span>
-      <span class="role">Associate Director of Data Science, The Prostate Cancer Clinical Trials Consortium</span>
+      <span class="role">Director of Data Science, The Prostate Cancer Clinical Trials Consortium</span>
     </figcaption>
   </figure>
 </div>
