@@ -2,8 +2,6 @@
 
 ## How to Adopt {gtsummary}
 
-::: {.small}
-
 Three moves, in order.
 
 #### 1. Set a theme
@@ -18,7 +16,6 @@ Named functions for the tables your team builds over and over, so the shape of a
 
 Adoption becomes a single `library()` call, and the standard is [versioned and testable]{.emphasis}.
 
-:::
 
 ::: aside
 ::: {.small}
@@ -27,8 +24,6 @@ We will build 1 and 2 from scratch, then look at {crane} — Roche's answer to a
 :::
 
 ## Themes that ship with {gtsummary}
-
-::: {.small}
 
 A [theme]{.emphasis} is set once, before you build any tables, and every table in the session picks it up.
 
@@ -42,7 +37,6 @@ A [theme]{.emphasis} is set once, before you build any tables, and every table i
 
 Themes [stack]{.emphasis}: call several, and each one layers onto the last.
 
-:::
 
 ```{r}
 #| label: theme-stacking
@@ -116,31 +110,6 @@ theme_gtsummary_rpharma <- function(set_theme = TRUE) {
 }
 ```
 
-
-## Check it, then set it
-
-```{r}
-#| label: theme-check
-#| message: true
-check_gtsummary_theme(theme_gtsummary_rpharma(set_theme = FALSE))
-```
-
-::: {.small}
-In a script, set the theme once at the top — and clear it when you are done.
-:::
-
-```{r}
-#| label: theme-set
-#| eval: false
-theme_gtsummary_rpharma()  # set for the rest of the session
-reset_gtsummary_theme()    # back to package defaults
-```
-
-::: aside
-::: {.small}
-`set_theme = FALSE` returns the list [without]{.emphasis} setting it — which is what `with_gtsummary_theme()` needs to theme a single table.
-:::
-:::
 
 ## Before and after
 
@@ -216,8 +185,6 @@ reset_gtsummary_theme()
 
 ## Themes end where names begin
 
-::: {.small}
-
 A [theme]{.emphasis} changes defaults — everywhere, all at once, for functions that already exist.
 
 A [wrapper]{.emphasis} earns its place when you want something a default cannot give you:
@@ -229,8 +196,6 @@ A [wrapper]{.emphasis} earns its place when you want something a default cannot 
 -   a table built from [several]{.emphasis} {gtsummary} calls, not one
 
 -   defaults that apply to [this table only]{.emphasis}, not the whole session
-
-:::
 
 ::: aside
 ::: {.small}

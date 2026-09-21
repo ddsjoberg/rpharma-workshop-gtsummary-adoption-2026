@@ -54,11 +54,5 @@ Objectives include:
 
 - The ARS provides a metadata-driven infrastructure for analysis
 
-## Proposed Metadata Framework in the ARS
-
-![](../images/ars-example-flow-with-hex.png){fig-align="center"}
-
-- The ARS provides a metadata-driven infrastructure for analysis
-
-- {cards} serves as the engine for the analysis 
+- {cards} serves as the engine for the analysis and {gtsummary} as the builder-of-tables
  

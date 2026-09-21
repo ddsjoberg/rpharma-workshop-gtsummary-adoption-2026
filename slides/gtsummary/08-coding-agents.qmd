@@ -12,7 +12,6 @@ The goal: a coding partner that adheres to your domain standards *without consta
 
 Give the agent an explicit [priority order]{.emphasis} for building a table:
 
-::: {.small}
 
 1.  [Set the theme]{.emphasis} — `crane::theme_gtsummary_roche()` after loading packages.
 
@@ -24,7 +23,6 @@ Give the agent an explicit [priority order]{.emphasis} for building a table:
 
 5.  [Last resort]{.emphasis} — build the ARD yourself, then `gtsummary::as_gtsummary()`.
 
-:::
 
 ::: aside
 ::: {.small}
