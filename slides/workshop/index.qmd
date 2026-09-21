@@ -66,6 +66,20 @@ options(width = 120)
 
 {{< include ../gtsummary/04-tbl_merge.qmd >}}
 
+
+## Break ☕ {.center}
+
+::: {.largest}
+Back in 10 minutes
+:::
+
+```{r}
+#| label: break-countdown
+#| echo: false
+#| cache: false
+countdown::countdown(minutes = 10, play_sound = TRUE)
+```
+
 {{< include ../gtsummary/05-ard-first.qmd >}}
 
 {{< include ../gtsummary/06-print_engines.qmd >}}
