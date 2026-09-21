@@ -231,7 +231,7 @@ A [thin]{.emphasis} wrapper: multi-line continuous summaries and our house stati
 
 ```{r}
 #| label: wrapper-define
-#| code-line-numbers: "|5-9|11-12|4,16"
+#| code-line-numbers: "|5-9|11-12|"
 tbl_pharma_summary <- function(
     data,
     by = NULL,
@@ -297,7 +297,6 @@ An explicit argument still beats the theme element, so nothing is taken away fro
 
 ```{r}
 #| label: wrapper-override
-#| output-location: column
 adsl |>
   tbl_pharma_summary(
     by = ARM2,
@@ -311,22 +310,20 @@ adsl |>
 
 We just wrote a one-function version of this. {crane} is the same idea, maintained as a real package — Roche's theme and wrappers, on CRAN.
 
-The first function we added was `tbl_roche_summary()`: a _thin_ wrapper for `gtsummary::tbl_summary()`, exactly like the one above.
-
 ::: {.small}
 
 - Continuous variables default to `continuous2`.
 
 - `tbl_summary(missing*)` arguments have been changed to `tbl_roche_summary(nonmissing*)`.
 
-    - We highlight non-missing counts over missing counts, which are the default in {gtsummary}
+    - Highlights non-missing counts over missing counts, which are the default in {gtsummary}
 
 - Counts represented by `0 (0%)` print as `0`.
 
 :::
 
 ```{r}
-#| label: tbl-roche-summary
+#| label: tbl_roche_summary
 #| output-location: slide
 library(crane)
 
@@ -386,7 +383,7 @@ Same named list, same `set_theme` argument — just with `style_roche_percent()`
 :::
 
 ```{r}
-#| label: tbl-roche-summary-example
+#| label: tbl_roche_summary_example
 #| output-location: column
 theme_gtsummary_roche()
 

@@ -40,6 +40,11 @@ page means adding it there, or it will not be rendered. `slides/images/**` and
 `slides/save_flex_docx/**` are listed under `project: resources:` so they are
 copied even when a reference lives in a template partial or raw HTML.
 
+**Never start a chunk label with `tbl-`, `fig-` or `lst-`.** Quarto reads those
+prefixes as cross-reference targets, wraps the output in a float and prints an
+auto-numbered "Table 1" caption above the slide's table. Use underscores
+(`tbl_roche_summary`) or a plain topic name instead.
+
 ## R style
 
 - Tidyverse first — dplyr/tidyr/stringr/lubridate. No data.table.
