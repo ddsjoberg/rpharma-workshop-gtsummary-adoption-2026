@@ -312,38 +312,40 @@ details>summary {
 .reveal .instructor-cards {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  gap: 2.5em;
-  margin-top: 1em;
+  align-items: center;
+  gap: 3em;
+  // fill the slide body rather than hugging the title, same trick as
+  // .v-center-container above
+  height: 88%;
 }
 
 .reveal .instructor-cards figure {
   margin: 0;
-  flex: 0 1 42%;
+  flex: 0 1 38%;
   text-align: center;
 }
 
 .reveal .instructor-cards img {
   display: block;
-  width: 220px;
-  height: 220px;
-  margin: 0 auto 0.5em;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto 0.6em;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #ffffff;
-  box-shadow: #26394d 0px 6px 16px -6px;
+  border: 5px solid #ffffff;
+  box-shadow: #26394d 0px 8px 22px -8px;
 }
 
 .reveal .instructor-cards .name {
   display: block;
   font-weight: 700;
-  font-size: 0.8em;
+  font-size: 0.95em;
   color: $presentation-heading-color;
 }
 
 .reveal .instructor-cards .role {
   display: block;
-  font-size: 0.55em;
+  font-size: 0.62em;
   color: #7090A5;
-  line-height: 1.3;
+  line-height: 1.35;
 }
