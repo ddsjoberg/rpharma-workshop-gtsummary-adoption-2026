@@ -592,21 +592,21 @@
     "href": "slides/workshop/index.html#a-default-not-a-lock",
     "title": "Enterprise {gtsummary}",
     "section": "A default, not a lock",
-    "text": "A default, not a lock\nAn explicit argument still beats the theme element, so nothing is taken away from the caller.\n\n\nadsl |&gt;\n  tbl_pharma_summary(\n    by = ARM2,\n    include = AGE,\n    type = all_continuous() ~ \"continuous\",\n    statistic = all_continuous() ~ \"{median} ({p25}, {p75})\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPlacebo\nN = 861\nXanomeline\nN = 1681\n\n\n\n\nAge\n76 (69, 82)\n77 (71, 81)\n\n\n\n1 Median (Q1, Q3)"
+    "text": "A default, not a lock\nAn explicit argument still beats the theme element, so nothing is taken away from the caller.\n\nadsl |&gt;\n  tbl_pharma_summary(\n    by = ARM2,\n    include = AGE,\n    type = all_continuous() ~ \"continuous\",\n    statistic = all_continuous() ~ \"{median} ({p25}, {p75})\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nPlacebo\nN = 861\nXanomeline\nN = 1681\n\n\n\n\nAge\n76 (69, 82)\n77 (71, 81)\n\n\n\n1 Median (Q1, Q3)"
   },
   {
     "objectID": "slides/workshop/index.html#extension-packagecrane",
     "href": "slides/workshop/index.html#extension-packagecrane",
     "title": "Enterprise {gtsummary}",
     "section": "Extension Package:{crane} ",
-    "text": "Extension Package:{crane} \nWe just wrote a one-function version of this. {crane} is the same idea, maintained as a real package — Roche’s theme and wrappers, on CRAN.\nThe first function we added was tbl_roche_summary(): a thin wrapper for gtsummary::tbl_summary(), exactly like the one above.\n\n\nContinuous variables default to continuous2.\ntbl_summary(missing*) arguments have been changed to tbl_roche_summary(nonmissing*).\n\nWe highlight non-missing counts over missing counts, which are the default in {gtsummary}\n\nCounts represented by 0 (0%) print as 0.\n\n\n\nlibrary(crane)\n\nadsl |&gt;\n  dplyr::mutate(ETHNIC = forcats::fct_expand(ETHNIC, \"REFUSED\")) |&gt;\n  tbl_roche_summary(\n    by = ARM2,\n    include = c(AGE, ETHNIC),\n    nonmissing = \"always\"\n  )"
+    "text": "Extension Package:{crane} \nWe just wrote a one-function version of this. {crane} is the same idea, maintained as a real package — Roche’s theme and wrappers, on CRAN.\n\n\nContinuous variables default to continuous2.\ntbl_summary(missing*) arguments have been changed to tbl_roche_summary(nonmissing*).\n\nHighlights non-missing counts over missing counts, which are the default in {gtsummary}\n\nCounts represented by 0 (0%) print as 0.\n\n\n\nlibrary(crane)\n\nadsl |&gt;\n  dplyr::mutate(ETHNIC = forcats::fct_expand(ETHNIC, \"REFUSED\")) |&gt;\n  tbl_roche_summary(\n    by = ARM2,\n    include = c(AGE, ETHNIC),\n    nonmissing = \"always\"\n  )"
   },
   {
     "objectID": "slides/workshop/index.html#extension-packagecrane-output",
     "href": "slides/workshop/index.html#extension-packagecrane-output",
     "title": "Enterprise {gtsummary}",
     "section": "Extension Package:{crane} ",
-    "text": "Extension Package:{crane} \n\n\n\nTable 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlacebo\n(N = 86)\nXanomeline\n(N = 168)\n\n\n\n\nAge\n\n\n\n\n\n\n    n\n86\n168\n\n\n    Mean (SD)\n75.2 (8.6)\n75.0 (8.1)\n\n\n    Median\n76.0\n77.0\n\n\n    Min - Max\n52 - 89\n51 - 88\n\n\nETHNIC\n\n\n\n\n\n\n    n\n86\n168\n\n\n    HISPANIC OR LATINO\n3 (3.5%)\n9 (5.4%)\n\n\n    NOT HISPANIC OR LATINO\n83 (96.5%)\n159 (94.6%)\n\n\n    REFUSED\n0\n0"
+    "text": "Extension Package:{crane} \n\n\n\n\n\n\n\n\n\n\n\n\n\nPlacebo\n(N = 86)\nXanomeline\n(N = 168)\n\n\n\n\nAge\n\n\n\n\n\n\n    n\n86\n168\n\n\n    Mean (SD)\n75.2 (8.6)\n75.0 (8.1)\n\n\n    Median\n76.0\n77.0\n\n\n    Min - Max\n52 - 89\n51 - 88\n\n\nETHNIC\n\n\n\n\n\n\n    n\n86\n168\n\n\n    HISPANIC OR LATINO\n3 (3.5%)\n9 (5.4%)\n\n\n    NOT HISPANIC OR LATINO\n83 (96.5%)\n159 (94.6%)\n\n\n    REFUSED\n0\n0"
   },
   {
     "objectID": "slides/workshop/index.html#what-else-is-in-crane",
@@ -648,7 +648,7 @@
     "href": "slides/workshop/index.html#a-pharma-theme-with-crane",
     "title": "Enterprise {gtsummary}",
     "section": "A pharma theme with {crane}",
-    "text": "A pharma theme with {crane}\nOur theme is implemented in crane::theme_gtsummary_roche(). Primary changes include a custom function for rounding percentages, p-values rounded to four decimal places, headers that default to bold and include N in parentheses (e.g. 'Placebo  \\n (N = 184)'), and printing all tables with {flextable} using Roche-specific styling — font, font size, borders, cell padding, etc.\n\nSame named list, same set_theme argument — just with style_roche_percent() and style_roche_pvalue() in the function slots, and eleven elements instead of five.\n\n\n\ntheme_gtsummary_roche()\n\nadsl |&gt;\n  dplyr::mutate(ETHNIC = forcats::fct_expand(ETHNIC, \"REFUSED\")) |&gt;\n  tbl_roche_summary(\n    by = ARM2,\n    include = c(AGE, ETHNIC),\n    nonmissing = \"always\"\n  )\n\n\n\n\nTable 2\n\n\n\nPlacebo  (N = 86)Xanomeline  (N = 168)Agen86168Mean (SD)75.2 (8.6)75.0 (8.1)Median76.077.0Min - Max52 - 8951 - 88ETHNICn86168HISPANIC OR LATINO3 (3.5%)9 (5.4%)NOT HISPANIC OR LATINO83 (96.5%)159 (94.6%)REFUSED00"
+    "text": "A pharma theme with {crane}\nOur theme is implemented in crane::theme_gtsummary_roche(). Primary changes include a custom function for rounding percentages, p-values rounded to four decimal places, headers that default to bold and include N in parentheses (e.g. 'Placebo  \\n (N = 184)'), and printing all tables with {flextable} using Roche-specific styling — font, font size, borders, cell padding, etc.\n\nSame named list, same set_theme argument — just with style_roche_percent() and style_roche_pvalue() in the function slots, and eleven elements instead of five.\n\n\n\ntheme_gtsummary_roche()\n\nadsl |&gt;\n  dplyr::mutate(ETHNIC = forcats::fct_expand(ETHNIC, \"REFUSED\")) |&gt;\n  tbl_roche_summary(\n    by = ARM2,\n    include = c(AGE, ETHNIC),\n    nonmissing = \"always\"\n  )\n\n\nPlacebo  (N = 86)Xanomeline  (N = 168)Agen86168Mean (SD)75.2 (8.6)75.0 (8.1)Median76.077.0Min - Max52 - 8951 - 88ETHNICn86168HISPANIC OR LATINO3 (3.5%)9 (5.4%)NOT HISPANIC OR LATINO83 (96.5%)159 (94.6%)REFUSED00"
   },
   {
     "objectID": "slides/workshop/index.html#cardinal-collaboration",
