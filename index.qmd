@@ -43,17 +43,75 @@ By the end of the session, you will understand how to extend this
 open-source tool with institution-specific functionality to balance
 flexibility with company-wide standardization.
 
-## Pre-work
+## Getting started
 
-- [ ] Bookmark this site. You'll reference it throughout the workshop.
-  [ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026)
+The workshop is hands-on. You can work through the exercises either in
+**Posit Cloud** or **on your own machine** — whichever you prefer. Get
+set up now; we'll walk through it together at the top of the session.
 
-- [ ] Install the workshop packages on your own machine by running
-  [`install.R`](https://github.com/ddsjoberg/rpharma-workshop-gtsummary-adoption-2026/blob/main/install.R)
-  from the repo. Please do this *before* the workshop — it takes a while.
+Bookmark this site either way. You'll reference it throughout the
+workshop, and the exercise code lives on the
+[Exercises + Solutions](exercises/exercises.qmd) page.
 
-- [ ] Test your Zoom setup ahead of time. The workshop is hands-on, so plan to
-  have Positron/RStudio/your IDE open alongside Zoom.
+### Option 1: Posit Cloud
+
+Nothing to install — the workshop packages are already there. R/Pharma
+has granted everyone **$2 of AI credits** to use during the workshop.
+
+**How to start your workshop assignment**
+
+1.  **Join the space.** The link will be provided during the workshop.
+
+2.  **Locate the project.** Find
+    `rpharma-workshop-gtsummary-adoption-2026` under the **All Content**
+    tab.
+
+3.  **Create your copy.** Click on the project name, then click the
+    **Save a Copy** banner at the top of the screen (or the **Start**
+    button, if the project is set up as a template).
+
+4.  **Begin working.** Posit Cloud duplicates the project into your
+    personal workspace, creating your own independent version where you
+    can write and save code.
+
+### Option 2: Your own machine
+
+Install the workshop packages — this takes a few minutes, so start it
+before we get going. Open Positron/RStudio/your IDE alongside Zoom, and
+run:
+
+```r
+install.packages(c("tidyverse",
+                   "cards",
+                   "cardx",
+                   "gtsummary",
+                   "broom.helpers",
+                   "flextable",
+                   "pharmaverseadam"))
+```
+
+This is the same as
+[`install.R`](https://github.com/ddsjoberg/rpharma-workshop-gtsummary-adoption-2026/blob/main/install.R)
+in the workshop repo.
+
+## Schedule
+
+Teaching duties are split across the two instructors:
+
+::: {.schedule-table}
+
+| Section                   | Instructor      |
+|---------------------------|-----------------|
+| Introduction              | Daniel Sjoberg  |
+| Analysis Results Datasets | Daniel Sjoberg  |
+| {gtsummary} fundamentals  | Shannon Pileggi |
+| ARD-first tables          | Daniel Sjoberg  |
+| Print engines             | Shannon Pileggi |
+| Adopting {gtsummary}      | Shannon Pileggi |
+| Coding agents             | Daniel Sjoberg  |
+| In Closing                | Daniel Sjoberg  |
+
+:::
 
 ## Slides
 

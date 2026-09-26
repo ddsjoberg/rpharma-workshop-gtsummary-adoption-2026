@@ -42,11 +42,20 @@ company-wide standardization.
 Full workshop site (schedule, slides, and materials):
 [ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026)
 
-## Pre-work
+## Getting started
 
-- [ ] Bookmark the [workshop site](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026). You'll reference it throughout the workshop.
-- [ ] Run [`install.R`](install.R) on your own machine to install the workshop packages. Please do this *before* the workshop.
-- [ ] Test your Zoom setup ahead of time. The workshop is hands-on, so plan to have Positron/RStudio/your IDE open alongside Zoom.
+The workshop is hands-on, and you can work through the exercises either in
+Posit Cloud or on your own machine. We'll get everyone set up at the top of
+the session.
+
+- **Posit Cloud** — nothing to install; the workshop packages are preinstalled.
+  The link to join the space is provided during the workshop, along with $2 of
+  AI credits per attendee, courtesy of R/Pharma.
+- **Your own machine** — run [`install.R`](install.R) to install the workshop
+  packages, and have Positron/RStudio/your IDE open alongside Zoom.
+
+Step-by-step instructions for both are on the
+[workshop site](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/#getting-started).
 
 ## Instructors
 

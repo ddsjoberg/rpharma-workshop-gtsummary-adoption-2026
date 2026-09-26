@@ -342,7 +342,7 @@ ard_stack_hierarchical(
 
 :::
 
--   This list is growing (rather quickly) 🌱
+-   This list is growing 🌱
 
 ## {cardx} t-test Example
 
@@ -384,28 +384,28 @@ adsl |>
   dplyr::mutate(context = "t_test_one_sample")
 ```
 
-## {cardx} t-test Example
+<!-- ## {cardx} t-test Example -->
 
-::: {.small}
+<!-- ::: {.small} -->
 
-- How to modify if we need a two-sample test, or more generally accessing other columns in the data frame.
+<!-- - How to modify if we need a two-sample test, or more generally accessing other columns in the data frame. -->
 
-:::
+<!-- ::: -->
 
-```{r}
-#| label: cardx-ttest-two-sample
-#| message: true
-#| R.options:
-#|   pillar.print_max: 8
-#|   pillar.print_min: 8
-adsl |>
-  cards::ard_mvsummary(
-    variables = AGE,
-    statistic = ~ list(t_test = \(x, data, ...) t.test(x ~ data$ARM2) |> broom::tidy())
-  ) |> 
-  dplyr::mutate(group1 = "ARM2", context = "t_test_two_sample") |> 
-  cards::tidy_ard_column_order()
-```
+<!-- ```{r} -->
+<!-- #| label: cardx-ttest-two-sample -->
+<!-- #| message: true -->
+<!-- #| R.options: -->
+<!-- #|   pillar.print_max: 8 -->
+<!-- #|   pillar.print_min: 8 -->
+<!-- adsl |> -->
+<!--   cards::ard_mvsummary( -->
+<!--     variables = AGE, -->
+<!--     statistic = ~ list(t_test = \(x, data, ...) t.test(x ~ data$ARM2) |> broom::tidy()) -->
+<!--   ) |>  -->
+<!--   dplyr::mutate(group1 = "ARM2", context = "t_test_two_sample") |>  -->
+<!--   cards::tidy_ard_column_order() -->
+<!-- ``` -->
 
 ## {cardx} Regression
 
