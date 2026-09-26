@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -179,7 +214,12 @@ background: #003559;
    
   <ul>
   <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description">Description</a></li>
-  <li><a href="#pre-work" id="toc-pre-work" class="nav-link" data-scroll-target="#pre-work">Pre-work</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a>
+  <ul class="collapse">
+  <li><a href="#option-1-posit-cloud" id="toc-option-1-posit-cloud" class="nav-link" data-scroll-target="#option-1-posit-cloud">Option 1: Posit Cloud</a></li>
+  <li><a href="#option-2-your-own-machine" id="toc-option-2-your-own-machine" class="nav-link" data-scroll-target="#option-2-your-own-machine">Option 2: Your own machine</a></li>
+  </ul></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#instructors" id="toc-instructors" class="nav-link" data-scroll-target="#instructors">Instructors</a></li>
   </ul>
@@ -206,13 +246,81 @@ background: #003559;
 </ul>
 <p>By the end of the session, you will understand how to extend this open-source tool with institution-specific functionality to balance flexibility with company-wide standardization.</p>
 </section>
-<section id="pre-work" class="level2">
-<h2 class="anchored" data-anchor-id="pre-work">Pre-work</h2>
-<ul class="task-list">
-<li><p><label><input type="checkbox">Bookmark this site. You’ll reference it throughout the workshop. <a href="https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026">ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026</a></label></p></li>
-<li><p><label><input type="checkbox">Install the workshop packages on your own machine by running <a href="https://github.com/ddsjoberg/rpharma-workshop-gtsummary-adoption-2026/blob/main/install.R"><code>install.R</code></a> from the repo. Please do this <em>before</em> the workshop — it takes a while.</label></p></li>
-<li><p><label><input type="checkbox">Test your Zoom setup ahead of time. The workshop is hands-on, so plan to have Positron/RStudio/your IDE open alongside Zoom.</label></p></li>
-</ul>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<p>The workshop is hands-on. You can work through the exercises either in <strong>Posit Cloud</strong> or <strong>on your own machine</strong> — whichever you prefer. Get set up now; we’ll walk through it together at the top of the session.</p>
+<p>Bookmark this site either way. You’ll reference it throughout the workshop, and the exercise code lives on the <a href="./exercises/exercises.html">Exercises + Solutions</a> page.</p>
+<section id="option-1-posit-cloud" class="level3">
+<h3 class="anchored" data-anchor-id="option-1-posit-cloud">Option 1: Posit Cloud</h3>
+<p>Nothing to install — the workshop packages are already there. R/Pharma has granted everyone <strong>$2 of AI credits</strong> to use during the workshop.</p>
+<p><strong>How to start your workshop assignment</strong></p>
+<ol type="1">
+<li><p><strong>Join the space.</strong> The link will be provided during the workshop.</p></li>
+<li><p><strong>Locate the project.</strong> Find <code>rpharma-workshop-gtsummary-adoption-2026</code> under the <strong>All Content</strong> tab.</p></li>
+<li><p><strong>Create your copy.</strong> Click on the project name, then click the <strong>Save a Copy</strong> banner at the top of the screen (or the <strong>Start</strong> button, if the project is set up as a template).</p></li>
+<li><p><strong>Begin working.</strong> Posit Cloud duplicates the project into your personal workspace, creating your own independent version where you can write and save code.</p></li>
+</ol>
+</section>
+<section id="option-2-your-own-machine" class="level3">
+<h3 class="anchored" data-anchor-id="option-2-your-own-machine">Option 2: Your own machine</h3>
+<p>Install the workshop packages — this takes a few minutes, so start it before we get going. Open Positron/RStudio/your IDE alongside Zoom, and run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"cards"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"cardx"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"gtsummary"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"broom.helpers"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"flextable"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"pharmaverseadam"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is the same as <a href="https://github.com/ddsjoberg/rpharma-workshop-gtsummary-adoption-2026/blob/main/install.R"><code>install.R</code></a> in the workshop repo.</p>
+</section>
+</section>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<p>Teaching duties are split across the two instructors:</p>
+<div class="schedule-table">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Section</th>
+<th>Instructor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Introduction</td>
+<td>Daniel Sjoberg</td>
+</tr>
+<tr class="even">
+<td>Analysis Results Datasets</td>
+<td>Daniel Sjoberg</td>
+</tr>
+<tr class="odd">
+<td>{gtsummary} fundamentals</td>
+<td>Shannon Pileggi</td>
+</tr>
+<tr class="even">
+<td>ARD-first tables</td>
+<td>Daniel Sjoberg</td>
+</tr>
+<tr class="odd">
+<td>Print engines</td>
+<td>Shannon Pileggi</td>
+</tr>
+<tr class="even">
+<td>Adopting {gtsummary}</td>
+<td>Shannon Pileggi</td>
+</tr>
+<tr class="odd">
+<td>Coding agents</td>
+<td>Daniel Sjoberg</td>
+</tr>
+<tr class="even">
+<td>In Closing</td>
+<td>Daniel Sjoberg</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="slides" class="level2">
 <h2 class="anchored" data-anchor-id="slides">Slides</h2>

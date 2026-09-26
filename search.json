@@ -200,7 +200,7 @@
     "href": "slides/workshop/index.html#cardx-1",
     "title": "Enterprise {gtsummary}",
     "section": "{cardx}",
-    "text": "{cardx}\n\nExports ARD frameworks for statistical analyses from many packages\n\n\n  - {stats}\n  - {car}\n  - {effectsize}\n  - {emmeans}\n  - {geepack}\n  - {lme4}\n  - {parameters}\n  - {smd}\n  - {survey}\n  - {survival}\n\n\nThis list is growing (rather quickly) 🌱"
+    "text": "{cardx}\n\nExports ARD frameworks for statistical analyses from many packages\n\n\n  - {stats}\n  - {car}\n  - {effectsize}\n  - {emmeans}\n  - {geepack}\n  - {lme4}\n  - {parameters}\n  - {smd}\n  - {survey}\n  - {survival}\n\n\nThis list is growing 🌱"
   },
   {
     "objectID": "slides/workshop/index.html#cardx-t-test-example",
@@ -215,13 +215,6 @@
     "title": "Enterprise {gtsummary}",
     "section": "{cardx} t-test Example",
     "text": "{cardx} t-test Example\n\n\nWhat to do if a method you need is not implemented?\nIt’s simple to wrap existing frameworks to customize.\nOne-sample t-test example utilizing cards::ard_summary().\n\n\n\nadsl |&gt;\n  cards::ard_summary(\n    variables = AGE,\n    statistic = everything() ~ list(t_test = \\(x) t.test(x) |&gt; broom::tidy())\n  ) |&gt;\n  dplyr::mutate(context = \"t_test_one_sample\")\n\n# An ARD data frame: 8 × 8\n  variable context           stat_name   stat_label  stat              fmt_fun warning error \n  &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;       &lt;chr&gt;       &lt;list&gt;            &lt;list&gt;  &lt;list&gt;  &lt;list&gt;\n1 AGE      t_test_one_sample estimate    estimate    75.08661          1       &lt;NULL&gt;  &lt;NULL&gt;\n2 AGE      t_test_one_sample statistic   statistic   145.1188          1       &lt;NULL&gt;  &lt;NULL&gt;\n3 AGE      t_test_one_sample p.value     p.value     1.333805e-245     1       &lt;NULL&gt;  &lt;NULL&gt;\n4 AGE      t_test_one_sample parameter   parameter   253               1       &lt;NULL&gt;  &lt;NULL&gt;\n5 AGE      t_test_one_sample conf.low    conf.low    74.06763          1       &lt;NULL&gt;  &lt;NULL&gt;\n6 AGE      t_test_one_sample conf.high   conf.high   76.1056           1       &lt;NULL&gt;  &lt;NULL&gt;\n7 AGE      t_test_one_sample method      method      One Sample t-test &lt;fn&gt;    &lt;NULL&gt;  &lt;NULL&gt;\n8 AGE      t_test_one_sample alternative alternative two.sided         &lt;fn&gt;    &lt;NULL&gt;  &lt;NULL&gt;"
-  },
-  {
-    "objectID": "slides/workshop/index.html#cardx-t-test-example-2",
-    "href": "slides/workshop/index.html#cardx-t-test-example-2",
-    "title": "Enterprise {gtsummary}",
-    "section": "{cardx} t-test Example",
-    "text": "{cardx} t-test Example\n\n\nHow to modify if we need a two-sample test, or more generally accessing other columns in the data frame.\n\n\n\nadsl |&gt;\n  cards::ard_mvsummary(\n    variables = AGE,\n    statistic = ~ list(t_test = \\(x, data, ...) t.test(x ~ data$ARM2) |&gt; broom::tidy())\n  ) |&gt; \n  dplyr::mutate(group1 = \"ARM2\", context = \"t_test_two_sample\") |&gt; \n  cards::tidy_ard_column_order()\n\n# An ARD data frame: 10 × 9\n  group1 variable context           stat_name stat_label    stat fmt_fun warning error \n  &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;     &lt;chr&gt;       &lt;list&gt;  &lt;list&gt; &lt;list&gt;  &lt;list&gt;\n1 ARM2   AGE      t_test_two_sample estimate  estimate     0.185       1 &lt;NULL&gt;  &lt;NULL&gt;\n2 ARM2   AGE      t_test_two_sample estimate1 estimate1   75.2         1 &lt;NULL&gt;  &lt;NULL&gt;\n3 ARM2   AGE      t_test_two_sample estimate2 estimate2   75.0         1 &lt;NULL&gt;  &lt;NULL&gt;\n4 ARM2   AGE      t_test_two_sample statistic statistic    0.166       1 &lt;NULL&gt;  &lt;NULL&gt;\n5 ARM2   AGE      t_test_two_sample p.value   p.value      0.868       1 &lt;NULL&gt;  &lt;NULL&gt;\n6 ARM2   AGE      t_test_two_sample parameter parameter  163.          1 &lt;NULL&gt;  &lt;NULL&gt;\n7 ARM2   AGE      t_test_two_sample conf.low  conf.low    -2.02        1 &lt;NULL&gt;  &lt;NULL&gt;\n8 ARM2   AGE      t_test_two_sample conf.high conf.high    2.39        1 &lt;NULL&gt;  &lt;NULL&gt;\n# ℹ 2 more rows"
   },
   {
     "objectID": "slides/workshop/index.html#cardx-regression",
@@ -688,11 +681,21 @@
     ]
   },
   {
-    "objectID": "index.html#pre-work",
-    "href": "index.html#pre-work",
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
     "title": "Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma",
-    "section": "Pre-work",
-    "text": "Pre-work\n\nBookmark this site. You’ll reference it throughout the workshop. ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026\nInstall the workshop packages on your own machine by running install.R from the repo. Please do this before the workshop — it takes a while.\nTest your Zoom setup ahead of time. The workshop is hands-on, so plan to have Positron/RStudio/your IDE open alongside Zoom.",
+    "section": "Getting started",
+    "text": "Getting started\nThe workshop is hands-on. You can work through the exercises either in Posit Cloud or on your own machine — whichever you prefer. Get set up now; we’ll walk through it together at the top of the session.\nBookmark this site either way. You’ll reference it throughout the workshop, and the exercise code lives on the Exercises + Solutions page.\n\nOption 1: Posit Cloud\nNothing to install — the workshop packages are already there. R/Pharma has granted everyone $2 of AI credits to use during the workshop.\nHow to start your workshop assignment\n\nJoin the space. The link will be provided during the workshop.\nLocate the project. Find rpharma-workshop-gtsummary-adoption-2026 under the All Content tab.\nCreate your copy. Click on the project name, then click the Save a Copy banner at the top of the screen (or the Start button, if the project is set up as a template).\nBegin working. Posit Cloud duplicates the project into your personal workspace, creating your own independent version where you can write and save code.\n\n\n\nOption 2: Your own machine\nInstall the workshop packages — this takes a few minutes, so start it before we get going. Open Positron/RStudio/your IDE alongside Zoom, and run:\ninstall.packages(c(\"tidyverse\",\n                   \"cards\",\n                   \"cardx\",\n                   \"gtsummary\",\n                   \"broom.helpers\",\n                   \"flextable\",\n                   \"pharmaverseadam\"))\nThis is the same as install.R in the workshop repo.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Enterprise {gtsummary}: Themes, ARDs, and Custom Extensions for Pharma",
+    "section": "Schedule",
+    "text": "Schedule\nTeaching duties are split across the two instructors:\n\n\n\n\nSection\nInstructor\n\n\n\n\nIntroduction\nDaniel Sjoberg\n\n\nAnalysis Results Datasets\nDaniel Sjoberg\n\n\n{gtsummary} fundamentals\nShannon Pileggi\n\n\nARD-first tables\nDaniel Sjoberg\n\n\nPrint engines\nShannon Pileggi\n\n\nAdopting {gtsummary}\nShannon Pileggi\n\n\nCoding agents\nDaniel Sjoberg\n\n\nIn Closing\nDaniel Sjoberg",
     "crumbs": [
       "Home"
     ]
