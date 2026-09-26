@@ -32,7 +32,7 @@
     "href": "slides/workshop/index.html#what-are-ards",
     "title": "Enterprise {gtsummary}",
     "section": "What are ARDs?",
-    "text": "What are ARDs?\n\n\nDataset that stores key metadata and raw results from analysis\nLong dataset that is 1 record per result value\nMay contained formatted values as well\nThe ARD can be used to to subsequently create tables and figures.\nThe ARD does not describe the layout of the results"
+    "text": "What are ARDs?\n\n\nDataset that stores key metadata and raw results from analysis\nLong dataset that is 1 record per result value\nMay contain formatted values as well\nThe ARD can be used to to subsequently create tables and figures.\nThe ARD does not describe the layout of the results"
   },
   {
     "objectID": "slides/workshop/index.html#analysis-results-data-ard",
