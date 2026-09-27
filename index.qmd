@@ -63,7 +63,7 @@ has granted everyone **$2 of AI credits** to use during the workshop.
 1.  **Join the space.** The link will be provided during the workshop.
 
 2.  **Locate the project.** Find
-    `rpharma-workshop-gtsummary-adoption-2026` under the **All Content**
+    `rpharma-workshop-gtsummary-adoption-2026` under the **All Content/Templates**
     tab.
 
 3.  **Create your copy.** Click on the project name, then click the
