@@ -63,15 +63,13 @@ select the **GLM 5.3 Flash** model to maximize your budget.
 
 1.  **Join the space.** The link will be provided during the workshop.
 
-2.  **Locate the project.** Find
-    `rpharma-workshop-gtsummary-adoption-2026` under the **All Content/Templates**
-    tab.
+2.  **Locate the project.** Click 
+        -> **New Project**
+        -> **New Project from Template**
+        -> `rpharma-workshop-gtsummary-adoption-2026` 
+        -> OK
 
-3.  **Create your copy.** Click on the project name, then click the
-    **Save a Copy** banner at the top of the screen (or the **Start**
-    button, if the project is set up as a template).
-
-4.  **Begin working.** Posit Cloud duplicates the project into your
+3.  **Begin working.** Posit Cloud duplicates the project into your
     personal workspace, creating your own independent version where you
     can write and save code.
 
