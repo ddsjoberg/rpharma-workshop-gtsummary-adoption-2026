@@ -56,7 +56,8 @@ workshop, and the exercise code lives on the
 ### Option 1: Posit Cloud
 
 Nothing to install — the workshop packages are already there. R/Pharma
-has granted everyone **$2 of AI credits** to use during the workshop.
+has granted everyone **$2 of AI credits** to use during the workshop. You must
+select the **GLM 5.3 Flash** model to maximize your budget.
 
 **How to start your workshop assignment**
 
