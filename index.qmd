@@ -59,10 +59,12 @@ Nothing to install — the workshop packages are already there. R/Pharma
 has granted everyone **$2 of AI credits** to use during the workshop. You must
 select the **GLM 5.3 Flash** model to maximize your budget.
 
-**Before the workshop, sign up for [Posit AI](https://posit.ai/) using the
+**Sign up for [Posit AI](https://posit.ai/) using the
 same email address you used to register for the conference.** The credits are
 matched to that address — sign up with a different one and they won't be
 there when we start.
+
+_We will be using AI for our exercises in this workshop._
 
 **How to start your workshop assignment**
 
