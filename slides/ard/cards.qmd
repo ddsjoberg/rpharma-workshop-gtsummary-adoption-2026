@@ -168,7 +168,7 @@ adsl |>
   ard_summary(
     variables = AGE,
     by = ARM2,
-    fmt_fun = ~list(mean = 0)
+    fmt_fun = AGE ~ list(mean = 0)
   ) |>
   apply_fmt_fun() # add a character column of rounded results
 ```
