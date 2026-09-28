@@ -288,6 +288,8 @@ ard_hier |>
 
 2. Compute the nested AE tabulations as described.
 
+3. Report the rate of subjects who experienced fatigue.
+
 
 ```{r}
 #| label: countdown
@@ -305,13 +307,30 @@ countdown(minutes = 7, play_sound = TRUE)
 #| R.options:
 #|   pillar.print_max: 8
 #|   pillar.print_min: 8
-ard_stack_hierarchical(
-  data = adae,
-  variables = c(AESOC, AEDECOD),
-  by = ARM,
-  id = USUBJID,
-  denominator = adsl
-)
+ard_ae <-
+  ard_stack_hierarchical(
+    data = adae,
+    variables = c(AESOC, AEDECOD),
+    by = ARM,
+    id = USUBJID,
+    denominator = adsl
+  )
+
+ard_ae
+```
+
+## Exercise 1 solution
+
+The rate of subjects with fatigue is one `dplyr::filter()` away.
+
+```{r}
+#| label: exercise-1-solution-fatigue
+#| R.options:
+#|   pillar.print_max: 9
+#|   pillar.print_min: 9
+ard_ae |>
+  dplyr::filter(variable == "AEDECOD", variable_level == "FATIGUE") |>
+  apply_fmt_fun() # add a character column of rounded results
 ```
 
 

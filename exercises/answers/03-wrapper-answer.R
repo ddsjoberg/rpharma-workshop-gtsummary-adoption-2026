@@ -1,4 +1,4 @@
-# Exercise 4 solution: tbl_pharma_summary()
+# Exercise 3 solution: tbl_pharma_summary()
 #
 # Run `00-setup.R` first.
 
@@ -32,15 +32,4 @@ adsl |>
   tbl_pharma_summary(
     by = ARM2,
     include = c(AGE, ETHNIC)
-  )
-
-# C. [*BONUS*] Call it again, overriding `type` so the continuous variables
-# print on a single line.
-
-adsl |>
-  tbl_pharma_summary(
-    by = ARM2,
-    include = AGE,
-    type = all_continuous() ~ "continuous",
-    statistic = all_continuous() ~ "{median} ({p25}, {p75})"
   )

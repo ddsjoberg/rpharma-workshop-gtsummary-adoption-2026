@@ -50,7 +50,9 @@ the session.
 
 - **Posit Cloud** — nothing to install; the workshop packages are preinstalled.
   The link to join the space is provided during the workshop, along with $2 of
-  AI credits per attendee, courtesy of R/Pharma.
+  AI credits per attendee, courtesy of R/Pharma. Sign up for
+  [Posit AI](https://posit.ai/) beforehand, using the same email address you
+  registered for the conference with, so the credits reach your account.
 - **Your own machine** — run [`install.R`](install.R) to install the workshop
   packages, and have Positron/RStudio/your IDE open alongside Zoom.
 

@@ -23,28 +23,20 @@ Run this once, before any exercise.
 "01-ard.R" |> readLines() |> cat(sep = "\n")
 ```
 
-## Exercise 2: a demography table with {gtsummary} {#exercise-2}
+## Exercise 2: a theme for your organization {#exercise-2}
 
 ```{r}
 #| echo: false
 #| class-output: "sourceCode r"
-"02-demography.R" |> readLines() |> cat(sep = "\n")
+"02-theme.R" |> readLines() |> cat(sep = "\n")
 ```
 
-## Exercise 3: a theme for your organization {#exercise-3}
+## Exercise 3: `tbl_pharma_summary()` {#exercise-3}
 
 ```{r}
 #| echo: false
 #| class-output: "sourceCode r"
-"03-theme.R" |> readLines() |> cat(sep = "\n")
-```
-
-## Exercise 4: `tbl_pharma_summary()` {#exercise-4}
-
-```{r}
-#| echo: false
-#| class-output: "sourceCode r"
-"04-wrapper.R" |> readLines() |> cat(sep = "\n")
+"03-wrapper.R" |> readLines() |> cat(sep = "\n")
 ```
 
 # Solutions
@@ -62,7 +54,7 @@ Run this once, before any exercise.
 ```{r}
 #| echo: false
 #| class-output: "sourceCode r"
-"answers/02-demography-answer.R" |> readLines() |> cat(sep = "\n")
+"answers/02-theme-answer.R" |> readLines() |> cat(sep = "\n")
 ```
 
 ## Exercise 3 solution {#solution-3}
@@ -70,13 +62,5 @@ Run this once, before any exercise.
 ```{r}
 #| echo: false
 #| class-output: "sourceCode r"
-"answers/03-theme-answer.R" |> readLines() |> cat(sep = "\n")
-```
-
-## Exercise 4 solution {#solution-4}
-
-```{r}
-#| echo: false
-#| class-output: "sourceCode r"
-"answers/04-wrapper-answer.R" |> readLines() |> cat(sep = "\n")
+"answers/03-wrapper-answer.R" |> readLines() |> cat(sep = "\n")
 ```
