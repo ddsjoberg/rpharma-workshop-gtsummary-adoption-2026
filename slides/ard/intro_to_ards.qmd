@@ -6,7 +6,7 @@
   
   - Long dataset that is 1 record per result value
 
-  - May contained formatted values as well
+  - May contain formatted values as well
 
 -   The ARD can be used to to subsequently create tables and figures.
 
