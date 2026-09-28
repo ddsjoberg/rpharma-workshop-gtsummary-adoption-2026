@@ -89,11 +89,6 @@ We are assuming you:
 
 This is a workshop about [adopting {gtsummary} across an organization]{.emphasis} — not a first tour of the package. We cover only the [very basics]{.emphasis} before moving on to themes, ARDs, and extensions, so a little background with the package goes a long way.
 
-::: aside
-::: {.small}
-Newer to it than that? Stay with us and ask questions — the [{gtsummary} website](https://www.danieldsjoberg.com/gtsummary/) is the place to fill in the rest afterward.
-:::
-:::
 
 ## `AGENTS.md` and `SKILL.md`
 
