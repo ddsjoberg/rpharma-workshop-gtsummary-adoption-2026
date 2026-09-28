@@ -78,3 +78,39 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 By the end: a concrete plan for standardizing table production across your group.
 :::
 :::
+
+## About you
+
+We are assuming you:
+
+-   Are [comfortable in R]{.emphasis} and work in the [tidyverse]{.emphasis} — the native pipe, {dplyr}, {tidyr}.
+
+-   Have [used {gtsummary} before]{.emphasis}, even just once.
+
+This is a workshop about [adopting {gtsummary} across an organization]{.emphasis} — not a first tour of the package. We cover only the [very basics]{.emphasis} before moving on to themes, ARDs, and extensions, so a little background with the package goes a long way.
+
+::: aside
+::: {.small}
+Newer to it than that? Stay with us and ask questions — the [{gtsummary} website](https://www.danieldsjoberg.com/gtsummary/) is the place to fill in the rest afterward.
+:::
+:::
+
+## `AGENTS.md` and `SKILL.md`
+
+Two ways to write your standards down for a coding agent. Both are [committed to the repo]{.emphasis}, so every agent on the project reads the same thing.
+
+-   [`AGENTS.md`]{.emphasis} — how we work [in this repo, every time]{.emphasis}. House code style, where the data comes from, project layout, how to build. Lives at the root; the agent loads it for every task.
+
+-   [`SKILL.md`]{.emphasis} — how to do [one particular task]{.emphasis}, loaded [only when that task comes up]{.emphasis}. Its `description` is the trigger the agent matches against, so it is written as concrete situations, not a summary.
+
+::: {.fragment}
+::: {.goal}
+This repo ships two skills we wrote: [`ard-creation`]{.emphasis} and [`gtsummary-tables`]{.emphasis}, in `.agents/skills/`. We will read both later today. ➡️
+:::
+:::
+
+::: aside
+::: {.small}
+Rule of thumb: if it applies to *every* task in the repo, it belongs in `AGENTS.md`; if it applies to *one kind* of task, make it a skill.
+:::
+:::
