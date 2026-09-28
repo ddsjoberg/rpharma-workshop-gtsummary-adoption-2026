@@ -214,49 +214,7 @@
     "href": "slides/workshop/index.html#cardx",
     "title": "Enterprise {gtsummary}",
     "section": "{cardx}",
-    "text": "{cardx}\n\nExtension of the {cards} package, providing additional functions to create Analysis Results Datasets (ARDs)\nThe {cardx} package exports many ard_*() function for statistical methods."
-  },
-  {
-    "objectID": "slides/workshop/index.html#cardx-1",
-    "href": "slides/workshop/index.html#cardx-1",
-    "title": "Enterprise {gtsummary}",
-    "section": "{cardx}",
-    "text": "{cardx}\n\nExports ARD frameworks for statistical analyses from many packages\n\n\n  - {stats}\n  - {car}\n  - {effectsize}\n  - {emmeans}\n  - {geepack}\n  - {lme4}\n  - {parameters}\n  - {smd}\n  - {survey}\n  - {survival}\n\n\nThis list is growing 🌱"
-  },
-  {
-    "objectID": "slides/workshop/index.html#cardx-t-test-example",
-    "href": "slides/workshop/index.html#cardx-t-test-example",
-    "title": "Enterprise {gtsummary}",
-    "section": "{cardx} t-test Example",
-    "text": "{cardx} t-test Example\n\n\nWe see the results like the mean difference, the confidence interval, and p-value as expected.\nAnd we also see the function’s inputs, which is incredibly useful for re-use, e.g. we know that we did not use equal variances.\n\n\n\nadsl |&gt;\n  cardx::ard_stats_t_test(by = ARM2, variables = AGE)\n\n# An ARD data frame: 14 × 9\n   group1 variable context      stat_name   stat_label         stat                    fmt_fun      warning      error       \n   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;              &lt;named list&gt;            &lt;named list&gt; &lt;named list&gt; &lt;named list&gt;\n 1 ARM2   AGE      stats_t_test estimate    Mean Difference    0.1854928               1            &lt;NULL&gt;       &lt;NULL&gt;      \n 2 ARM2   AGE      stats_t_test estimate1   Group 1 Mean       75.2093                 1            &lt;NULL&gt;       &lt;NULL&gt;      \n 3 ARM2   AGE      stats_t_test estimate2   Group 2 Mean       75.02381                1            &lt;NULL&gt;       &lt;NULL&gt;      \n 4 ARM2   AGE      stats_t_test statistic   t Statistic        0.1660687               1            &lt;NULL&gt;       &lt;NULL&gt;      \n 5 ARM2   AGE      stats_t_test p.value     p-value            0.8683091               1            &lt;NULL&gt;       &lt;NULL&gt;      \n 6 ARM2   AGE      stats_t_test parameter   Degrees of Freedom 162.6425                1            &lt;NULL&gt;       &lt;NULL&gt;      \n 7 ARM2   AGE      stats_t_test conf.low    CI Lower Bound     -2.020129               1            &lt;NULL&gt;       &lt;NULL&gt;      \n 8 ARM2   AGE      stats_t_test conf.high   CI Upper Bound     2.391114                1            &lt;NULL&gt;       &lt;NULL&gt;      \n 9 ARM2   AGE      stats_t_test method      method             Welch Two Sample t-test &lt;NULL&gt;       &lt;NULL&gt;       &lt;NULL&gt;      \n10 ARM2   AGE      stats_t_test alternative alternative        two.sided               &lt;NULL&gt;       &lt;NULL&gt;       &lt;NULL&gt;      \n# ℹ 4 more rows"
-  },
-  {
-    "objectID": "slides/workshop/index.html#cardx-t-test-example-1",
-    "href": "slides/workshop/index.html#cardx-t-test-example-1",
-    "title": "Enterprise {gtsummary}",
-    "section": "{cardx} t-test Example",
-    "text": "{cardx} t-test Example\n\n\nWhat to do if a method you need is not implemented?\nIt’s simple to wrap existing frameworks to customize.\nOne-sample t-test example utilizing cards::ard_summary().\n\n\n\nadsl |&gt;\n  cards::ard_summary(\n    variables = AGE,\n    statistic = everything() ~ list(t_test = \\(x) t.test(x) |&gt; broom::tidy())\n  ) |&gt;\n  dplyr::mutate(context = \"t_test_one_sample\")\n\n# An ARD data frame: 8 × 8\n  variable context           stat_name   stat_label  stat              fmt_fun warning error \n  &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;       &lt;chr&gt;       &lt;list&gt;            &lt;list&gt;  &lt;list&gt;  &lt;list&gt;\n1 AGE      t_test_one_sample estimate    estimate    75.08661          1       &lt;NULL&gt;  &lt;NULL&gt;\n2 AGE      t_test_one_sample statistic   statistic   145.1188          1       &lt;NULL&gt;  &lt;NULL&gt;\n3 AGE      t_test_one_sample p.value     p.value     1.333805e-245     1       &lt;NULL&gt;  &lt;NULL&gt;\n4 AGE      t_test_one_sample parameter   parameter   253               1       &lt;NULL&gt;  &lt;NULL&gt;\n5 AGE      t_test_one_sample conf.low    conf.low    74.06763          1       &lt;NULL&gt;  &lt;NULL&gt;\n6 AGE      t_test_one_sample conf.high   conf.high   76.1056           1       &lt;NULL&gt;  &lt;NULL&gt;\n7 AGE      t_test_one_sample method      method      One Sample t-test &lt;fn&gt;    &lt;NULL&gt;  &lt;NULL&gt;\n8 AGE      t_test_one_sample alternative alternative two.sided         &lt;fn&gt;    &lt;NULL&gt;  &lt;NULL&gt;"
-  },
-  {
-    "objectID": "slides/workshop/index.html#cardx-regression",
-    "href": "slides/workshop/index.html#cardx-regression",
-    "title": "Enterprise {gtsummary}",
-    "section": "{cardx} Regression",
-    "text": "{cardx} Regression\n\nIncludes functionality to summarize nearly every type of regression model in the R ecosystem:\n\n\nbetareg::betareg(), biglm::bigglm(), brms::brm(), cmprsk::crr(), fixest::feglm(), fixest::femlm(), fixest::feNmlm(), fixest::feols(), gam::gam(), geepack::geeglm(), glmmTMB::glmmTMB(), glmtoolbox::glmgee(), lavaan::lavaan(), lfe::felm(), lme4::glmer.nb(), lme4::glmer(), lme4::lmer(), logitr::logitr(), MASS::glm.nb(), MASS::polr(), mgcv::gam(), mice::mira, mmrm::mmrm(), multgee::nomLORgee(), multgee::ordLORgee(), nnet::multinom(), ordinal::clm(), ordinal::clmm(), parsnip::model_fit, plm::plm(), pscl::hurdle(), pscl::zeroinfl(), quantreg::rq(), rstanarm::stan_glm(), stats::aov(), stats::glm(), stats::lm(), stats::nls(), survey::svycoxph(), survey::svyglm(), survey::svyolr(), survival::cch(), survival::clogit(), survival::coxph(), survival::survreg(), svyVGAM::svy_vglm(), tidycmprsk::crr(), VGAM::vgam(), VGAM::vglm() (and more)"
-  },
-  {
-    "objectID": "slides/workshop/index.html#cardx-regression-example",
-    "href": "slides/workshop/index.html#cardx-regression-example",
-    "title": "Enterprise {gtsummary}",
-    "section": "{cardx} Regression Example",
-    "text": "{cardx} Regression Example\n\nlibrary(survival)\n\n# build model\nmod &lt;- pharmaverseadam::adtte_onco |&gt; \n  dplyr::filter(PARAM %in% \"Progression Free Survival\") |&gt;\n  coxph(ggsurvfit::Surv_CNSR() ~ ARM, data = _)\n\n# put model in a summary table\ntbl &lt;- gtsummary::tbl_regression(mod, exponentiate = TRUE) |&gt; \n  gtsummary::add_n(location = c('label', 'level')) |&gt; \n  gtsummary::add_nevent(location = c('label', 'level'))\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nN\nEvent N\nHR\n95% CI\np-value\n\n\n\n\nDescription of Planned Arm\n254\n6\n\n\n\n\n\n\n\n\n    Placebo\n86\n3\n—\n—\n\n\n\n\n    Xanomeline High Dose\n84\n2\n3.00\n0.39, 22.9\n0.3\n\n\n    Xanomeline Low Dose\n84\n1\n1.27\n0.11, 14.3\n0.8\n\n\n\nAbbreviations: CI = Confidence Interval, HR = Hazard Ratio"
-  },
-  {
-    "objectID": "slides/workshop/index.html#cardx-regression-example-1",
-    "href": "slides/workshop/index.html#cardx-regression-example-1",
-    "title": "Enterprise {gtsummary}",
-    "section": "{cardx} Regression Example",
-    "text": "{cardx} Regression Example\nThe cardx::ard_regression() does a lot for us in the background.\n\nIdentifies the variable from the regression terms (i.e. groups levels of the same variable)\nIdentifies reference groups from categorical covariates\nFinds variable labels from the source data frames\nKnows the total N of the model, the number of events, and can do the same for each level of categorical variables\nContextually aware of slopes, odds ratios, hazard ratios, and incidence rate ratios\nAnd much much more."
+    "text": "{cardx}\n\nExtension of the {cards} package, providing additional functions to create Analysis Results Datasets (ARDs)\nThe {cardx} package exports many ard_*() function for statistical methods.\nWe will not go into {cardx} in this workshop — just know it is there when you need statistical results in an ARD."
   },
   {
     "objectID": "slides/workshop/index.html#when-things-go-wrong",
