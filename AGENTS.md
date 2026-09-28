@@ -83,12 +83,12 @@ exercises page, so every exercise slide deep-links to an anchor on it.
 One file per exercise, plus one shared setup:
 
     exercises/00-setup.R          run once, before any exercise
-    exercises/01-ard.R            ... 04-wrapper.R
-    exercises/answers/01-ard-answer.R   ... 04-wrapper-answer.R
+    exercises/01-ard.R            ... 03-wrapper.R
+    exercises/answers/01-ard-answer.R   ... 03-wrapper-answer.R
 
 `exercises/exercises.qmd` renders each file under a heading with an
-**explicit** id — `{#setup}`, `{#exercise-1}` … `{#exercise-4}`, and
-`{#solution-1}` … `{#solution-4}`. The ids are explicit so the slide links
+**explicit** id — `{#setup}`, `{#exercise-1}` … `{#exercise-3}`, and
+`{#solution-1}` … `{#solution-3}`. The ids are explicit so the slide links
 keep working when heading text changes. Adding or renaming an exercise means
 touching four things: the exercise file, the answer file, the section in
 `exercises.qmd`, and the slide that links to it.
@@ -105,9 +105,9 @@ argument are fine, but R rejects an empty default in a function signature
 (`function(x = )`) and an empty formula right-hand side
 (`all_continuous() ~ ,`). Where a blank would land in one of those, use a
 placeholder that parses — `statistic = NULL` — with a `# TODO:` comment saying
-what to put there. Exercise 4 does both.
+what to put there. Exercise 3 does both.
 
-Tasks are lettered `# A.`, `# B. [*BONUS*]`, with `# HINT:` comments that
+Tasks are lettered `# A.`, `# B.`, with `# HINT:` comments that
 become "We used ..." in the answer.
 
 Always `parse()` every script after editing; they are never executed at render

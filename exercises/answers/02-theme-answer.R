@@ -1,4 +1,4 @@
-# Exercise 3 solution: a theme for your organization
+# Exercise 2 solution: a theme for your organization
 #
 # Run `00-setup.R` first.
 
@@ -13,7 +13,7 @@ theme_gtsummary_rpharma <- function(set_theme = TRUE) {
         "pkgwide-str:theme_name"     = "R/Pharma 2026",
         "pkgwide-str:print_engine"   = "flextable",
         "tbl_summary-fn:percent_fun" = scales::label_number(scale = 100, accuracy = 0.1),
-        "pkgwide-fn:pvalue_fun"      = label_style_pvalue(digits = 3)
+        "pkgwide-fn:pvalue_fun"      = scales::label_pvalue()
       )
     )
 

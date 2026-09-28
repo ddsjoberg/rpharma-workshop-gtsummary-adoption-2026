@@ -185,7 +185,7 @@ ad_onco |>
   ) |>
   add_n() |>
   add_p(
-    pvalue_fun = label_style_pvalue(digits = 2)
+    pvalue_fun = scales::label_pvalue()
   )
 ```
 
@@ -260,62 +260,3 @@ show_header_names(tbl)
 
 <!-- -   And many more! -->
 <!-- ::: -->
-
-## {gtsummary} Exercise
-
-1. Open [Exercise 2](https://ddsjoberg.github.io/rpharma-workshop-gtsummary-adoption-2026/exercises/exercises.html#exercise-2) on the workshop site and copy it into Positron/RStudio.
-
-2. Create the table outlined in the script.
-
-```{r}
-#| label: exercise-countdown
-#| echo: false
-#| cache: false
-countdown::countdown(minutes = 7)
-```
-
-## {gtsummary} Exercise
-
-```{r}
-#| label: exercise-import-data
-#| echo: false
-
-## Import data
-df_gtsummary_exercise <- pharmaverseadam::adsl |>
-  filter(SAFFL == "Y") |>
-  left_join(
-    pharmaverseadam::advs |>
-      filter(PARAMCD %in% c("BMI", "HEIGHT", "WEIGHT"), !is.na(AVAL)) |>
-      arrange(ADY) |>
-      slice(1, .by = c(USUBJID, PARAMCD)) |>
-      pivot_wider(id_cols = USUBJID, names_from = PARAMCD, values_from = AVAL),
-    by = "USUBJID"
-  ) |>
-  select(USUBJID, TRT01A, AGE, AGEGR1, SEX, RACE, ETHNIC, BMI, HEIGHT, WEIGHT) |>
-  labelled::set_variable_labels(
-    BMI = "BMI",
-    HEIGHT = "Height, cm",
-    WEIGHT = "Weight, kg"
-  )
-```
-
-```{r}
-#| label: exercise-solution
-#| code-line-numbers: "|4|6|7|8|9|10|13"
-#| output-location: slide
-tbl <-
-  df_gtsummary_exercise |>
-  # ensure the age groups print in the correct order
-  mutate(AGEGR1 = factor(AGEGR1, levels = c("18-64", ">64"))) |>
-  tbl_summary(
-    by = TRT01A,
-    include = c(AGE, AGEGR1, SEX, RACE, ETHNIC, BMI, HEIGHT, WEIGHT),
-    type = all_continuous() ~ "continuous2", # all continuous variables should be summarized as multi-row
-    statistic = all_continuous() ~ c("{mean} ({sd})", "{median} ({p25}, {p75})", "{min}, {max}"), # change the statistics for all continuous variables
-    label = list(AGEGR1 = "Age Group"), # add a label for AGEGR1
-  ) |>
-  # add a header above the 'Xanomeline' treatments. We used `show_header_names()` to know the column names
-  modify_spanning_header(c(stat_2, stat_3) ~ "**Active Treatment**")
-
-tbl
-```

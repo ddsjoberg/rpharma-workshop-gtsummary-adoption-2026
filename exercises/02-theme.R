@@ -1,4 +1,4 @@
-# Exercise 3: a theme for your organization
+# Exercise 2: a theme for your organization
 #
 # Run `00-setup.R` first.
 

@@ -1,4 +1,4 @@
-# Exercise 4: tbl_pharma_summary()
+# Exercise 3: tbl_pharma_summary()
 #
 # Run `00-setup.R` first.
 
@@ -31,7 +31,3 @@ tbl_pharma_summary <- function(
 }
 
 # B. Use it to summarize AGE and ETHNIC in adsl by ARM2.
-
-
-# C. [*BONUS*] Call it again, overriding `type` so the continuous variables
-# print on a single line.
